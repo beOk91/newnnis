@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NEWNNIS game generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        @font-face {
+            font-family: 'Happiness-Sans-Title';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Cafe24Ssurround';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        *{font-family: 'Cafe24Ssurround','Happiness-Sans-Title';}
+        table {font-size: 9pt;font-family: 'Happiness-Sans-Title';}
+        table th, table td{font-size: 2.9vw; font-family: 'Happiness-Sans-Title';}
+        ul {font-size: 10pt;}
+        .cont_box{display: flex;justify-content: center;align-items: center;width: 100%;}
+        .btn-primary{height: 35px;padding: 0 10px;line-height: 34px; margin: 0 10px; background-color: #418B8D;border-color: #418B8D;}
+        .btn-primary:hover {color: #fff;background-color: #418B8D;border-color: #418B8D;}
+        .btn-primary:focus {background-color: #418B8D;border-color: #418B8D;box-shadow: unset;}
+        .shuffle_btn{width: 50px;display: flex;justify-content: center;align-items: center;justify-content: center; background: beige;height: 35px;border-radius: 6px;}
+        #selectBox{height: 35px;}
+    </style>
+
+    <script type="text/javascript">
+        window.onload=function(){
+            document.getElementById("agroup").style.display = "";
+            document.getElementById("bgroup").style.display = "none";
+            document.getElementById("cgroup").style.display = "none";
+        }
+
+        function organize(){
+            let memberCnt = [];
+            const selectedGroup = document.getElementById("selectBox").value;
+
+            let checkdElement =[];
+            if(selectedGroup === 'agroup'){
+                checkdElement = document.querySelectorAll('input[name="a"]:checked');
+            }else if(selectedGroup === 'bgroup'){
+                checkdElement = document.querySelectorAll('input[name="b"]:checked');
+            }else if(selectedGroup === 'cgroup'){
+                checkdElement = document.querySelectorAll('input[name="c"]:checked');
+            }
+
+            //4명이상인 경우 매칭 가능
+            if(checkdElement.length<4){
+                alert('4명 이상 선택하십시오.');
+                return;
+            }
+
+            let myArr = [];
+            for(let i=0;i<checkdElement.length;i++){
+                myArr.push(checkdElement[i].value);
+                memberCnt[checkdElement[i].value]=0;
+            }
+
+            myArr.sort(() => Math.random() - 0.5);
+            let result="<table class='table'>"
+                +"<thead><tr>"
+                +"<th scope='col'>경기</th>"
+                +"<th scope='col' colspan='2'>대진팀</th>"
+                +"</tr></thead><tbody>";
+            let matchupTeam=[];
+            if(checkdElement.length==4){
+                matchupTeam=[
+                    [myArr[0], myArr[1], myArr[2], myArr[3]],
+                    [myArr[2], myArr[0], myArr[3], myArr[1]],
+                    [myArr[0], myArr[3], myArr[1], myArr[2]],
+                ]
+            }else if(checkdElement.length==5){
+                matchupTeam=[
+                    [myArr[1], myArr[2], myArr[3], myArr[4]],
+                    [myArr[0], myArr[1], myArr[2], myArr[3]],
+                    [myArr[3], myArr[1], myArr[0], myArr[4]],
+                    [myArr[2], myArr[0], myArr[1], myArr[4]],
+                ]
+
+            }else if(checkdElement.length==6){
+                matchupTeam=[
+                    [myArr[2], myArr[3], myArr[0], myArr[1]],
+                    [myArr[4], myArr[5], myArr[2], myArr[0]],
+                    [myArr[3], myArr[4], myArr[1], myArr[5]],
+                    [myArr[0], myArr[3], myArr[2], myArr[1]],
+                    [myArr[2], myArr[4], myArr[0], myArr[5]],
+                ];
+
+            }else if(checkdElement.length==7){
+                matchupTeam=[
+                    [myArr[0], myArr[1], myArr[2], myArr[3]],
+                    [myArr[4], myArr[5], myArr[6], myArr[2]],
+                    [myArr[0], myArr[3], myArr[1], myArr[4]],
+                    [myArr[6], myArr[5], myArr[2], myArr[1]],
+                    [myArr[0], myArr[6], myArr[3], myArr[5]],
+                    [myArr[4], myArr[2], myArr[1], myArr[3]],
+                ];
+
+            }else if(checkdElement.length==8){
+                matchupTeam=[
+                    [myArr[0], myArr[2], myArr[3], myArr[1]],
+                    [myArr[7], myArr[4], myArr[5], myArr[6]],
+                    [myArr[1], myArr[6], myArr[4], myArr[0]],
+                    [myArr[5], myArr[3], myArr[2], myArr[7]],
+                    [myArr[0], myArr[1], myArr[4], myArr[6]],
+                    [myArr[7], myArr[5], myArr[2], myArr[3]],
+                ];
+            }else if(checkdElement.length==9){
+                matchupTeam=[
+                    [myArr[0], myArr[4], myArr[1], myArr[2]],
+                    [myArr[3], myArr[8], myArr[7], myArr[5]],
+                    [myArr[6], myArr[1], myArr[2], myArr[0]],
+                    [myArr[3], myArr[7], myArr[4], myArr[8]],
+                    [myArr[5], myArr[6], myArr[0], myArr[1]],
+                    [myArr[7], myArr[2], myArr[8], myArr[3]],
+                    [myArr[4], myArr[5], myArr[6], myArr[0]],
+                ];
+            }else if(checkdElement.length==10){
+                matchupTeam=[
+                    [myArr[0], myArr[4], myArr[2], myArr[3]],
+                    [myArr[5], myArr[1], myArr[8], myArr[9]],
+                    [myArr[6], myArr[7], myArr[0], myArr[2]],
+                    [myArr[9], myArr[1], myArr[3], myArr[5]],
+                    [myArr[4], myArr[6], myArr[7], myArr[8]],
+                    [myArr[5], myArr[0], myArr[1], myArr[3]],
+                    [myArr[2], myArr[7], myArr[4], myArr[9]],
+                    [myArr[8], myArr[6], myArr[7], myArr[0]],
+                ];
+            }else{
+                alert('10명초과 불가!'); return;
+            }
+            for(let i=0;i<matchupTeam.length;i++){
+                result+="<tr><th>"+(i+1)+"경기</td><td>"+matchupTeam[i][0]+", "+matchupTeam[i][1]+"</td><td>"+matchupTeam[i][2]+", "+matchupTeam[i][3]+"</td></tr>";
+                for(let j=0;j<4;j++){
+                    memberCnt[matchupTeam[i][j]]++;
+                }
+            }
+            result+="</tbody></table>";
+
+            console.log(memberCnt);
+            result+="<ul>"
+            for(let key in memberCnt){
+                result+="<li>"+key+": "+memberCnt[key]+"경기 </li>";
+            }
+            result+="</ul>";
+
+            area.innerHTML = result;
+        }
+
+        function changeGroup(e){
+            let val= e.value;
+            if(val==="agroup"){
+                document.getElementById("agroup").style.display = "";
+                document.getElementById("bgroup").style.display = "none";
+                document.getElementById("cgroup").style.display = "none";
+                document.getElementById("header").style.background = "#A9E2E4";
+            }else if(val==="bgroup"){
+                document.getElementById("agroup").style.display = "none";
+                document.getElementById("bgroup").style.display = "";
+                document.getElementById("cgroup").style.display = "none";
+                document.getElementById("header").style.background = "#DAEBEB";
+            }else if(val==="cgroup"){
+                document.getElementById("agroup").style.display = "none";
+                document.getElementById("bgroup").style.display = "none";
+                document.getElementById("cgroup").style.display = "";
+                document.getElementById("header").style.background = "#E8E963";
+            }
+        }
+        
+        function addMember(e){
+            const selectedGroup = document.getElementById("selectBox").value;
+            let newMemberName = '';
+            if('shuffle' == e){
+                let newnnisM =[];
+                if(selectedGroup === 'agroup'){
+                    newnnisM=['한용진','이태규','김정래','정진호','김준수','김승원','송영주','김세호','전룡재','김성구'];
+                }else if(selectedGroup === 'bgroup'){
+                    newnnisM=['장현수','김용희','장승현','김현호','황태훈','신수현','고범석','정영호','조민재','양인석'];
+                }else if(selectedGroup === 'cgroup'){
+                    newnnisM=['정진솔','고경년','남아름','김예슬','심정은','김예진','배민지','전빈아','송희정','조민경'];
+                }
+                
+                newnnisM.sort(()=>Math.random()-0.5);
+                let newMember = '';
+                for(let i=0;i<newnnisM.length;i++){
+                    newMemberName=newnnisM[i];
+                    newMember+='<div class="form-check">';
+                    newMember+='<input type="checkbox" class="form-check-input" name="'+selectedGroup.substr(0,1)+'" value="'+newMemberName+'">';
+                    newMember+='<label class="form-check-label">'+newMemberName+'</label>';
+                    newMember+='</div>';
+                }
+                document.getElementById(selectedGroup).innerHTML+=newMember;
+            }else{
+                newMemberName = document.getElementById("newMember").value;
+                
+                let newMember = '';
+                newMember+='<div class="form-check">';
+                newMember+='<input type="checkbox" class="form-check-input" name="'+selectedGroup.substr(0,1)+'" value="'+newMemberName+'">';
+                newMember+='<label class="form-check-label">'+newMemberName+'</label>';
+                newMember+='</div>';
+
+                document.getElementById(selectedGroup).innerHTML+=newMember;
+            }
+            
+            
+        }
+        function rankAlert(){
+            const selectedGroup = document.getElementById("selectBox").value;
+            if(selectedGroup === 'agroup'){
+                alert('N');
+            }else if(selectedGroup === 'bgroup'){
+                alert('E');
+            }else if(selectedGroup === 'cgroup'){
+                alert('W');
+            }
+        }
+
+        function shuffleTeam(){
+            const selectedGroup = document.getElementById("selectBox").value;
+            let grp = '';
+            if(selectedGroup === 'agroup'){
+                grp = document.getElementById('agroup');
+            }else if(selectedGroup === 'bgroup'){
+                grp = document.getElementById('bgroup');
+            }else if(selectedGroup === 'cgroup'){
+                grp = document.getElementById('cgroup');
+            }
+            grp.replaceChildren();
+            addMember('shuffle');
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <div style="margin: 10px 10px 10px 20px;">
+        <div style="display: flex;">
+            <div>
+                <button class="btn btn-light" onclick="rankAlert()"><i class="fa fa-trophy"></i></button>
+            </div>
+            <div style="width: 70%;margin-left: 70px;">
+                <input type="text" id="newMember" placeholder="게스트명" style="width:60%">
+                <label><button class="btn btn-primary btn-sm" onclick="addMember()">추가</button></label>
+            </div>
+        </div>
+    </div>
+    <div id="header" style="margin: 20px 20px 20px 20px;background: #A9E2E4;">
+        <header class="header" style="display: flex;flex-wrap: wrap;align-items: center; padding: 15px;">
+            <h2 style="display: inline-block; flex-grow: 1; text-align: center;">NEWNNIS_TENNIS <br>게임 대진</h2>
+            
+            <div class="cont_box">
+                <select id="selectBox" onchange="changeGroup(this)">
+                    <option value="agroup">&nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                    <option value="bgroup">&nbsp;&nbsp;&nbsp;&nbsp;E&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                    <option value="cgroup">&nbsp;&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                </select>
+                <label><button class="btn btn-primary" onclick="organize()">대진 편성 </button></label>
+                <div class="shuffle_btn">&nbsp;<i class="fa fa-random" aria-hidden="true" onclick="shuffleTeam()"></i></div>
+            </div>
+        </header>
+        
+    </div>
+    
+    <div id="area" style="width: 60%;float:left;margin: 20px 20px 20px 20px;vertical-align: top;display: inline-block">
+
+    </div>
+    <div id="abcgroup" style="width: 25%;float:right;display: inline-block;vertical-align: top;margin-top: 10px">
+        <div id="agroup">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="a" value="한용진"> <label class="form-check-label">한용진 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="a" value="이태규"> <label class="form-check-label"> 이태규 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="a" value="김정래"> <label class="form-check-label"> 김정래 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="a" value="정진호"> <label class="form-check-label"> 정진호 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="a" value="김준수"> <label class="form-check-label"> 김준수 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="a" value="김승원"> <label class="form-check-label"> 김승원 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="a" value="송영주"> <label class="form-check-label"> 송영주 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="a" value="김세호"> <label class="form-check-label"> 김세호 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="a" value="전룡재"> <label class="form-check-label"> 전룡재 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="a" value="김성구"> <label class="form-check-label"> 김성구 </label>
+            </div>
+        </div>
+        <div id="bgroup">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="b" value="장현수">  <label class="form-check-label">장현수 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="b" value="김용희">  <label class="form-check-label">김용희 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="b" value="장승현"> <label class="form-check-label">장승현 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="b" value="김현호"> <label class="form-check-label"> 김현호 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="b" value="황태훈"> <label class="form-check-label"> 황태훈 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="b" value="신수현"> <label class="form-check-label"> 신수현 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="b" value="고범석"> <label class="form-check-label"> 고범석 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="b" value="정영호"> <label class="form-check-label"> 정영호 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="b" value="조민재"> <label class="form-check-label"> 조민재 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="b" value="양인석"> <label class="form-check-label"> 양인석 </label>
+            </div>
+        </div>
+
+        <div id="cgroup">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="c" value="정진솔">  <label class="form-check-label">정진솔 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="c" value="고경년">  <label class="form-check-label">고경년 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="c" value="남아름"> <label class="form-check-label">남아름 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="c" value="김예슬"> <label class="form-check-label">김예슬 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="c" value="심정은"> <label class="form-check-label">심정은 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="c" value="김예진"> <label class="form-check-label">김예진 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="c" value="배민지"> <label class="form-check-label">배민지 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="c" value="전빈아"> <label class="form-check-label">전빈아 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="c" value="송희정"> <label class="form-check-label">송희정 </label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="c" value="조민경"> <label class="form-check-label">조민경 </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
