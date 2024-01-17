@@ -1,161 +1,458 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NEWNNIS game generator</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-    <link rel="stylesheet" href="../asset/common/css/common.css">
-    <link rel="stylesheet" href="../asset/common/css/reset.css">
+    <link rel="stylesheet" href="../asset/common/css/common.css" />
+    <link rel="stylesheet" href="../asset/common/css/reset.css" />
 
-    <link rel="stylesheet" href="../asset/skin/default/layout.css">
+    <link rel="stylesheet" href="../asset/skin/default/layout.css" />
 
     <script src="../asset/common/js/common.js"></script>
-    
-</head>
-<body>
+  </head>
+  <body>
     <div id="wrap">
-        <header class="header" style="display: flex;flex-wrap: wrap;align-items: center; padding: 15px;">
-            <h2 style="display: inline-block; flex-grow: 1; text-align: center;">NEWNNIS_TENNIS <br>게임 대진</h2>
-            
-            <div class="cont_box">
-                <select id="selectBox" onchange="changeGroup(this)">
-                    <option value="agroup">&nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;&nbsp;&nbsp;&nbsp;</option>
-                    <option value="bgroup">&nbsp;&nbsp;&nbsp;&nbsp;E&nbsp;&nbsp;&nbsp;&nbsp;</option>
-                    <option value="cgroup">&nbsp;&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;&nbsp;</option>
-                    <option value="eventgroup">&nbsp;&nbsp;&nbsp;&nbsp;EVENT&nbsp;&nbsp;&nbsp;&nbsp;</option>
-                </select>
-                <label><button class="btn btn-primary" onclick="organize()">대진 편성 </button></label>
-                <div class="shuffle_btn">&nbsp;<i class="fa fa-random" aria-hidden="true" onclick="shuffleTeam()"></i></div>
-            </div>
-        </header>
+      <header
+        class="header"
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          padding: 15px;
+        "
+      >
+        <h2 style="display: inline-block; flex-grow: 1; text-align: center">
+          NEWNNIS_TENNIS <br />게임 대진
+        </h2>
 
-        
+        <div class="cont_box">
+          <select id="selectBox" onchange="changeGroup(this)">
+            <option value="agroup">
+              &nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;&nbsp;&nbsp;&nbsp;
+            </option>
+            <option value="bgroup">
+              &nbsp;&nbsp;&nbsp;&nbsp;E&nbsp;&nbsp;&nbsp;&nbsp;
+            </option>
+            <option value="cgroup">
+              &nbsp;&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;&nbsp;
+            </option>
+            <option value="eventgroup">
+              &nbsp;&nbsp;&nbsp;&nbsp;EVENT&nbsp;&nbsp;&nbsp;&nbsp;
+            </option>
+          </select>
+          <label
+            ><button class="btn btn-primary" onclick="organize()">
+              대진 편성
+            </button></label
+          >
+          <div class="shuffle_btn">
+            &nbsp;<i
+              class="fa fa-random"
+              aria-hidden="true"
+              onclick="shuffleTeam()"
+            ></i>
+          </div>
+        </div>
+      </header>
     </div>
-    <div id="header" style="margin: 20px 20px 20px 20px;background: #A9E2E4;">
-        
-        
-    </div>
+    <div
+      id="header"
+      style="margin: 20px 20px 20px 20px; background: #a9e2e4"
+    ></div>
     <div class="container">
-        <div style="margin: 10px 10px 10px 20px;">
-            <div style="display: flex;">
-                <div>
-                    <button class="btn btn-light" onclick="rankAlert()"><i class="fa fa-trophy"></i></button>
-                </div>
-                <div style="width: 70%;margin-left: 70px;">
-                    <input type="text" id="newMember" placeholder="게스트명" style="width:60%">
-                    <label><button class="btn btn-primary btn-sm" onclick="addMember()">추가</button></label>
-                </div>
-            </div>
+      <div style="margin: 10px 10px 10px 20px">
+        <div style="display: flex">
+          <div>
+            <button class="btn btn-light" onclick="rankAlert()">
+              <i class="fa fa-trophy"></i>
+            </button>
+          </div>
+          <div style="width: 70%; margin-left: 70px">
+            <input
+              type="text"
+              id="newMember"
+              placeholder="게스트명"
+              style="width: 60%"
+            />
+            <label
+              ><button class="btn btn-primary btn-sm" onclick="addMember()">
+                추가
+              </button></label
+            >
+          </div>
         </div>
-        
-        
-        <div id="areaA" style="width: 60%;float:left;margin: 20px 20px 20px 20px;vertical-align: top;display: inline-block"></div>
-        <div id="areaB" style="width: 60%;float:left;margin: 20px 20px 20px 20px;vertical-align: top;display: none"></div>
-        <div id="areaC" style="width: 60%;float:left;margin: 20px 20px 20px 20px;vertical-align: top;display: none"></div>
-        <div id="areaEvent" style="width: 60%;float:left;margin: 20px 20px 20px 20px;vertical-align: top;display: none"></div>
-        <div id="abcgroup" style="width: 25%;float:right;display: inline-block;vertical-align: top;margin-top: 10px">
-            <div id="agroup">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="a" value="김성구" id="a1"> <label for="a1" class="form-check-label"> 김성구 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="a" value="김세호" id="a2"> <label for="a2" class="form-check-label"> 김세호 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="a" value="전룡재" id="a9"> <label for="a9" class="form-check-label"> 전룡재 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="a" value="한용진" id="a3"> <label for="a3" class="form-check-label">한용진 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="a" value="이태규" id="a4"> <label for="a4" class="form-check-label"> 이태규 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="a" value="김정래" id="a5"> <label for="a5" class="form-check-label"> 김정래 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="a" value="황주현" id="a8"> <label for="a8" class="form-check-label"> 황주현 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="a" value="김승원" id="a6"> <label for="a6" class="form-check-label"> 김승원 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="a" value="송영주" id="a7"> <label for="a7" class="form-check-label"> 송영주 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="a" value="정진호" id="a10"> <label for="a10" class="form-check-label">정진호 </label>
-                </div>
-            </div>
-            <div id="bgroup">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="b" value="양인석" id="b5"> <label for="b5" class="form-check-label"> 양인석 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="b" value="김준수" id="b1"> <label for="b1" class="form-check-label"> 김준수 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="b" value="황태훈" id="b2"> <label for="b2" class="form-check-label"> 황태훈 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="b" value="장승현" id="b3"> <label for="b3" class="form-check-label"> 장승현 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="b" value="김용희" id="b4"> <label for="b4" class="form-check-label">김용희 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="b" value="정영호" id="b6"> <label for="b6" class="form-check-label"> 정영호 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="b" value="장현수" id="b7"> <label for="b7" class="form-check-label">장현수 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="b" value="고범석" id="b8"> <label for="b8" class="form-check-label"> 고범석 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="b" value="조민재" id="b9"> <label for="b9" class="form-check-label"> 조민재 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="b" value="신수현" id="b10"> <label for="b10" class="form-check-label"> 신수현 </label>
-                </div>
-            </div>
-    
-            <div id="cgroup">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="c" value="배민지" id="c2"> <label for="c2" class="form-check-label">배민지 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="c" value="남아름" id="c3"> <label for="c3" class="form-check-label">남아름 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="c" value="송희정" id="c4"> <label for="c4" class="form-check-label">송희정 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="c" value="김예진" id="c8"> <label for="c8" class="form-check-label">김예진 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="c" value="고경년" id="c5"> <label for="c5" class="form-check-label">고경년 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="c" value="심정은" id="c6"> <label for="c6" class="form-check-label">심정은 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="c" value="정진솔" id="c1"> <label for="c1" class="form-check-label">정진솔 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="c" value="김예슬" id="c7"> <label for="c7" class="form-check-label">김예슬 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="c" value="박지해" id="c9"> <label for="c9" class="form-check-label">박지해 </label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="c" value="김나형" id="c10"> <label for="c9" class="form-check-label">김나형 </label>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+      </div>
 
+      <div
+        id="areaA"
+        style="
+          width: 60%;
+          float: left;
+          margin: 20px 20px 20px 20px;
+          vertical-align: top;
+          display: inline-block;
+        "
+      ></div>
+      <div
+        id="areaB"
+        style="
+          width: 60%;
+          float: left;
+          margin: 20px 20px 20px 20px;
+          vertical-align: top;
+          display: none;
+        "
+      ></div>
+      <div
+        id="areaC"
+        style="
+          width: 60%;
+          float: left;
+          margin: 20px 20px 20px 20px;
+          vertical-align: top;
+          display: none;
+        "
+      ></div>
+      <div
+        id="areaEvent"
+        style="
+          width: 60%;
+          float: left;
+          margin: 20px 20px 20px 20px;
+          vertical-align: top;
+          display: none;
+        "
+      ></div>
+      <div
+        id="abcgroup"
+        style="
+          width: 25%;
+          float: right;
+          display: inline-block;
+          vertical-align: top;
+          margin-top: 10px;
+        "
+      >
+        <div id="agroup">
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="a"
+              value="김성구"
+              id="a1"
+            />
+            <label for="a1" class="form-check-label"> 김성구 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="a"
+              value="김세호"
+              id="a2"
+            />
+            <label for="a2" class="form-check-label"> 김세호 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="a"
+              value="전룡재"
+              id="a9"
+            />
+            <label for="a9" class="form-check-label"> 전룡재 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="a"
+              value="한용진"
+              id="a3"
+            />
+            <label for="a3" class="form-check-label">한용진 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="a"
+              value="이태규"
+              id="a4"
+            />
+            <label for="a4" class="form-check-label"> 이태규 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="a"
+              value="김정래"
+              id="a5"
+            />
+            <label for="a5" class="form-check-label"> 김정래 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="a"
+              value="황주현"
+              id="a8"
+            />
+            <label for="a8" class="form-check-label"> 황주현 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="a"
+              value="김승원"
+              id="a6"
+            />
+            <label for="a6" class="form-check-label"> 김승원 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="a"
+              value="송영주"
+              id="a7"
+            />
+            <label for="a7" class="form-check-label"> 송영주 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="a"
+              value="정진호"
+              id="a10"
+            />
+            <label for="a10" class="form-check-label">정진호 </label>
+          </div>
+        </div>
+        <div id="bgroup">
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="b"
+              value="양인석"
+              id="b5"
+            />
+            <label for="b5" class="form-check-label"> 양인석 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="b"
+              value="김준수"
+              id="b1"
+            />
+            <label for="b1" class="form-check-label"> 김준수 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="b"
+              value="황태훈"
+              id="b2"
+            />
+            <label for="b2" class="form-check-label"> 황태훈 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="b"
+              value="장승현"
+              id="b3"
+            />
+            <label for="b3" class="form-check-label"> 장승현 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="b"
+              value="김용희"
+              id="b4"
+            />
+            <label for="b4" class="form-check-label">김용희 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="b"
+              value="정영호"
+              id="b6"
+            />
+            <label for="b6" class="form-check-label"> 정영호 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="b"
+              value="장현수"
+              id="b7"
+            />
+            <label for="b7" class="form-check-label">장현수 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="b"
+              value="고범석"
+              id="b8"
+            />
+            <label for="b8" class="form-check-label"> 고범석 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="b"
+              value="조민재"
+              id="b9"
+            />
+            <label for="b9" class="form-check-label"> 조민재 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="b"
+              value="신수현"
+              id="b10"
+            />
+            <label for="b10" class="form-check-label"> 신수현 </label>
+          </div>
+        </div>
+
+        <div id="cgroup">
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="c"
+              value="배민지"
+              id="c2"
+            />
+            <label for="c2" class="form-check-label">배민지 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="c"
+              value="남아름"
+              id="c3"
+            />
+            <label for="c3" class="form-check-label">남아름 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="c"
+              value="송희정"
+              id="c4"
+            />
+            <label for="c4" class="form-check-label">송희정 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="c"
+              value="김예진"
+              id="c8"
+            />
+            <label for="c8" class="form-check-label">김예진 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="c"
+              value="고경년"
+              id="c5"
+            />
+            <label for="c5" class="form-check-label">고경년 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="c"
+              value="심정은"
+              id="c6"
+            />
+            <label for="c6" class="form-check-label">심정은 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="c"
+              value="정진솔"
+              id="c1"
+            />
+            <label for="c1" class="form-check-label">정진솔 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="c"
+              value="김예슬"
+              id="c7"
+            />
+            <label for="c7" class="form-check-label">김예슬 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="c"
+              value="박지해"
+              id="c9"
+            />
+            <label for="c9" class="form-check-label">박지해 </label>
+          </div>
+          <div class="form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="c"
+              value="김나형"
+              id="c10"
+            />
+            <label for="c9" class="form-check-label">김나형 </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
