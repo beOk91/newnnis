@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+/* common */
+.ir_text{overflow: hidden;position: absolute;width: 1px;height: 1px;margin: -1px;padding: 0;border: 0;clip: rect(0 0 0 0);}
+.clearfix:after{content: '';display: block;clear: both;height: 0;visibility: visible;}
+.scrollDisable{height: 100%;min-height: 100%;overflow: hidden !important;touch-action: none;}
+.fw_900{font-weight: 900;}
+.fw_800{font-weight: 800;}
+.fw_700{font-weight: 700;}
+.fw_600{font-weight: 600;}
+.fw_500{font-weight: 500;}
+.fw_400{font-weight: 400;}
+.fw_300{font-weight: 300;}
+.fw_200{font-weight: 200;}
+.fw_100{font-weight: 100;}
+
+.fm_Pretendard{font-family: 'Pretendard', sans-serif;}
+.fm_FSSiena{font-family: 'FSSiena', sans-serif;}
+
+/* checkbox */
+.formCheckBox {position:relative;}
+.formCheckBox input[type="checkbox"]{position: absolute; left: 0;top: 0; display: inline-block; width: 60px;height: 60px; background: transparent;  border: none; appearance: none;}
+.formCheckBox label{position: relative;display: inline-block;width: 100%;line-height: 60px;padding-left: 76px;font-size: 24px;letter-spacing: -0.36px;}
+.formCheckBox input[type="checkbox"] + label::after{content: '';display: inline-block;position: absolute;left: 0;top: 0;width: 60px;height: 60px;background: none;background-image: url('../images/check_off.png');background-size: 100% 100%;}
+.formCheckBox input[type="checkbox"]:checked + label::after{content: '';display: inline-block;width: 60px;height: 60px;background: none;background-image: url('../images/check_on.png');background-size: 100% 100%;}
+
+/* radiobox */
+.formRadioBox {position:relative;}
+.formRadioBox input[type="radio"]{position: absolute; left: 0;top: 0; display: inline-block; width: 60px;height: 60px; background: transparent;  border: none; appearance: none;}
+.formRadioBox label{position: relative;display: inline-block;width: 100%;line-height: 60px;padding-left: 76px;font-size: 24px;letter-spacing: -0.36px;}
+.formRadioBox input[type="radio"] + label::after{content: '';display: inline-block;position: absolute;left: 0;top: 0;width: 60px;height: 60px;background: none;background-image: url('../images/radio_off.png');background-size: 100% 100%;}
+.formRadioBox input[type="radio"]:checked + label::after{content: '';display: inline-block;width: 60px;height: 60px;background: none;background-image: url('../images/radio_on.png');background-size: 100% 100%;}
