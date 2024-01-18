@@ -7,3 +7,5 @@ ul {font-size: 10pt;}
 .btn-primary:focus {background-color: #418B8D;border-color: #418B8D;box-shadow: unset;}
 .shuffle_btn{width: 50px;display: flex;justify-content: center;align-items: center;justify-content: center; background: beige;height: 35px;border-radius: 6px;}
 #selectBox{height: 35px;}
+
+.kv{height: 500px;border-radius: 30px;display: flex;justify-content: center;align-items: center;flex-direction: column; background: url('../../images/kv.jpg')no-repeat center center;background-size: 100% 100%;}

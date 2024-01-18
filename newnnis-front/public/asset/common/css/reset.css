@@ -35,7 +35,7 @@ ul,ol,li,dl,dd,dt,input,h1,h2,h3,h4,h5,h6,p,b,input,button,textarea,fieldset,leg
 li{list-style: none}
 table,th,td{border-collapse: collapse;/*border-spacing: 0;*/}
 input,textarea,button,select{}
-input{-webkit-appearance: none;-webkit-border-radius: 0;border-radius: 0;}
+/* input{-webkit-appearance: none;-webkit-border-radius: 0;border-radius: 0;} */
 input[type=text], input[type=tel], input[type="number"], input[type="email"], input[type="password"]{outline: none;}
 input[type=text]::-ms-clear, 
 input[type=tel]::-ms-clear{display: none;}
