@@ -334,7 +334,7 @@ function changeGroup(e) {
     document.getElementById("agroup").style.display = "";
     document.getElementById("bgroup").style.display = "none";
     document.getElementById("cgroup").style.display = "none";
-    document.getElementById("header").style.background = "#A9E2E4";
+    document.querySelector(".gr_cl").style.color = "#00e4ff";
 
     document.getElementById("areaA").style.display = "inline-block";
     document.getElementById("areaB").style.display = "none";
@@ -344,7 +344,7 @@ function changeGroup(e) {
     document.getElementById("agroup").style.display = "none";
     document.getElementById("bgroup").style.display = "";
     document.getElementById("cgroup").style.display = "none";
-    document.getElementById("header").style.background = "#DAEBEB";
+    document.querySelector(".gr_cl").style.color = "#c6bbff";
 
     document.getElementById("areaA").style.display = "none";
     document.getElementById("areaB").style.display = "inline-block";
@@ -354,7 +354,7 @@ function changeGroup(e) {
     document.getElementById("agroup").style.display = "none";
     document.getElementById("bgroup").style.display = "none";
     document.getElementById("cgroup").style.display = "";
-    document.getElementById("header").style.background = "#E8E963";
+    document.querySelector(".gr_cl").style.color = "#e2ff43";
 
     document.getElementById("areaA").style.display = "none";
     document.getElementById("areaB").style.display = "none";

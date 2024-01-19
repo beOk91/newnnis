@@ -19,11 +19,11 @@
       <main class="container">
         <div id="header" class="header">
           <div class="addbox">
-            <div>
-              <button class="btn btn-light" onclick="rankAlert()">
-                <i class="fa fa-trophy"></i>
-              </button>
-              <input type="text" id="newMember"  placeholder="게스트명"  style="width: 60%"/>
+            <button class="btn btn-light" onclick="rankAlert()">
+              <i class="fa fa-trophy"></i>
+            </button>
+            <div class="">
+              <input type="text" id="newMember"  placeholder="게스트명"/>
               <label>
                 <button class="btn btn-primary btn-sm" onclick="addMember()">
                   추가
@@ -32,14 +32,18 @@
             </div>
           </div>
           <div class="kv">
-            <h2>NEWNNIS_TENNIS</h2>
-            <h3>게임 대진</h3>
+            <div class="dim"></div>
+            <div class="txt_box">
+              <h1 class="logo"></h1>
+              <h2>NEWNNIS_TENNIS</h2>
+              <h3 class="gr_cl">게임 대진</h3>
+            </div>
           </div>
-          <div class="cont_box">
+          <div class="sel_box dp_f">
             <select id="selectBox" onchange="changeGroup(this)">
               <option value="agroup">N</option>
               <option value="bgroup">E</option>
-              <option value="cgroup">W</option>
+              <option value="cgroup">W</option>mm
               <option value="eventgroup">EVENT</option>
             </select>
             <label><button class="btn btn-primary" onclick="organize()"> 대진 편성</button></label>
@@ -48,17 +52,19 @@
             </div>
           </div>
         </div>
-        <div class="areaBox">
-          <div id="areaA"></div>
-          <div id="areaB"></div>
-          <div id="areaC"></div>
-          <div id="areaEvent"></div>
-        </div>
-        <div class="memberBox">
-          <div id="abcgroup"></div>  
-          <div id="agroup"></div>
-          <div id="bgroup"></div>
-          <div id="cgroup"></div>
+        <div class="cont_box dp_f">
+          <div class="areaBox">
+            <div id="areaA"></div>
+            <div id="areaB"></div>
+            <div id="areaC"></div>
+            <div id="areaEvent"></div>
+          </div>
+          <div class="memberBox">
+            <div id="abcgroup"></div>  
+            <div id="agroup"></div>
+            <div id="bgroup"></div>
+            <div id="cgroup"></div>
+          </div>
         </div>
       </main>
     </div>
