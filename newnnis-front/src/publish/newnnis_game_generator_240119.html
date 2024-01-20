@@ -362,8 +362,8 @@
               [myArr[6], myArr[1], myArr[2], myArr[0]],
               [myArr[3], myArr[7], myArr[4], myArr[8]],
               [myArr[5], myArr[6], myArr[0], myArr[1]],
-              [myArr[7], myArr[2], myArr[8], myArr[5]],
-              [myArr[4], myArr[3], myArr[6], myArr[0]],
+              [myArr[7], myArr[2], myArr[8], myArr[3]],
+              [myArr[4], myArr[5], myArr[6], myArr[0]],
             ];
           } else if (checkdElement.length == 10) {
             matchupTeam = [
@@ -579,6 +579,22 @@
           addMember("shuffle");
         }
       }
+
+      function selectAll() {
+        const isChecked = document.getElementById("cbxall").checked;
+        const selectedGroup = document.getElementById("selectBox").value;
+        grp = [];
+        if (selectedGroup === "agroup") {
+          grp = document.getElementsByName("a");
+        } else if (selectedGroup === "bgroup") {
+          grp = document.getElementsByName("b");
+        } else if (selectedGroup === "cgroup") {
+          grp = document.getElementsByName("c");
+        }
+        for (let member of grp) {
+          member.checked = isChecked;
+        }
+      }
     </script>
   </head>
   <body>
@@ -645,6 +661,11 @@
                 aria-hidden="true"
                 onclick="shuffleTeam()"
               ></i>
+            </div>
+            <div>
+              <input type="checkbox" id="cbxall" onclick="selectAll()" /><label
+                >전체선택</label
+              >
             </div>
           </div>
         </header>
