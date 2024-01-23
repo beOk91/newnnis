@@ -238,13 +238,13 @@
             "<tr><th>" +
             (i + 1) +
             "경기</td><td>" +
-            matches[i][0] +
+            (i % 2 == 0 ? matches[i][0] : matches[i][1]) +
             ", " +
-            matches[i][1] +
+            (i % 2 == 0 ? matches[i][1] : matches[i][0]) +
             "</td><td>" +
-            matches[i][2] +
+            (i % 2 == 0 ? matches[i][2] : matches[i][3]) +
             ", " +
-            matches[i][3] +
+            (i % 2 == 0 ? matches[i][3] : matches[i][2]) +
             "</td></tr>";
         }
         result += "</tbody></table>";
