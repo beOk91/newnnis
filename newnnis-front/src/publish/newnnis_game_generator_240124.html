@@ -181,7 +181,6 @@
         for (let i = 0; i < checkdElement.length; i++) {
           participant.push(checkdElement[i].value);
         }
-        participant.sort(() => Math.random() - 0.5);
         const playerMatches = new Map(participant.map((player) => [player, 0]));
         console.log("participatin", participant);
         let matchCounter = [];
@@ -197,6 +196,17 @@
         const matches = [];
         while (!allPlayersPlayedEnough(matchCounter)) {
           matchCounter.sort((a, b) => a.count - b.count);
+          const minPlayer = matchCounter.filter(
+            (arr) => arr.count === matchCounter[0].count
+          );
+          const notMinPlayer = matchCounter.filter(
+            (arr) => arr.count !== matchCounter[0].count
+          );
+          for (let i = 0; i < 5; i++) {
+            minPlayer.sort(() => Math.random() - 0.5);
+          }
+          matchCounter = minPlayer.concat(notMinPlayer);
+          console.log(matchCounter);
           let match = [];
           while (match.length !== 4) {
             loop: for (let i = 0; i < matchCounter.length; i++) {
@@ -456,23 +466,45 @@
             </button>
           </div>
           <div style="width: 70%; margin-left: 70px">
-            <input type="text" id="newMember" placeholder="게스트명" style="width: 60%" />
+            <input
+              type="text"
+              id="newMember"
+              placeholder="게스트명"
+              style="width: 60%"
+            />
             <label>
-              <button class="btn btn-primary btn-sm" onclick="addMember()"> 추가</button>
+              <button class="btn btn-primary btn-sm" onclick="addMember()">
+                추가
+              </button>
             </label>
           </div>
         </div>
       </div>
 
       <div id="header" style="margin: 20px 20px 20px 20px; background: #00e4ff">
-        <header class="header" style=" display: flex; flex-wrap: wrap; align-items: center; padding: 15px;">
-          <h2 style="display: inline-block; flex-grow: 1; text-align: center; margin-bottom:0;">
+        <header
+          class="header"
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 15px;
+          "
+        >
+          <h2
+            style="
+              display: inline-block;
+              flex-grow: 1;
+              text-align: center;
+              margin-bottom: 0;
+            "
+          >
             NEWNNIS_TENNIS <br />게임 대진
           </h2>
         </header>
       </div>
 
-      <div class="cont_box" style="margin-bottom: 20px;">
+      <div class="cont_box" style="margin-bottom: 20px">
         <select id="selectBox" onchange="changeGroup(this)">
           <option value="agroup">
             &nbsp;&nbsp;&nbsp;&nbsp;N&nbsp;&nbsp;&nbsp;&nbsp;
@@ -503,18 +535,68 @@
 
       <div>
         <div>
-          <div id="areaA" style="width: 60%;float: left;margin: 20px 20px 20px 20px;vertical-align: top;display: inline-block;"></div>
-          <div id="areaB" style="width: 60%;float: left;margin: 20px 20px 20px 20px;vertical-align: top;display: none;"></div>
-          <div id="areaC" style="width: 60%;float: left;margin: 20px 20px 20px 20px;vertical-align: top;display: none;"></div>  
+          <div
+            id="areaA"
+            style="
+              width: 60%;
+              float: left;
+              margin: 20px 20px 20px 20px;
+              vertical-align: top;
+              display: inline-block;
+            "
+          ></div>
+          <div
+            id="areaB"
+            style="
+              width: 60%;
+              float: left;
+              margin: 20px 20px 20px 20px;
+              vertical-align: top;
+              display: none;
+            "
+          ></div>
+          <div
+            id="areaC"
+            style="
+              width: 60%;
+              float: left;
+              margin: 20px 20px 20px 20px;
+              vertical-align: top;
+              display: none;
+            "
+          ></div>
         </div>
-  
+
         <div>
           <div>
-            <input type="checkbox" id="cbxall" class="form-check-input" onclick="selectAll()" />
+            <input
+              type="checkbox"
+              id="cbxall"
+              class="form-check-input"
+              onclick="selectAll()"
+            />
             <label for="cbxall">전체선택</label>
           </div>
-          <div id="areaEvent" style="width: 60%;float: left;margin: 20px 20px 20px 20px;vertical-align: top;display: none;"></div>
-          <div id="abcgroup" style="width: 25%;float: right;display: inline-block;vertical-align: top;margin-top: 10px;">
+          <div
+            id="areaEvent"
+            style="
+              width: 60%;
+              float: left;
+              margin: 20px 20px 20px 20px;
+              vertical-align: top;
+              display: none;
+            "
+          ></div>
+          <div
+            id="abcgroup"
+            style="
+              width: 25%;
+              float: right;
+              display: inline-block;
+              vertical-align: top;
+              margin-top: 10px;
+            "
+          >
             <div id="agroup"></div>
             <div id="bgroup"></div>
             <div id="cgroup"></div>
