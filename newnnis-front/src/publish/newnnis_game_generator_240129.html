@@ -181,7 +181,6 @@
         for (let i = 0; i < checkdElement.length; i++) {
           participant.push(checkdElement[i].value);
         }
-        participant.sort(() => Math.random() - 0.5);
         const playerMatches = new Map(participant.map((player) => [player, 0]));
         console.log("participatin", participant);
         let matchCounter = [];
@@ -197,6 +196,17 @@
         const matches = [];
         while (!allPlayersPlayedEnough(matchCounter)) {
           matchCounter.sort((a, b) => a.count - b.count);
+          const minPlayer = matchCounter.filter(
+            (arr) => arr.count === matchCounter[0].count
+          );
+          const notMinPlayer = matchCounter.filter(
+            (arr) => arr.count !== matchCounter[0].count
+          );
+          for (let i = 0; i < 5; i++) {
+            minPlayer.sort(() => Math.random() - 0.5);
+          }
+          matchCounter = minPlayer.concat(notMinPlayer);
+          console.log(matchCounter);
           let match = [];
           while (match.length !== 4) {
             loop: for (let i = 0; i < matchCounter.length; i++) {
