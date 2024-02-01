@@ -1,7 +1,12 @@
 import { useState } from "react";
+import Match from "./pages/match/Match";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Match />
+    </>
+  );
 }
 
 export default App;
