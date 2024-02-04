@@ -10,26 +10,36 @@ table {font-size: 1rem;font-family: 'Happiness-Sans-Title';}
 table th, table td{font-size: 1.5rem; font-family: 'Happiness-Sans-Title';}
 ul {font-size: 1rem;}
 .cont_box{justify-content: space-between;}
-.btn-primary{height: 3.5rem;padding: 0 1rem;line-height: 3.4rem; margin: 0 1rem; background-color: #418B8D;border-color: #418B8D;}
-.btn-primary:hover {color: #fff;background-color: #418B8D;border-color: #418B8D;}
-.btn-primary:focus {background-color: #418B8D;border-color: #418B8D;box-shadow: unset;}
+.btn-primary{height: 3.5rem;padding: 0 1rem;line-height: 3.4rem; margin: 0;border-radius: 1rem; color: #FFFFFF; background-color: #6979f8;border-color: #6979f8;}
+.btn-primary:hover {color: #fff;background-color: #6979f8;border-color: #6979f8;}
+.btn-primary:focus {background-color: #6979f8;border-color: #6979f8;box-shadow: unset;}
 
 #selectBox{height: 3.5rem;}
 
 #wrap{max-width: 75rem;margin: 0 auto;}
-.container{padding:1rem;}
+.container{padding:2rem;}
 
 
 /*대진표 생성*/
 
-/* .header .addbox{} */
-.header .kv{position: relative; border-radius: 3rem;display: flex;justify-content: center;align-items: center;flex-direction: column; background: url('../../images/kv.jpg')no-repeat center center;background-size: 100% 100%;overflow: hidden;}
+.header .addbox{display: flex;align-items: center;justify-content: space-around;margin-bottom: 2rem;}
+.header .addbox > .btn{width: 5rem;height: 5rem;text-align: center;display: block;padding: 1rem;background-color: #e6e6f9;border-radius: 1rem;}
+.header .addbox .addinput{display: flex;justify-content: center;align-items: center;height:5rem;padding: 1rem;background-color: #e6e6f9;border-radius: 1rem;}
+.header .addbox .addinput> img{width: 2rem;}
+.header .addbox .addinput  #newMember{background: transparent;}
+.header .kv{position: relative; border-radius: 2rem;display: flex;margin-bottom: 2rem; justify-content: center;align-items: center;flex-direction: column; background: url('../../images/kv.jpg')no-repeat center center;background-size: 100% 100%;overflow: hidden;}
 .header .kv .dim{position: absolute;top: 0;left: 0;width: 100%;height: 100%; background-color: rgba(0, 0, 0, 0.5);}
 .header .kv .txt_box{display: flex;flex-direction: column;align-items: center;z-index: 99;}
 .header .kv .logo{width: 10rem;height: 10rem; background: url('../../images/logo.png')no-repeat center center;background-size: 100% auto;}
 .header .kv .txt_box h2{font-size: 2rem;font-weight: 500; color: #FFFFFF;}
 .header .kv .txt_box h3{font-size: 4rem;font-weight: 500;color: #00e4ff;}
+.header .sel_cont{justify-content: center;margin-bottom: 2rem;}
+.header .sel_cont .shuffle_btn{background: #e2ff43;}
 
 .shuffle_btn{width: 5rem;display: flex;justify-content: center;align-items: center;justify-content: center; background: beige;height: 3.5rem;border-radius: 0.6rem;}
 .areaBox{width: 70%;}
+.areaBox .countList{padding: 1rem 2rem;background: beige;}
 .areaBox ul li{font-size: 1.5rem;}
+.areaBox .table tbody > tr:nth-child(odd){background: #e0ddf3;}
+.areaBox .table tbody > tr:nth-child(even){background: #f0eeff;}
+.areaBox .table tbody > tr th{color: #FFFFFF;background: #a3a3ff;padding: 1rem;border-radius: 1rem;}

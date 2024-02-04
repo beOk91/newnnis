@@ -72,259 +72,117 @@ window.onload = function () {
 };
 
 function organize() {
-  let memberCnt = [];
   const selectedGroup = document.getElementById("selectBox").value;
-  if (selectedGroup === "eventgroup") {
-    let checkdElementA = document.querySelectorAll(
-      'input[name="a"]:checked'
-    );
-    let checkdElementB = document.querySelectorAll(
-      'input[name="b"]:checked'
-    );
-    let checkdElementC = document.querySelectorAll(
-      'input[name="c"]:checked'
-    );
-    var aArr = [];
-    for (let i = 0; i < checkdElementA.length; i++) {
-      aArr.push(checkdElementA[i].value);
-    }
-    var bArr = [];
-    for (let i = 0; i < checkdElementB.length; i++) {
-      bArr.push(checkdElementB[i].value);
-    }
-    var cArr = [];
-    for (let i = 0; i < checkdElementC.length; i++) {
-      cArr.push(checkdElementC[i].value);
-    }
+  let checkdElement = [];
+  if (selectedGroup === "agroup") {
+    checkdElement = document.querySelectorAll('input[name="a"]:checked');
+  } else if (selectedGroup === "bgroup") {
+    checkdElement = document.querySelectorAll('input[name="b"]:checked');
+  } else if (selectedGroup === "cgroup") {
+    checkdElement = document.querySelectorAll('input[name="c"]:checked');
+  }
 
-    aArr = aArr
-      .sort(() => Math.random() - 0.5)
-      .concat(aArr.sort(() => Math.random() - 0.5));
-    bArr = bArr
-      .sort(() => Math.random() - 0.5)
-      .concat(bArr.sort(() => Math.random() - 0.5));
-    cArr = cArr
-      .sort(() => Math.random() - 0.5)
-      .concat(cArr.sort(() => Math.random() - 0.5));
+  //4명이상인 경우 매칭 가능
+  if (checkdElement.length < 4) {
+    alert("4명 이상 선택하십시오.");
+    return;
+  }
 
-    var result =
-      "<table class='table'>" +
-      "<thead><tr>" +
-      "<th scope='col'>경기</th>" +
-      "<th scope='col' colspan='2'>대진팀</th>" +
-      "</tr></thead><tbody>";
-    var matchupTeam = [];
-    var match = [];
-    while (aArr.length != 0 || bArr.length != 0 || cArr.length != 0) {
-      if (aArr.length != 0) {
-        if (match.length == 0) {
-          match[0] = aArr.pop();
-          match[2] = aArr.pop();
-        } else {
-          match[1] = aArr.pop();
-          match[3] = aArr.pop();
-          matchupTeam.push(match);
-          match = [];
-        }
-      }
-      if (bArr.length != 0) {
-        if (match.length == 0) {
-          match[0] = bArr.pop();
-          match[2] = bArr.pop();
-        } else {
-          match[1] = bArr.pop();
-          match[3] = bArr.pop();
-          matchupTeam.push(match);
-          match = [];
-        }
-      }
-      if (cArr.length != 0) {
-        if (match.length == 0) {
-          match[0] = cArr.pop();
-          match[2] = cArr.pop();
-        } else {
-          match[1] = cArr.pop();
-          match[3] = cArr.pop();
-          matchupTeam.push(match);
-          match = [];
+  let participant = [];
+  for (let i = 0; i < checkdElement.length; i++) {
+    participant.push(checkdElement[i].value);
+  }
+  const playerMatches = new Map(participant.map((player) => [player, 0]));
+  console.log("participatin", participant);
+  let matchCounter = [];
+  for (let p of participant) {
+    matchCounter.push({ name: p, count: 0 });
+  }
+
+  function allPlayersPlayedEnough(array) {
+    return array.every((item) => item.count >= 3);
+  }
+
+  const duoCheck = new Set();
+  const matches = [];
+  while (!allPlayersPlayedEnough(matchCounter)) {
+    matchCounter.sort((a, b) => a.count - b.count);
+    const minPlayer = matchCounter.filter(
+      (arr) => arr.count === matchCounter[0].count
+    );
+    const notMinPlayer = matchCounter.filter(
+      (arr) => arr.count !== matchCounter[0].count
+    );
+    for (let i = 0; i < 5; i++) {
+      minPlayer.sort(() => Math.random() - 0.5);
+    }
+    matchCounter = minPlayer.concat(notMinPlayer);
+    console.log(matchCounter);
+    let match = [];
+    while (match.length !== 4) {
+      loop: for (let i = 0; i < matchCounter.length; i++) {
+        for (let j = i + 1; j < matchCounter.length; j++) {
+          const duo = [matchCounter[i].name, matchCounter[j].name].sort();
+          if (
+            !duoCheck.has(JSON.stringify(duo)) &&
+            !match.includes(matchCounter[i].name) &&
+            !match.includes(matchCounter[j].name)
+          ) {
+            duoCheck.add(JSON.stringify(duo));
+            match.push(matchCounter[i].name);
+            matchCounter[i].count += 1;
+            match.push(matchCounter[j].name);
+            matchCounter[j].count += 1;
+            if (match.length === 4) break loop;
+          }
         }
       }
     }
-    if (match.length != 0) {
-      for (let i = 0; i < checkdElementA.length; i++) {
-        aArr.push(checkdElementA[i].value);
-      }
-      var bArr = [];
-      for (let i = 0; i < checkdElementB.length; i++) {
-        bArr.push(checkdElementB[i].value);
-      }
-      var cArr = [];
-      for (let i = 0; i < checkdElementC.length; i++) {
-        cArr.push(checkdElementC[i].value);
-      }
-      var temp = aArr.concat(bArr).concat(cArr);
-      temp.splice(temp.indexOf(match[0]), 1);
-      temp.splice(temp.indexOf(match[2]), 1);
-      temp.sort(() => Math.random() - 0.5);
-      match[1] = temp.pop();
-      match[3] = temp.pop();
-      matchupTeam.push(match);
-    }
-    matchupTeam.sort(() => Math.random() - 0.5);
-    for (let i = 0; i < matchupTeam.length; i++) {
-      result +=
-        "<tr><th>" +
-        (i + 1) +
-        "경기</td><td>" +
-        matchupTeam[i][0] +
-        ", " +
-        matchupTeam[i][1] +
-        "</td><td>" +
-        matchupTeam[i][2] +
-        ", " +
-        matchupTeam[i][3] +
-        "</td></tr>";
-      for (let j = 0; j < 4; j++) {
-        memberCnt[matchupTeam[i][j]]++;
-      }
-    }
-    result += "</tbody></table>";
-    areaEvent.innerHTML = result;
-  } else {
-    let checkdElement = [];
-    if (selectedGroup === "agroup") {
-      checkdElement = document.querySelectorAll(
-        'input[name="a"]:checked'
-      );
-    } else if (selectedGroup === "bgroup") {
-      checkdElement = document.querySelectorAll(
-        'input[name="b"]:checked'
-      );
-    } else if (selectedGroup === "cgroup") {
-      checkdElement = document.querySelectorAll(
-        'input[name="c"]:checked'
-      );
-    }
 
-    //4명이상인 경우 매칭 가능
-    if (checkdElement.length < 4) {
-      alert("4명 이상 선택하십시오.");
-      return;
-    }
+    matches.push(match);
+  }
+  for (let i = 0; i < 5; i++) {
+    matches.sort(() => Math.random() - 0.5);
+  }
+  console.log("Generated Matches:", matches);
+  console.log(matchCounter);
+  let result =
+    "<table class='table' id='" +
+    selectedGroup +
+    "Match'>" +
+    "<thead><tr>" +
+    "<th scope='col'>경기</th>" +
+    "<th scope='col' colspan='2'>대진팀</th>" +
+    "</tr></thead><tbody>";
 
-    let myArr = [];
-    for (let i = 0; i < checkdElement.length; i++) {
-      myArr.push(checkdElement[i].value);
-      memberCnt[checkdElement[i].value] = 0;
-    }
+  for (let i = 0; i < matches.length; i++) {
+    result +=
+      "<tr><th>" +
+      (i + 1) +
+      "경기</td><td>" +
+      (i % 2 == 0 ? matches[i][0] : matches[i][1]) +
+      ", " +
+      (i % 2 == 0 ? matches[i][1] : matches[i][0]) +
+      "</td><td>" +
+      (i % 2 == 0 ? matches[i][2] : matches[i][3]) +
+      ", " +
+      (i % 2 == 0 ? matches[i][3] : matches[i][2]) +
+      "</td></tr>";
+  }
+  result += "</tbody></table>";
 
-    myArr.sort(() => Math.random() - 0.5);
-    let result =
-      "<table class='table' id='" +
-      selectedGroup +
-      "Match'>" +
-      "<thead><tr>" +
-      "<th scope='col'>경기</th>" +
-      "<th scope='col' colspan='2'>대진팀</th>" +
-      "</tr></thead><tbody>";
-    let matchupTeam = [];
-    if (checkdElement.length == 4) {
-      matchupTeam = [
-        [myArr[0], myArr[1], myArr[2], myArr[3]],
-        [myArr[2], myArr[0], myArr[3], myArr[1]],
-        [myArr[0], myArr[3], myArr[1], myArr[2]],
-      ];
-    } else if (checkdElement.length == 5) {
-      matchupTeam = [
-        [myArr[1], myArr[2], myArr[3], myArr[4]],
-        [myArr[0], myArr[1], myArr[2], myArr[3]],
-        [myArr[3], myArr[1], myArr[0], myArr[4]],
-        [myArr[2], myArr[0], myArr[1], myArr[4]],
-      ];
-    } else if (checkdElement.length == 6) {
-      matchupTeam = [
-        [myArr[2], myArr[3], myArr[0], myArr[1]],
-        [myArr[4], myArr[5], myArr[2], myArr[0]],
-        [myArr[3], myArr[4], myArr[1], myArr[5]],
-        [myArr[0], myArr[3], myArr[2], myArr[1]],
-        [myArr[2], myArr[4], myArr[0], myArr[5]],
-      ];
-    } else if (checkdElement.length == 7) {
-      matchupTeam = [
-        [myArr[0], myArr[1], myArr[2], myArr[3]],
-        [myArr[4], myArr[5], myArr[6], myArr[2]],
-        [myArr[0], myArr[3], myArr[1], myArr[4]],
-        [myArr[6], myArr[5], myArr[2], myArr[1]],
-        [myArr[0], myArr[6], myArr[3], myArr[5]],
-        [myArr[4], myArr[2], myArr[1], myArr[3]],
-      ];
-    } else if (checkdElement.length == 8) {
-      matchupTeam = [
-        [myArr[0], myArr[2], myArr[3], myArr[1]],
-        [myArr[7], myArr[4], myArr[5], myArr[6]],
-        [myArr[1], myArr[6], myArr[4], myArr[0]],
-        [myArr[5], myArr[3], myArr[2], myArr[7]],
-        [myArr[0], myArr[1], myArr[4], myArr[6]],
-        [myArr[7], myArr[5], myArr[2], myArr[3]],
-      ];
-    } else if (checkdElement.length == 9) {
-      matchupTeam = [
-        [myArr[0], myArr[4], myArr[1], myArr[2]],
-        [myArr[3], myArr[8], myArr[7], myArr[5]],
-        [myArr[6], myArr[1], myArr[2], myArr[0]],
-        [myArr[3], myArr[7], myArr[4], myArr[8]],
-        [myArr[5], myArr[6], myArr[0], myArr[1]],
-        [myArr[7], myArr[2], myArr[8], myArr[3]],
-        [myArr[4], myArr[5], myArr[6], myArr[0]],
-      ];
-    } else if (checkdElement.length == 10) {
-      matchupTeam = [
-        [myArr[0], myArr[4], myArr[2], myArr[3]],
-        [myArr[5], myArr[1], myArr[8], myArr[9]],
-        [myArr[6], myArr[7], myArr[0], myArr[2]],
-        [myArr[9], myArr[1], myArr[3], myArr[5]],
-        [myArr[4], myArr[6], myArr[7], myArr[8]],
-        [myArr[5], myArr[0], myArr[1], myArr[3]],
-        [myArr[2], myArr[7], myArr[4], myArr[9]],
-        [myArr[8], myArr[6], myArr[7], myArr[0]],
-      ];
-    } else {
-      alert("10명초과 불가!");
-      return;
-    }
-    for (let i = 0; i < matchupTeam.length; i++) {
-      result +=
-        "<tr><th>" +
-        (i + 1) +
-        "경기</td><td>" +
-        matchupTeam[i][0] +
-        ", " +
-        matchupTeam[i][1] +
-        "</td><td>" +
-        matchupTeam[i][2] +
-        ", " +
-        matchupTeam[i][3] +
-        "</td></tr>";
-      for (let j = 0; j < 4; j++) {
-        memberCnt[matchupTeam[i][j]]++;
-      }
-    }
-    result += "</tbody></table>";
+  result += "<ul class='countList'>";
+  for (let member of matchCounter) {
+    result += "<li>" + member.name + ": " + member.count + "경기 </li>";
+  }
+  result += "</ul>";
 
-    console.log(memberCnt);
-    result += "<ul>";
-    for (let key in memberCnt) {
-      result += "<li>" + key + ": " + memberCnt[key] + "경기 </li>";
-    }
-    result += "</ul>";
-
-    if (selectedGroup === "agroup") {
-      areaA.innerHTML = result;
-    } else if (selectedGroup === "bgroup") {
-      areaB.innerHTML = result;
-    } else if (selectedGroup === "cgroup") {
-      areaC.innerHTML = result;
-    }
+  if (selectedGroup === "agroup") {
+    areaA.innerHTML = result;
+  } else if (selectedGroup === "bgroup") {
+    areaB.innerHTML = result;
+  } else if (selectedGroup === "cgroup") {
+    areaC.innerHTML = result;
   }
 }
 
@@ -344,7 +202,7 @@ function changeGroup(e) {
     document.getElementById("agroup").style.display = "none";
     document.getElementById("bgroup").style.display = "";
     document.getElementById("cgroup").style.display = "none";
-    document.querySelector(".gr_cl").style.color = "#c6bbff";
+    document.querySelector(".gr_cl").style.color = "#c7bcff";
 
     document.getElementById("areaA").style.display = "none";
     document.getElementById("areaB").style.display = "inline-block";
@@ -489,5 +347,21 @@ function shuffleTeam() {
     }
     grp.replaceChildren();
     addMember("shuffle");
+  }
+}
+
+function selectAll() {
+  const isChecked = document.getElementById("cbxall").checked;
+  const selectedGroup = document.getElementById("selectBox").value;
+  grp = [];
+  if (selectedGroup === "agroup") {
+    grp = document.getElementsByName("a");
+  } else if (selectedGroup === "bgroup") {
+    grp = document.getElementsByName("b");
+  } else if (selectedGroup === "cgroup") {
+    grp = document.getElementsByName("c");
+  }
+  for (let member of grp) {
+    member.checked = isChecked;
   }
 }

@@ -20,9 +20,10 @@
         <div id="header" class="header">
           <div class="addbox">
             <button class="btn btn-light" onclick="rankAlert()">
-              <i class="fa fa-trophy"></i>
+              <img src="../asset/images/icon_1.png" alt="">
             </button>
-            <div class="">
+            <div class="addinput">
+              <img src="../asset/images/icon_2.png" alt="">
               <input type="text" id="newMember"  placeholder="게스트명"/>
               <label>
                 <button class="btn btn-primary btn-sm" onclick="addMember()">
@@ -39,16 +40,17 @@
               <h3 class="gr_cl">게임 대진</h3>
             </div>
           </div>
-          <div class="sel_box dp_f">
-            <select id="selectBox" onchange="changeGroup(this)">
-              <option value="agroup">N</option>
-              <option value="bgroup">E</option>
-              <option value="cgroup">W</option>mm
-              <option value="eventgroup">EVENT</option>
-            </select>
+          <div class="sel_cont dp_f">
+            <div class="sel_box">
+              <select id="selectBox" onchange="changeGroup(this)">
+                <option value="agroup">N</option>
+                <option value="bgroup">E</option>
+                <option value="cgroup">W</option>
+              </select>
+            </div>
             <label><button class="btn btn-primary" onclick="organize()"> 대진 편성</button></label>
-            <div class="shuffle_btn">
-              <i class="fa fa-random" aria-hidden="true" onclick="shuffleTeam()"></i>
+            <div class="shuffle_btn" aria-hidden="true" onclick="shuffleTeam()">
+              <img src="../asset/images/icon_3.png" alt="">
             </div>
           </div>
         </div>
@@ -61,6 +63,10 @@
             <div id="areaEvent"></div>
           </div>
           <div class="memberBox">
+            <div class="form-check">
+              <input type="checkbox" id="cbxall" class="form-check-input" onclick="selectAll()"/>
+              <label for="cbxall">전체선택</label>
+            </div>
             <div id="abcgroup"></div>  
             <div id="agroup"></div>
             <div id="bgroup"></div>
