@@ -27,7 +27,7 @@
               <input type="text" id="newMember"  placeholder="게스트명"/>
               <label>
                 <button class="btn btn-primary btn-sm" onclick="addMember()">
-                  추가
+                  + 추가
                 </button>
               </label>
             </div>
@@ -37,20 +37,22 @@
             <div class="txt_box">
               <h1 class="logo"></h1>
               <h2>NEWNNIS_TENNIS</h2>
-              <h3 class="gr_cl">게임 대진</h3>
+              <h3 class="gr_cl fm_GongGothic">게임 대진</h3>
             </div>
-          </div>
-          <div class="sel_cont dp_f">
-            <div class="sel_box">
-              <select id="selectBox" onchange="changeGroup(this)">
-                <option value="agroup">N</option>
-                <option value="bgroup">E</option>
-                <option value="cgroup">W</option>
-              </select>
-            </div>
-            <label><button class="btn btn-primary" onclick="organize()"> 대진 편성</button></label>
-            <div class="shuffle_btn" aria-hidden="true" onclick="shuffleTeam()">
-              <img src="../asset/images/icon_3.png" alt="">
+            <div class="sel_cont dp_f">
+              <div class="sel_box">
+                <select id="selectBox" onchange="changeGroup(this)">
+                  <option value="agroup">N</option>
+                  <option value="bgroup">E</option>
+                  <option value="cgroup">W</option>
+                  <option value="cgroup">W</option>
+                  <option value="cgroup">W</option>
+                </select>
+              </div>
+              <label><button class="btn btn-primary fm_GongGothic" onclick="organize()"> 대진편성</button></label>
+              <div class="shuffle_btn" aria-hidden="true" onclick="shuffleTeam()">
+                <img src="../asset/images/icon_3.png" alt="">
+              </div>
             </div>
           </div>
         </div>

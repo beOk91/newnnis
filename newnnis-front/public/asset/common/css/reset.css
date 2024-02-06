@@ -26,7 +26,7 @@
 }
 
 /* reset */
-*{margin: 0;padding: 0;border: 0;box-sizing: border-box;word-break: keep-all; font-family: 'GongGothic','Pretendard';font-weight: 400;font-size: 10px; color: #000000;}
+*{margin: 0;padding: 0;border: 0;box-sizing: border-box;word-break: keep-all; font-family:'Pretendard';font-weight: 400;font-size: 10px; color: #000000;}
 html{-webkit-tap-highlight-color:transparent !important;-webkit-text-size-adjust: none;appearance: none;}
 html{overflow-x: hidden;-webkit-touch-callout: none;}/* -webkit-user-select:none; 모바일 드래그 막기 */
 body{min-width: 320px;max-width: 100%;/* font-family: 'Pretendard', 'FSSiena', sans-serif;font-weight: 400;color: #000000; */} /* 맞는 폰트로 변경 해줘야함 */
