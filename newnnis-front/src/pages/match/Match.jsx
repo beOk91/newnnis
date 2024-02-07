@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MatchMemberList from "../../components/match/MatchMemberList";
 import "./Match.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { Button } from "@mui/material";
 
 const newnnisM = {
   a: [
@@ -47,6 +48,7 @@ const Match = () => {
   const [selectedMember, setSelectedMember] = useState([]);
   const [matches, setMatches] = useState([]);
   const changeGroup = (e) => {
+    console.log("changeGroup");
     let value = e.target.value;
     setSelectedGroup(value);
     setSelectedMember([]);
@@ -55,6 +57,7 @@ const Match = () => {
   const organize = () => {
     // const selectedGroup = document.getElementById("selectBox").value;
     let checkdElement = Object.keys(selectedMember);
+    console.log("checkedElement", checkdElement);
     //4명이상인 경우 매칭 가능
     if (checkdElement.length < 4) {
       alert("4명 이상 선택하십시오.");
@@ -123,55 +126,93 @@ const Match = () => {
   const shuffleTeam = () => {
     //수정필요
   };
+  const rankAlert = () => {};
+  const addMember = () => {};
   useEffect(() => {
     setMatches([]);
   }, [selectedGroup]);
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          padding: "15px",
-        }}
-      >
-        NEWNNIS_TENNIS <br />
-        게임 대진
-      </div>
-      <div class="cont_box" stlye={{ marginBottom: "20px" }}>
-        <select onChange={changeGroup}>
-          <option value="a">N</option>
-          <option value="b">E</option>
-          <option value="c">W</option>
-        </select>
-        <label>
-          <button class="btn btn-primary" onClick={organize}>
-            대진 편성
-          </button>
-        </label>
-        <div class="shuffle_btn">
-          <i
-            className="fa fa-random"
-            // aria-hidden="true"
-            onclick="shuffleTeam()"
-          ></i>
+      <div className="wrap">
+        <div className="container">
+          <div className="header">
+            <div className="addbox">
+              <button className="btn btn-light" onClick={rankAlert}>
+                <img src={`src/assets/images/icon_1.png`} alt="" />
+              </button>
+
+              <div className="addinput">
+                <img src="src/assets/images/icon_2.png" alt="" />
+                <input type="text" placeholder="게스트명" />
+                <label>
+                  <button
+                    className="btn btn-primary btn-sm"
+                    onClick={addMember}
+                  >
+                    + 추가
+                  </button>
+                </label>
+              </div>
+            </div>
+            <div className="kv">
+              <div className="dim"></div>
+              <div className="txt_box">
+                <h1 className="logo"></h1>
+                <h2>NEWNNIS_TENNIS</h2>
+                <h3 className="gr_cl fm_GongGothic">게임 대진</h3>
+              </div>
+              <div className="sel_cont dp_f">
+                <div className="sel_box">
+                  <select className="selectBox" onChange={changeGroup}>
+                    <option value="a">N</option>
+                    <option value="b">E</option>
+                    <option value="c">W</option>
+                    <option value="cgroup">W</option>
+                    <option value="cgroup">W</option>
+                  </select>
+                </div>
+                <button
+                  className="btn btn-primary fm_GongGothic"
+                  onClick={organize}
+                >
+                  {" "}
+                  대진편성
+                </button>
+                <div
+                  className="shuffle_btn"
+                  aria-hidden="true"
+                  onClick={shuffleTeam}
+                >
+                  <img src="../asset/images/icon_3.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="shuffle_btn"
+            aria-hidden="true"
+            onClick={shuffleTeam}
+          ></div>
         </div>
-      </div>
-      <div>
-        {matches &&
-          matches.map((match) => (
-            <>
-              {match}
-              <br />
-            </>
-          ))}
-      </div>
-      <div>
-        <MatchMemberList
-          members={newnnisM[selectedGroup]}
-          setSelectedMember={setSelectedMember}
-        />
+        <div style={{ display: "flex", width: "100%" }}>
+          <div style={{ marginLeft: "5px", marginRight: "5px", width: "70%" }}>
+            {matches &&
+              matches.map((match) => (
+                <>
+                  {match}
+                  <br />
+                </>
+              ))}
+          </div>
+          <div style={{ marginLeft: "5px", marginRight: "5px", width: "30%" }}>
+            <MatchMemberList
+              members={newnnisM[selectedGroup]}
+              selectedGroup={selectedGroup}
+              setSelectedMember={setSelectedMember}
+            />
+          </div>
+        </div>
       </div>
     </>
   );

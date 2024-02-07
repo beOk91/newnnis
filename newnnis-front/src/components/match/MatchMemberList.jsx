@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const MatchMemberList = (props) => {
-  const { members, setSelectedMember } = props;
+  const { members, setSelectedMember, selectedGroup } = props;
   const [checkedItems, setCheckedItems] = useState({});
   const handleCheckboxChange = (event) => {
     setCheckedItems({
@@ -20,7 +20,7 @@ const MatchMemberList = (props) => {
   }, [checkedItems]);
 
   return (
-    <div>
+    <div className="memberBox">
       <div className="form-check">
         <input
           type="checkbox"
@@ -30,7 +30,7 @@ const MatchMemberList = (props) => {
         <label for="cbxall">전체선택</label>
       </div>
       {members.map((item, index) => (
-        <div className="form-check">
+        <div className={selectedGroup}>
           <label key={item.index}>
             <input
               type="checkbox"
