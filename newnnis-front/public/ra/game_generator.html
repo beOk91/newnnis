@@ -15,7 +15,7 @@
   </head>
   
   <body>
-    <div id="wrap">
+    <div id="wrap" class="wrap">
       <main class="container">
         <div id="header" class="header">
           <div class="addbox">
@@ -24,7 +24,7 @@
             </button>
             <div class="addinput">
               <img src="../asset/images/icon_2.png" alt="">
-              <input type="text" id="newMember"  placeholder="게스트명"/>
+              <input type="text" id="newMember" class="newMember" placeholder="게스트명"/>
               <label>
                 <button class="btn btn-primary btn-sm" onclick="addMember()">
                   + 추가
@@ -41,7 +41,7 @@
             </div>
             <div class="sel_cont dp_f">
               <div class="sel_box">
-                <select id="selectBox" onchange="changeGroup(this)">
+                <select id="selectBox" class="selectBox" onchange="changeGroup(this)">
                   <option value="agroup">N</option>
                   <option value="bgroup">E</option>
                   <option value="cgroup">W</option>
