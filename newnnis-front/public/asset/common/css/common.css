@@ -20,8 +20,10 @@
 
 /* checkbox */
 .form-check {position:relative;display: flex;justify-content: center;align-items: center;}
-.form-check input[type="checkbox"]{width: 2rem;height: 2rem;}
-.form-check label{position: relative;display: inline-block;width: 100%;line-height: 2rem;padding-left: 1rem;font-size: 1.5rem;letter-spacing: -0.36px;}
+.form-check input[type="checkbox"]{width: 1.8rem;height: 1.8rem;}
+.form-check input[type="checkbox"]:checked{accent-color: #6979F8;}
+.form-check label{position: relative;display: inline-block;width: 100%;line-height: 2.8rem;padding-left: 1rem;font-size: 1.5rem;letter-spacing: -0.36px;}
+
 /* .form-check input[type="checkbox"] + label::after{content: '';display: inline-block;position: absolute;left: 0;top: 0;width: 60px;height: 60px;background: none;background-image: url('../images/check_off.png');background-size: 100% 100%;} */
 /* .form-check input[type="checkbox"]:checked + label::after{content: '';display: inline-block;width: 60px;height: 60px;background: none;background-image: url('../images/check_on.png');background-size: 100% 100%;} */
 

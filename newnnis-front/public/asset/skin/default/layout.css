@@ -42,11 +42,13 @@ ul {font-size: 1rem;}
 .header .sel_cont .shuffle_btn{display: flex;justify-content: center;align-items: center;justify-content: center; width: 3.8rem; height: 3.8rem; background: #e2ff43;border-radius: 50%;}
 .header .sel_cont .shuffle_btn img{width: 2.8rem;height: 2.8rem;}
 
+.cont_box .thead {margin-bottom: 0.7rem;}
+.cont_box .thead p{font-family: 'GongGothic';font-size: 1.5rem;color: #6979F8;}
 /* .areaBox{width: 22rem;} */
-.areaBox .countList{padding: 1rem 2rem;background: beige;}
-.areaBox ul li{font-size: 1.5rem;}
+.areaBox .countList{padding: 1rem 2rem;background: #F4F6FC;}
+.areaBox ul li{font-size: 1.2rem;}
+.areaBox .table {margin-bottom: 3.8rem;}
 .areaBox .table .thead {display: flex;}
-.areaBox .table .thead p{font-family: 'GongGothic';font-size: 1.5rem;color: #6979F8;}
 .areaBox .table .thead p:last-child{margin-left: 1.5rem;}
 .areaBox .table .tbody > li:nth-child(odd){background: #e0ddf3;}
 .areaBox .table .tbody li{display: flex;align-items: center;justify-content: space-between; border-radius: 0.6rem;margin-bottom: 0.3rem;}

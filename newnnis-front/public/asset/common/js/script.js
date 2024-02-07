@@ -171,7 +171,9 @@ function organize() {
   }
   result += "</div></div>";
 
-  result += "<ul class='countList'>";
+  result += "<div class='thead'>" +
+  "<p>경기횟수</p>" +
+  "</div><ul class='countList'>";
   for (let member of matchCounter) {
     result += "<li>" + member.name + ": " + member.count + "경기 </li>";
   }
