@@ -147,29 +147,29 @@ function organize() {
   console.log("Generated Matches:", matches);
   console.log(matchCounter);
   let result =
-    "<table class='table' id='" +
+    "<div class='table' id='" +
     selectedGroup +
     "Match'>" +
-    "<thead><tr>" +
-    "<th scope='col'>경기</th>" +
-    "<th scope='col' colspan='2'>대진팀</th>" +
-    "</tr></thead><tbody>";
+    "<div class='thead'>" +
+    "<p>경기</p>" +
+    "<p>대진팀</p>" +
+    "</div><ul class='tbody'>";
 
   for (let i = 0; i < matches.length; i++) {
     result +=
-      "<tr><th>" +
+      "<li><p>" +
       (i + 1) +
-      "경기</td><td>" +
+      "경기</p><div><p>" +
       (i % 2 == 0 ? matches[i][0] : matches[i][1]) +
       ", " +
       (i % 2 == 0 ? matches[i][1] : matches[i][0]) +
-      "</td><td>" +
+      "</p><span>:</span><p>" +
       (i % 2 == 0 ? matches[i][2] : matches[i][3]) +
       ", " +
       (i % 2 == 0 ? matches[i][3] : matches[i][2]) +
-      "</td></tr>";
+      "</p></div></li>";
   }
-  result += "</tbody></table>";
+  result += "</div></div>";
 
   result += "<ul class='countList'>";
   for (let member of matchCounter) {
