@@ -400,13 +400,13 @@ ul {
 .header .addbox .addinput > img {
   width: 2.2rem;
 }
-.header .addbox .addinput #newMember {
+.header .addbox .addinput .newMember {
   width: 10rem;
   background: transparent;
   font-size: 1.5rem;
   color: rgba(105, 121, 248, 0.4);
 }
-.header .addbox .addinput #newMember::placeholder {
+.header .addbox .addinput .newMember::placeholder {
   color: rgba(105, 121, 248, 0.4);
 }
 .header .kv {

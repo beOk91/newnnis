@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import MatchMemberList from "../../components/match/MatchMemberList";
 import "./Match.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { Button } from "@mui/material";
+import Header from "../../components/common/Header";
+import MatchHeader from "../../components/match/MatchHeader";
+import Matches from "../../components/match/Matches";
+import MatchParticipant from "../../components/match/MatchParticipant";
 
 const newnnisM = {
   a: [
@@ -43,10 +46,11 @@ const newnnisM = {
   ],
 };
 
-const Match = () => {
+const MatchPage = () => {
   const [selectedGroup, setSelectedGroup] = useState("a");
   const [selectedMember, setSelectedMember] = useState([]);
   const [matches, setMatches] = useState([]);
+  const [matchCount, setMatchCount] = useState([]);
   const changeGroup = (e) => {
     console.log("changeGroup");
     let value = e.target.value;
@@ -122,99 +126,42 @@ const Match = () => {
     }
     console.log("Generated Matches:", matches);
     setMatches(matches);
+    setMatchCount(matchCounter);
   };
   const shuffleTeam = () => {
     //수정필요
+    alert("셔플");
   };
   const rankAlert = () => {};
   const addMember = () => {};
+
   useEffect(() => {
     setMatches([]);
   }, [selectedGroup]);
+
   return (
     <>
       <div className="wrap">
         <div className="container">
           <div className="header">
-            <div className="addbox">
-              <button className="btn btn-light" onClick={rankAlert}>
-                <img src={`src/assets/images/icon_1.png`} alt="" />
-              </button>
-
-              <div className="addinput">
-                <img src="src/assets/images/icon_2.png" alt="" />
-                <input type="text" placeholder="게스트명" />
-                <label>
-                  <button
-                    className="btn btn-primary btn-sm"
-                    onClick={addMember}
-                  >
-                    + 추가
-                  </button>
-                </label>
-              </div>
-            </div>
-            <div className="kv">
-              <div className="dim"></div>
-              <div className="txt_box">
-                <h1 className="logo"></h1>
-                <h2>NEWNNIS_TENNIS</h2>
-                <h3 className="gr_cl fm_GongGothic">게임 대진</h3>
-              </div>
-              <div className="sel_cont dp_f">
-                <div className="sel_box">
-                  <select className="selectBox" onChange={changeGroup}>
-                    <option value="a">N</option>
-                    <option value="b">E</option>
-                    <option value="c">W</option>
-                    <option value="cgroup">W</option>
-                    <option value="cgroup">W</option>
-                  </select>
-                </div>
-                <button
-                  className="btn btn-primary fm_GongGothic"
-                  onClick={organize}
-                >
-                  {" "}
-                  대진편성
-                </button>
-                <div
-                  className="shuffle_btn"
-                  aria-hidden="true"
-                  onClick={shuffleTeam}
-                >
-                  <img src="../asset/images/icon_3.png" alt="" />
-                </div>
-              </div>
-            </div>
+            <MatchHeader addMember={addMember} rankAlert={rankAlert} />
+            <Header
+              changeGroup={changeGroup}
+              organize={organize}
+              shuffleTeam={shuffleTeam}
+            />
           </div>
-
-          <div
-            className="shuffle_btn"
-            aria-hidden="true"
-            onClick={shuffleTeam}
-          ></div>
-        </div>
-        <div style={{ display: "flex", width: "100%" }}>
-          <div style={{ marginLeft: "5px", marginRight: "5px", width: "70%" }}>
-            {matches &&
-              matches.map((match) => (
-                <>
-                  {match}
-                  <br />
-                </>
-              ))}
-          </div>
-          <div style={{ marginLeft: "5px", marginRight: "5px", width: "30%" }}>
-            <MatchMemberList
-              members={newnnisM[selectedGroup]}
+          <section className="cont_box dp_f">
+            <Matches matches={matches} matchCount={matchCount} />
+            <MatchParticipant
+              newnnisM={newnnisM}
               selectedGroup={selectedGroup}
               setSelectedMember={setSelectedMember}
             />
-          </div>
+          </section>
         </div>
       </div>
     </>
   );
 };
-export default Match;
+export default MatchPage;

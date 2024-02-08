@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Match from "./pages/match/Match";
+import MatchPage from "./pages/match/MatchPage";
 
 function App() {
   return (
     <>
-      <Match />
+      <MatchPage />
     </>
   );
 }
