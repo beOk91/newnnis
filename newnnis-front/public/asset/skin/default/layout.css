@@ -14,7 +14,8 @@ ul {font-size: 1rem;}
 .btn-primary:hover {color: #fff;background-color: #6979f8;border-color: #6979f8;}
 .btn-primary:focus {background-color: #6979f8;border-color: #6979f8;box-shadow: unset;}
 
-.selectBox{width: 12.8rem;height: 3.4rem;padding: 0.5rem 0 0.5rem 2.3rem; background: #000000;color: #FFFFFF;font-size: 1.8rem;border-radius: 2.2rem; border: 1px solid #6979F8;}
+.selectBox{width: 12.8rem;height: 3.4rem;padding: 0.5rem 0 0.5rem 2.3rem; background: #000000;color: #00e4ff;font-size: 1.8rem;border-radius: 2.2rem; border: 1px solid #6979F8;}
+.selectBox option{color:#FFFFFF}
 
 .wrap{max-width: 75rem;margin: 0 auto;}
 .container{padding:2.4rem;}
@@ -22,7 +23,7 @@ ul {font-size: 1rem;}
 
 /*대진표 생성*/
 
-.header .addbox{display: flex;align-items: center;justify-content: space-between;margin-bottom: 2rem;}
+.header .addbox{display: flex;flex-direction: row-reverse;align-items: center;justify-content: space-between;margin-bottom: 2rem;}
 .header .addbox > .btn{width: 3.6rem;height: 3.6rem;text-align: center;display: block;padding: 0.9rem 0.9rem 0.8rem 0.8rem;background-color: #6979F8;border-radius: 1rem;}
 .header .addbox > .btn > img{width: 1.8rem;height: 1.8rem;}
 .header .addbox .addinput{display: flex;justify-content: center;align-items: center;padding: 0.3rem 0.3rem 0.3rem 0.7rem;background-color:rgba(105, 121, 248, 0.12); border-radius: 0.6rem;}
@@ -42,17 +43,19 @@ ul {font-size: 1rem;}
 .header .sel_cont .shuffle_btn{display: flex;justify-content: center;align-items: center;justify-content: center; width: 3.8rem; height: 3.8rem; background: #e2ff43;border-radius: 50%;}
 .header .sel_cont .shuffle_btn img{width: 2.8rem;height: 2.8rem;}
 
-.cont_box .thead {margin-bottom: 0.7rem;}
+.cont_box .thead {margin-bottom: 0.7rem;padding-left: 0.8rem;}
 .cont_box .thead p{font-family: 'GongGothic';font-size: 1.5rem;color: #6979F8;}
 /* .areaBox{width: 22rem;} */
-.areaBox .countList{padding: 1rem 2rem;background: #F4F6FC;}
+.memberBox .thead{padding: 0;}
+.areaBox .countList{padding: 1.6rem 2rem;column-count: 3;column-gap: 2rem; background: #F4F6FC;border-radius: 1rem;}
+.areaBox .countList li{line-height: 2rem;}
 .areaBox ul li{font-size: 1.2rem;}
 .areaBox .table {margin-bottom: 3.8rem;}
 .areaBox .table .thead {display: flex;}
-.areaBox .table .thead p:last-child{margin-left: 1.5rem;}
+.areaBox .table .thead p:last-child{margin-left: 7.5rem;}
 .areaBox .table .tbody > li:nth-child(odd){background: #e0ddf3;}
 .areaBox .table .tbody li{display: flex;align-items: center;justify-content: space-between; border-radius: 0.6rem;margin-bottom: 0.3rem;}
 .areaBox .table .tbody > li:nth-child(even){background: #f0eeff;}
 .areaBox .table .tbody > li > p:first-child {width: 4.4rem; text-align: center;line-height: 3.5rem; font-size: 1.2rem; color: #FFFFFF;background: rgba(105, 121, 248, 0.6);border-radius: 0.6rem;}
-.areaBox .table .tbody > li div {display: flex;justify-content: space-between;align-items: center;width: 17.6rem;padding: 0 2.4rem;}
-.areaBox .table .tbody > li div p ,.areaBox .table .tbody > li div span{ font-family: 'GongGothic'; font-size: 1.4rem; color: #0F0F0F;}
+.areaBox .table .tbody > li div {display: flex;justify-content: space-evenly;align-items: center;width: 17.6rem;padding: 0 ;}
+.areaBox .table .tbody > li div p ,.areaBox .table .tbody > li div span{ font-family: 'GongGothic'; font-size: 1.3rem; color: #0F0F0F;}

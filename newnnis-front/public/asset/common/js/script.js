@@ -175,7 +175,7 @@ function organize() {
   "<p>경기횟수</p>" +
   "</div><ul class='countList'>";
   for (let member of matchCounter) {
-    result += "<li>" + member.name + ": " + member.count + "경기 </li>";
+    result += "<li>" + member.name + ": " + member.count;
   }
   result += "</ul>";
 
@@ -194,7 +194,8 @@ function changeGroup(e) {
     document.getElementById("agroup").style.display = "";
     document.getElementById("bgroup").style.display = "none";
     document.getElementById("cgroup").style.display = "none";
-    document.querySelector(".gr_cl").style.color = "#00e4ff";
+    document.querySelector(".selectBox").style.color = "#00E4FF";
+    document.querySelector(".gr_cl").style.color = "#00E4FF";
 
     document.getElementById("areaA").style.display = "inline-block";
     document.getElementById("areaB").style.display = "none";
@@ -204,7 +205,8 @@ function changeGroup(e) {
     document.getElementById("agroup").style.display = "none";
     document.getElementById("bgroup").style.display = "";
     document.getElementById("cgroup").style.display = "none";
-    document.querySelector(".gr_cl").style.color = "#c7bcff";
+    document.querySelector(".selectBox").style.color = "#E2FF44";
+    document.querySelector(".gr_cl").style.color = "#E2FF44";
 
     document.getElementById("areaA").style.display = "none";
     document.getElementById("areaB").style.display = "inline-block";
@@ -214,7 +216,8 @@ function changeGroup(e) {
     document.getElementById("agroup").style.display = "none";
     document.getElementById("bgroup").style.display = "none";
     document.getElementById("cgroup").style.display = "";
-    document.querySelector(".gr_cl").style.color = "#e2ff43";
+    document.querySelector(".selectBox").style.color = "#4FB2FF";
+    document.querySelector(".gr_cl").style.color = "#4FB2FF";
 
     document.getElementById("areaA").style.display = "none";
     document.getElementById("areaB").style.display = "none";
