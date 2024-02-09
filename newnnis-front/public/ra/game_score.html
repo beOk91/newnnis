@@ -15,7 +15,7 @@
   </head>
   
   <body>
-    <div id="wrap" class="wrap">
+    <div id="wrap" class="score wrap">
       <main class="container">
         <div id="header" class="header">
           <div class="kv">
@@ -36,12 +36,12 @@
                 </select>
               </div>
               <div class="sel_box">
-                <select id="selectBox" class="selectBox" onchange="changeGroup(this)">
-                  <option value="agroup">N</option>
-                  <option value="bgroup">E</option>
-                  <option value="cgroup">W</option>
-                  <option value="dgroup">W</option>
-                  <option value="egroup">W</option>
+                <select class="selectBox ch_date" onchange="">
+                  <option value="경기날짜">경기날짜</option>
+                  <option value="경기날짜">경기날짜</option>
+                  <option value="경기날짜">경기날짜</option>
+                  <option value="경기날짜">경기날짜</option>
+                  <option value="경기날짜">경기날짜</option>
                 </select>
               </div>
             </div>
@@ -50,7 +50,21 @@
         
         <section class="cont_box">
           <div class="areaBox">
-            <div id="areaA"><div class="table" id="agroupMatch"><div class="thead"><p>경기</p><p>대진팀</p></div><ul class="tbody"><li><p>1경기</p><div><p>김승원, 김정래</p><span>:</span><p>김세호, 이태규</p></div></li><li><p>2경기</p><div><p>김정래, 김성구</p><span>:</span><p>황주현, 한용진</p></div></li><li><p>3경기</p><div><p>김세호, 전룡재</p><span>:</span><p>송영주, 정진호</p></div></li><li><p>4경기</p><div><p>한용진, 정진호</p><span>:</span><p>김승원, 전룡재</p></div></li><li><p>5경기</p><div><p>김세호, 한용진</p><span>:</span><p>전룡재, 송영주</p></div></li><li><p>6경기</p><div><p>김승원, 이태규</p><span>:</span><p>송영주, 김세호</p></div></li><li><p>7경기</p><div><p>김정래, 이태규</p><span>:</span><p>황주현, 김성구</p></div></li><li><p>8경기</p><div><p>황주현, 이태규</p><span>:</span><p>정진호, 김성구</p></div></li></ul></div></div>
+            <div id="areaA">
+              <div class="table" id="agroupMatch">
+                <div class="thead"><p>경기</p><p>대진팀</p></div>
+                <ul class="tbody">
+                  <li><p>1경기</p><div><p>승원, 정래</p><input type="number" name=""><span>:</span><input type="number" name=""><p>세호, 태규</p></div></li>
+                  <li><p>2경기</p><div><p>정래, 성구</p><input type="number" name=""><span>:</span><input type="number" name=""><p>주현, 용진</p></div></li>
+                  <li><p>3경기</p><div><p>세호, 룡재</p><input type="number" name=""><span>:</span><input type="number" name=""><p>영주, 진호</p></div></li>
+                  <li><p>4경기</p><div><p>용진, 진호</p><input type="number" name=""><span>:</span><input type="number" name=""><p>승원, 룡재</p></div></li>
+                  <li><p>5경기</p><div><p>세호, 용진</p><input type="number" name=""><span>:</span><input type="number" name=""><p>룡재, 영주</p></div></li>
+                  <li><p>6경기</p><div><p>승원, 태규</p><input type="number" name=""><span>:</span><input type="number" name=""><p>영주, 세호</p></div></li>
+                  <li><p>7경기</p><div><p>정래, 태규</p><input type="number" name=""><span>:</span><input type="number" name=""><p>주현, 성구</p></div></li>
+                  <li><p>8경기</p><div><p>주현, 태규</p><input type="number" name=""><span>:</span><input type="number" name=""><p>진호, 성구</p></div></li>
+                </ul>
+              </div>
+            </div>
             <div id="areaB"></div>
             <div id="areaC"></div>
             <div id="areaD"></div>
