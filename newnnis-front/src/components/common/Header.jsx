@@ -13,11 +13,11 @@ const Header = ({ changeGroup, organize, shuffleTeam }) => {
         <div className="sel_cont dp_f">
           <div className="sel_box">
             <select className="selectBox" onChange={changeGroup}>
-              <option value="a">N</option>
-              <option value="b">E</option>
-              <option value="c">W</option>
-              <option value="cgroup">W</option>
-              <option value="cgroup">W</option>
+              <option value="a">땅</option>
+              <option value="b">불</option>
+              <option value="c">바람</option>
+              <option value="d">물</option>
+              <option value="e">마음</option>
             </select>
           </div>
           <button className="btn btn-primary fm_GongGothic" onClick={organize}>
