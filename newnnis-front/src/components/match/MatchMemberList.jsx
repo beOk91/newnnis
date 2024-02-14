@@ -27,7 +27,7 @@ const MatchMemberList = (props) => {
           className="form-check-input"
           onClick={selectAll}
         />
-        <label for="cbxall">전체선택</label>
+        <label for="cbxall">ALL</label>
       </div>
       {members.map((item, index) => (
         <div className={selectedGroup}>

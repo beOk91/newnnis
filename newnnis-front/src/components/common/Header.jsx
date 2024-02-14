@@ -24,10 +24,6 @@ const Header = ({ changeGroup, organize, shuffleTeam }) => {
             {" "}
             대진편성
           </button>
-
-          <div className="shuffle_btn" aria-hidden="true" onClick={shuffleTeam}>
-            <img src="../asset/images/icon_3.png" alt="" />
-          </div>
         </div>
       </div>
     </>

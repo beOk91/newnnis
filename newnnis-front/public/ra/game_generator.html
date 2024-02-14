@@ -17,7 +17,7 @@
   <body>
     <div id="wrap" class="wrap">
       <main class="container">
-        <div id="header" class="header">
+        <header id="header" class="header">
           <div class="addbox">
             <div class="addinput">
               <img src="../asset/images/icon_2.png" alt="">
@@ -47,12 +47,9 @@
                 </select>
               </div>
               <label><button class="btn btn-primary fm_GongGothic" onclick="organize()"> 대진편성</button></label>
-              <div class="shuffle_btn" aria-hidden="true" onclick="shuffleTeam()">
-                <img src="../asset/images/icon_3.png" alt="">
-              </div>
             </div>
           </div>
-        </div>
+        </header>
         
         <section class="cont_box dp_f">
           <div class="areaBox">
@@ -66,7 +63,7 @@
             <div class="thead"><p>참가자</p></div>
             <div class="form-check">
               <input type="checkbox" id="cbxall" class="form-check-input" onclick="selectAll()"/>
-              <label for="cbxall">전체선택</label>
+              <label for="cbxall">ALL</label>
             </div>
             <div id="abcgroup"></div>  
             <div id="agroup"></div>
@@ -74,6 +71,10 @@
             <div id="cgroup"></div>
           </div>
         </section>
+
+        <footer>
+
+        </footer>
       </main>
     </div>
   </body>
