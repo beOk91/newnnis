@@ -1,0 +1,22 @@
+.footerMenu {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f0f0f0;
+  padding: 10px 0;
+}
+
+.footerMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.footerMenu li {
+  padding: 0 10px;
+}
+
+.footerMenu img {
+  width: 24px;
+  height: 24px;
+}

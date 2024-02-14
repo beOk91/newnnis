@@ -1,0 +1,550 @@
+@charset "utf-8";
+
+/* common */
+.ir_text {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: visible;
+}
+.scrollDisable {
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden !important;
+  touch-action: none;
+}
+.fw_900 {
+  font-weight: 900;
+}
+.fw_800 {
+  font-weight: 800;
+}
+.fw_700 {
+  font-weight: 700;
+}
+.fw_600 {
+  font-weight: 600;
+}
+.fw_500 {
+  font-weight: 500;
+}
+.fw_400 {
+  font-weight: 400;
+}
+.fw_300 {
+  font-weight: 300;
+}
+.fw_200 {
+  font-weight: 200;
+}
+.fw_100 {
+  font-weight: 100;
+}
+
+.fm_Pretendard {
+  font-family: "Pretendard", sans-serif;
+}
+.fm_GongGothic {
+  font-family: "GongGothic", sans-serif;
+}
+.fm_FSSiena {
+  font-family: "FSSiena", sans-serif;
+}
+
+/* checkbox */
+.form-check {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-check input[type="checkbox"] {
+  width: 2rem;
+  height: 2rem;
+}
+.form-check label {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 2rem;
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  letter-spacing: -0.36px;
+}
+/* .form-check input[type="checkbox"] + label::after{content: '';display: inline-block;position: absolute;left: 0;top: 0;width: 60px;height: 60px;background: none;background-image: url('../images/check_off.png');background-size: 100% 100%;} */
+/* .form-check input[type="checkbox"]:checked + label::after{content: '';display: inline-block;width: 60px;height: 60px;background: none;background-image: url('../images/check_on.png');background-size: 100% 100%;} */
+
+/* radiobox */
+.formRadioBox {
+  position: relative;
+}
+.formRadioBox input[type="radio"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  width: 6rem;
+  height: 6rem;
+  background: transparent;
+  border: none;
+  appearance: none;
+}
+.formRadioBox label {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 6rem;
+  padding-left: 7.6rem;
+  font-size: 2.4rem;
+  letter-spacing: -0.36px;
+}
+.formRadioBox input[type="radio"] + label::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6rem;
+  height: 6rem;
+  background: none;
+  background-image: url("@/assets/images/radio_off.png");
+  background-size: 100% 100%;
+}
+.formRadioBox input[type="radio"]:checked + label::after {
+  content: "";
+  display: inline-block;
+  width: 6rem;
+  height: 6rem;
+  background: none;
+  background-image: url("@/assets/images/radio_on.png");
+  background-size: 100% 100%;
+}
+@font-face {
+  font-family: "GongGothic";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  word-break: keep-all;
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-size: 10px;
+  color: #000000;
+}
+html {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-text-size-adjust: none;
+  appearance: none;
+}
+html {
+  overflow-x: hidden;
+  -webkit-touch-callout: none;
+} /* -webkit-user-select:none; 모바일 드래그 막기 */
+body {
+  min-width: 320px;
+  max-width: 100%; /* font-family: 'Pretendard', 'FSSiena', sans-serif;font-weight: 400;color: #000000; */
+} /* 맞는 폰트로 변경 해줘야함 */
+ul,
+ol,
+li,
+dl,
+dd,
+dt,
+input,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+b,
+input,
+button,
+textarea,
+fieldset,
+legend,
+td,
+th {
+  margin: 0px;
+  padding: 0px;
+}
+li {
+  list-style: none;
+}
+table,
+th,
+td {
+  border-collapse: collapse; /*border-spacing: 0;*/
+}
+/* input,textarea,button,select{} */
+/* input{-webkit-appearance: none;-webkit-border-radius: 0;border-radius: 0;} */
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+  outline: none;
+}
+input[type="text"]::-ms-clear,
+input[type="tel"]::-ms-clear {
+  display: none;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+select::-ms-expand {
+  display: none;
+} /* IE 10, 11의 네이티브 화살표 숨기기 */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  transform: translate3d(0, 0, 0);
+}
+button {
+  overflow: visible\9;
+} /* button fix for ie8 */
+label {
+  cursor: pointer;
+}
+label img {
+  pointer-events: none;
+}
+input::-webkit-input-placeholder {
+  color: #999;
+}
+input::-moz-placeholder {
+  color: #999;
+}
+input:-moz-placeholder {
+  color: #999;
+}
+input:-ms-input-placeholder {
+  color: #999;
+}
+textarea::-webkit-input-placeholder {
+  color: #999;
+}
+textarea::-moz-placeholder {
+  color: #999;
+}
+textarea:-moz-placeholder {
+  color: #999;
+}
+textarea:-ms-input-placeholder {
+  color: #999;
+}
+input:focus::-webkit-input-placeholder {
+  color: transparent !important;
+}
+input:focus::-moz-placeholder {
+  color: transparent !important;
+}
+input:focus:-moz-placeholder {
+  color: transparent !important;
+}
+input:focus:-ms-input-placeholder {
+  color: transparent !important;
+}
+textarea:focus::-webkit-input-placeholder {
+  color: transparent !important;
+}
+textarea:focus::-moz-placeholder {
+  color: transparent !important;
+}
+textarea:focus:-moz-placeholder {
+  color: transparent !important;
+}
+textarea:focus:-ms-input-placeholder {
+  color: transparent !important;
+}
+a {
+  text-decoration: none;
+  color: #242424;
+}
+img {
+  display: block;
+  border: 0;
+  width: 100%;
+}
+.dp_f {
+  display: flex;
+}
+.n_color {
+  color: #00e4ff;
+}
+.e_color {
+  color: #c6bbff;
+}
+.w_color {
+  color: #e2ff43;
+}
+
+table {
+  font-size: 1rem;
+}
+table th,
+table td {
+  font-size: 1.5rem;
+}
+ul {
+  font-size: 1rem;
+}
+.cont_box {
+  justify-content: space-between;
+}
+.btn-primary {
+  height: 3.5rem;
+  padding: 0 1rem;
+  line-height: 3.4rem;
+  margin: 0;
+  border-radius: 0.6rem;
+  font-size: 1.5rem;
+  color: #ffffff;
+  background-color: #6979f8;
+  border-color: #6979f8;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #6979f8;
+  border-color: #6979f8;
+}
+.btn-primary:focus {
+  background-color: #6979f8;
+  border-color: #6979f8;
+  box-shadow: unset;
+}
+
+.selectBox {
+  width: 12.8rem;
+  height: 3.4rem;
+  padding: 0.5rem 0 0.5rem 2.3rem;
+  background: #000000;
+  color: #ffffff;
+  font-size: 1.8rem;
+  border-radius: 2.2rem;
+  border: 1px solid #6979f8;
+}
+
+.wrap {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+.container {
+  padding: 2.4rem;
+}
+
+/*대진표 생성*/
+
+.header .addbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.header .addbox > .btn {
+  width: 3.6rem;
+  height: 3.6rem;
+  text-align: center;
+  display: block;
+  padding: 0.9rem 0.9rem 0.8rem 0.8rem;
+  background-color: #6979f8;
+  border-radius: 1rem;
+}
+.header .addbox > .btn > img {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.header .addbox .addinput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3rem 0.3rem 0.3rem 0.7rem;
+  background-color: rgba(105, 121, 248, 0.12);
+  border-radius: 0.6rem;
+}
+.header .addbox .addinput > img {
+  width: 2.2rem;
+}
+.header .addbox .addinput .newMember {
+  width: 10rem;
+  background: transparent;
+  font-size: 1.5rem;
+  color: rgba(105, 121, 248, 0.4);
+}
+.header .addbox .addinput .newMember::placeholder {
+  color: rgba(105, 121, 248, 0.4);
+}
+.header .kv {
+  position: relative;
+  padding: 1.8rem;
+  border-radius: 1.2rem;
+  display: flex;
+  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url("@/assets/images/kv.jpg") no-repeat center center;
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+.header .kv .dim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.header .kv .txt_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 99;
+}
+.header .kv .logo {
+  width: 5.4rem;
+  height: 4.4rem;
+  background: url("@/assets/images/logo.png") no-repeat center center;
+  background-size: 100% auto;
+}
+.header .kv .txt_box h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+.header .kv .txt_box h3 {
+  margin: 1rem 0;
+  font-size: 3rem;
+  font-weight: 500;
+  color: #00e4ff;
+}
+.header .sel_cont {
+  justify-content: center;
+  z-index: 1;
+}
+.header .sel_cont .sel_box {
+  position: relative;
+}
+.header .sel_cont .sel_box::after {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin: -0.9rem 1rem 0 0;
+  display: block;
+  content: "";
+  width: 1.4rem;
+  height: 1.4rem;
+  background: url("@/assets/images/icon_4.png") no-repeat center center;
+  background-size: 100% 100%;
+}
+.header .sel_cont .btn-primary {
+  width: 9.7rem;
+  height: 3.4rem;
+  border-radius: 2.2rem;
+  font-size: 1.5rem;
+  margin: 0 1.4rem;
+}
+.header .sel_cont .shuffle_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  width: 3.8rem;
+  height: 3.8rem;
+  background: #e2ff43;
+  border-radius: 50%;
+}
+.header .sel_cont .shuffle_btn img {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+/* .areaBox{width: 22rem;} */
+.areaBox .countList {
+  padding: 1rem 2rem;
+  background: beige;
+}
+.areaBox ul li {
+  font-size: 1.5rem;
+}
+.areaBox .table .thead {
+  display: flex;
+}
+.areaBox .table .thead p {
+  font-family: "GongGothic";
+  font-size: 1.5rem;
+  color: #6979f8;
+}
+.areaBox .table .thead p:last-child {
+  margin-left: 1.5rem;
+}
+.areaBox .table .tbody > li:nth-child(odd) {
+  background: #e0ddf3;
+}
+.areaBox .table .tbody li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.6rem;
+  margin-bottom: 0.3rem;
+}
+.areaBox .table .tbody > li:nth-child(even) {
+  background: #f0eeff;
+}
+.areaBox .table .tbody > li > p:first-child {
+  width: 4.4rem;
+  text-align: center;
+  line-height: 3.5rem;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background: rgba(105, 121, 248, 0.6);
+  border-radius: 0.6rem;
+}
+.areaBox .table .tbody > li div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 17.6rem;
+  padding: 0 2.4rem;
+}
+.areaBox .table .tbody > li div p,
+.areaBox .table .tbody > li div span {
+  font-family: "GongGothic";
+  font-size: 1.4rem;
+  color: #0f0f0f;
+}

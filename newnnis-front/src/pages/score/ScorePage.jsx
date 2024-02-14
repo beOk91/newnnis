@@ -1,6 +1,5 @@
-import Footer from "../../components/common/Footer";
-import Header from "../../components/common/Header";
-import "./Score.css";
+import Footer from "@/components/common/Footer";
+import Header from "@/components/common/Header";
 const ScorePage = () => {
   return (
     <>

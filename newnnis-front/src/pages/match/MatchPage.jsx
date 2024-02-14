@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import "./Match.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Header from "../../components/common/Header";
 import MatchHeader from "../../components/match/MatchHeader";
 import Matches from "../../components/match/Matches";
 import MatchParticipant from "../../components/match/MatchParticipant";
-import Footer from "../../components/common/Footer";
+import Footer from "@/components/common/Footer";
 
 const newnnisM = {
   a: [
