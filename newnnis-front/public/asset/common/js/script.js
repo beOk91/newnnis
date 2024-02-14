@@ -171,13 +171,13 @@ function organize() {
   }
   result += "</div></div>";
 
-  result += "<div class='thead'>" +
+  result += "<div class='listBox'><div class='thead'>" +
   "<p>경기횟수</p>" +
   "</div><ul class='countList'>";
   for (let member of matchCounter) {
     result += "<li>" + member.name + ": " + member.count;
   }
-  result += "</ul>";
+  result += "</ul></div>";
 
   if (selectedGroup === "agroup") {
     areaA.innerHTML = result;

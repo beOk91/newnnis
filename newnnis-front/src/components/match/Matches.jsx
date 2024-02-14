@@ -22,6 +22,8 @@ const Matches = ({ matches, matchCount }) => {
                 </>
               ))}
           </ul>
+        </div>
+        <div className="listBox">
           <div className="thead">
             {matchCount.length != 0 && <p>경기횟수</p>}
           </div>

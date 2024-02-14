@@ -33,3 +33,10 @@
 .formRadioBox label{position: relative;display: inline-block;width: 100%;line-height: 6rem;padding-left: 7.6rem;font-size: 2.4rem;letter-spacing: -0.36px;}
 .formRadioBox input[type="radio"] + label::after{content: '';display: inline-block;position: absolute;left: 0;top: 0;width: 6rem;height: 6rem;background: none;background-image: url('../images/radio_off.png');background-size: 100% 100%;}
 .formRadioBox input[type="radio"]:checked + label::after{content: '';display: inline-block;width: 6rem;height: 6rem;background: none;background-image: url('../images/radio_on.png');background-size: 100% 100%;}
+
+/*footer*/
+footer{background: #FBFBFB;}
+footer ul{display: flex;align-items: center;justify-content: center;}
+footer li{width: calc(100%/5);}
+footer li a{display: block;width: 100%;height: 100%; text-align: center;}
+footer li a img{width: 3rem;height: 3rem;margin: 0 auto;}
