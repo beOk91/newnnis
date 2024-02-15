@@ -36,10 +36,13 @@
 
 /*footer*/
 .footerMenu {
+  position: fixed;
+  bottom: 0;
   display: flex;
   justify-content: space-around;
   background-color: #FBFBFB;
-  padding: 10px 0;
+  width: 100%;
+  padding: 1rem 0;
 }
 
 .footerMenu nav{width: 100%;}

@@ -5,7 +5,7 @@
 
 
 
-
+html, body {height: 100%}
 table {font-size: 1rem;}
 table th, table td{font-size: 1.5rem;}
 ul {font-size: 1rem;}
@@ -18,7 +18,7 @@ ul {font-size: 1rem;}
 .selectBox option{color:#FFFFFF}
 .selectBox.ch_date{font-family: "GongGothic";font-size: 1.5rem; background-color: #EDEFFE;color: #6979F8;}
 
-.wrap{max-width: 75rem;margin: 0 auto;}
+.wrap{position: relative;padding-bottom: 6.2rem; max-width: 75rem;min-height: 100%; margin: 0 auto;}
 .container{padding:2.4rem;}
 
 

@@ -27,12 +27,14 @@ const Matches = ({ matches, matchCount }) => {
           <div className="thead">
             {matchCount.length != 0 && <p>경기횟수</p>}
           </div>
-          <ul className="countList">
-            {matchCount &&
-              matchCount.map((member) => (
-                <li>{member.name + ": " + member.count }</li>
-              ))}
-          </ul>
+          {matchCount.length != 0 && 
+            <ul className="countList">  
+              {matchCount &&
+                matchCount.map((member) => (
+                  <li>{member.name + ": " + member.count }</li>
+                ))}
+            </ul>
+          }
         </div>
       </div>
     </>
