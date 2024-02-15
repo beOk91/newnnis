@@ -35,8 +35,32 @@
 .formRadioBox input[type="radio"]:checked + label::after{content: '';display: inline-block;width: 6rem;height: 6rem;background: none;background-image: url('../images/radio_on.png');background-size: 100% 100%;}
 
 /*footer*/
-footer{background: #FBFBFB;}
-footer ul{display: flex;align-items: center;justify-content: center;}
-footer li{width: calc(100%/5);}
-footer li a{display: block;width: 100%;height: 100%; text-align: center;}
-footer li a img{width: 3rem;height: 3rem;margin: 0 auto;}
+.footerMenu {
+  display: flex;
+  justify-content: space-around;
+  background-color: #FBFBFB;
+  padding: 10px 0;
+}
+
+.footerMenu ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerMenu li {
+  width: calc(100%/5);
+}
+
+.footerMenu li a{
+  display: block;
+  width: 100%;
+  height: 100%; 
+  text-align: center;
+}
+
+.footerMenu img {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto;
+}
