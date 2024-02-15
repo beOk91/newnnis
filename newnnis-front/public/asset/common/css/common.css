@@ -69,3 +69,7 @@
   height: 3rem;
   margin: 0 auto;
 }
+
+.main .container{padding: 0;}
+.main .kv{background: url('../../images/kv_main.png')no-repeat top center;background-size: 100% 100%;}
+.roundBg{padding-top: 26.7rem;border-radius: 3rem 3rem 0 0;background: #FFFFFF;}

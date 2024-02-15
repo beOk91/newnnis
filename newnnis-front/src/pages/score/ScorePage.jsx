@@ -3,7 +3,7 @@ import Header from "@/components/common/Header";
 const ScorePage = () => {
   return (
     <>
-      <div className="wrap">
+      <div className="wrap score">
         <div className="container">
           <div className="header">
             <Header />
@@ -21,7 +21,12 @@ const ScorePage = () => {
                       <p>1경기</p>
                       <div>
                         <p>승원, 정래</p>
-                        <input type="number" name="" />
+                        <input 
+                          onInput={(e) => {
+                            if (e.target.value.length > e.target.maxLength)
+                              e.target.value = e.target.value.slice(0, e.target.maxLength);
+                          }}
+                        type="number" name="" maxLength={1}/>
                         <span>:</span>
                         <input type="number" name="" />
                         <p>세호, 태규</p>
