@@ -43,6 +43,8 @@ const newnnisM = {
     { name: "정진솔" },
     { name: "김나형" },
   ],
+  d: [{ name: "꼬부기" }],
+  e: [{ name: "마음이아프네" }],
 };
 
 const MatchPage = () => {
