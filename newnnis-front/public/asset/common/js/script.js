@@ -48,7 +48,7 @@ window.onload = function () {
     newMember = "";
     for (let i = 0; i < newnnisM[g].length; i++) {
       newMemberName = newnnisM[g][i];
-      newMember += '<div class="form-check">';
+      newMember += '<li class="form-check">';
       newMember +=
         '<input type="checkbox" class="form-check-input" name="' +
         g.substr(0, 1) +
@@ -65,7 +65,7 @@ window.onload = function () {
         '">' +
         newMemberName +
         "</label>";
-      newMember += "</div>";
+      newMember += "</li>";
     }
     document.getElementById(g).innerHTML += newMember;
   }

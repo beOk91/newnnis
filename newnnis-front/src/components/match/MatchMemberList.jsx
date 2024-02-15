@@ -20,29 +20,29 @@ const MatchMemberList = (props) => {
   }, [checkedItems]);
 
   return (
-    <div className="memberBox">
-      <div className="form-check">
+    <ul className="memberList">
+      <li className="form-check">
         <input
           type="checkbox"
           className="form-check-input"
           onClick={selectAll}
         />
         <label for="cbxall">ALL</label>
-      </div>
+      </li>
       {members.map((item, index) => (
-        <div className={selectedGroup}>
+        <li className={selectedGroup}>
+          <input
+            type="checkbox"
+            name={item.name}
+            checked={checkedItems[item.name] || false}
+            onChange={handleCheckboxChange}
+          />
           <label key={item.index}>
-            <input
-              type="checkbox"
-              name={item.name}
-              checked={checkedItems[item.name] || false}
-              onChange={handleCheckboxChange}
-            />
-            {item.name}
+          {item.name}
           </label>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 

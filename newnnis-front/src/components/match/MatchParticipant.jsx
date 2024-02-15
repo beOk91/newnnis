@@ -7,13 +7,11 @@ const MatchParticipant = ({ newnnisM, selectedGroup, setSelectedMember }) => {
         <div className="thead">
           <p>참가자</p>
         </div>
-        <div className="form-check">
-          <MatchMemberList
-            members={newnnisM[selectedGroup]}
-            selectedGroup={selectedGroup}
-            setSelectedMember={setSelectedMember}
-          />
-        </div>
+        <MatchMemberList
+          members={newnnisM[selectedGroup]}
+          selectedGroup={selectedGroup}
+          setSelectedMember={setSelectedMember}
+        />
       </div>
     </>
   );

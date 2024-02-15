@@ -24,6 +24,7 @@ const Footer = () => {
             <li>
               <NavLink to="/" exact activeClassName="active">
                 <img src={getIcon("/", MatchIcon, MatchIconClick)} alt="Home" />
+                <span>경기</span>
               </NavLink>
             </li>
             <li>
@@ -32,6 +33,7 @@ const Footer = () => {
                   src={getIcon("/score", ScoreIcon, ScoreIconClick)}
                   alt="Score"
                 />
+                <span>기록</span>
               </NavLink>
             </li>
             <li>
@@ -40,6 +42,7 @@ const Footer = () => {
                   src={getIcon("/rank", RankIcon, RankIconClick)}
                   alt="Rank"
                 />
+                <span>순위</span>
               </NavLink>
             </li>
             <li>
@@ -48,6 +51,7 @@ const Footer = () => {
                   src={getIcon("/member", MemberIcon, MemberIconClick)}
                   alt="Member"
                 />
+                <span>멤버</span>
               </NavLink>
             </li>
             <li>
@@ -56,6 +60,7 @@ const Footer = () => {
                   src={getIcon("/myinfo", MyInfoIcon, MyInfoIconClick)}
                   alt="MyINfo"
                 />
+                <span>내 정보</span>
               </NavLink>
             </li>
           </ul>

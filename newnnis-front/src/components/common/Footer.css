@@ -4,6 +4,9 @@
   background-color: #FBFBFB;
   padding: 10px 0;
 }
+.footerMenu nav{
+  width: 100%;
+}
 
 .footerMenu ul {
   display: flex;

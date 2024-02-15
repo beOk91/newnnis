@@ -102,8 +102,8 @@ const ScorePage = () => {
               </div>
             </div>
           </section>
-          <Footer />
         </div>
+          <Footer />
       </div>
     </>
   );

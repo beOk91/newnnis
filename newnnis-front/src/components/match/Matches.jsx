@@ -30,7 +30,7 @@ const Matches = ({ matches, matchCount }) => {
           <ul className="countList">
             {matchCount &&
               matchCount.map((member) => (
-                <li>{member.name + ": " + member.count + "경기"}</li>
+                <li>{member.name + ": " + member.count }</li>
               ))}
           </ul>
         </div>
