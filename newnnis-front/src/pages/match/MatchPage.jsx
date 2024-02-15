@@ -148,7 +148,25 @@ const MatchPage = () => {
               changeGroup={changeGroup}
               organize={organize}
               shuffleTeam={shuffleTeam}
-            />
+              screenName="게임대진"
+            >
+              <div className="sel_box">
+                <select className="selectBox" onChange={changeGroup}>
+                  <option value="a">땅</option>
+                  <option value="b">불</option>
+                  <option value="c">바람</option>
+                  <option value="d">물</option>
+                  <option value="e">마음</option>
+                </select>
+              </div>
+              <button
+                className="btn btn-primary fm_GongGothic"
+                onClick={organize}
+              >
+                {" "}
+                대진편성
+              </button>
+            </Header>
           </div>
           <section className="cont_box dp_f">
             <Matches matches={matches} matchCount={matchCount} />
