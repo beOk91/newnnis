@@ -22,6 +22,23 @@ ul {font-size: 1rem;}
 .container{padding:2.4rem;}
 
 
+/*로그인 페이지*/
+.loginBox {display: flex;justify-content: center;flex-direction: column;align-items: center;}
+.loginBox .logo{width: 12.2rem;height: 11.2rem; margin-bottom: 1.9rem; background: url('../../images/login_logo.png')no-repeat center center;background-size: 100% auto;}
+.loginBox .login_cont{width: 100%;}
+.loginBox .login_cont > div{margin-bottom: 1.4rem;}
+.loginBox .login_cont .goBtn{width: 100%;height: 5rem;border-radius: 1rem;color: #FFFFFF;font-size: 1.8rem; background: linear-gradient(92.14deg, #6979F8 0%, rgba(66, 53, 203, 0.9) 107.74%);}
+.loginBox > div input{width: 100%; background: rgba(105, 121, 248, 0.14);  border-radius: 1rem;color:rgba(105, 121, 248, 0.6); font-size: 1.5rem;font-weight: 400;height: 5rem;padding-left: 1.4rem;}
+.loginBox > div input::placeholder{color:rgba(105, 121, 248, 0.6);}
+.loginBox > div .autologin{display: flex;align-items: center;margin-bottom: 2.4rem;}
+.loginBox .autologin input[type="checkbox"]{width: 1.8rem;height: 1.8rem;}
+.loginBox .autologin input[type="checkbox"]+label{font-size: 1.3rem;margin-left: 0.6rem;}
+.loginBox .autologin input[type="checkbox"]:checked{accent-color: #6979F8;}
+.loginBox .BtnBox{display: flex;gap: 5rem;align-items: center; margin-top: 2.4rem;}
+.loginBox .BtnBox::after{position: absolute;left: 50%;margin-left: -2rem; display: block;content: '';width: 0.1rem;height: 1.5rem;background: #000000;}
+.loginBox .BtnBox button{font-size: 1.5rem;}
+
+
 /*대진표 생성*/
 
 .header .addbox{display: flex;flex-direction: row-reverse;align-items: center;justify-content: space-between;margin-bottom: 2rem;}
@@ -71,7 +88,6 @@ ul {font-size: 1rem;}
 /*게임점수*/
 .score .cont_box{max-width: 37.5rem;margin: 0 auto; padding:0 2.5rem;}
 .score .sel_cont{gap: 2rem;}
-
 .score .areaBox .table .thead p:last-child{margin-left: 10rem;}
 .score .areaBox .table .tbody li{margin-bottom: 0.6rem;}
 .score .areaBox .table .tbody > li > p:first-child{line-height: 4.2rem;}
