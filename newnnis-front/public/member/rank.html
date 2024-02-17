@@ -1,38 +1,54 @@
-import Footer from "@/components/common/Footer";
-import Header from "../../components/common/Header";
-import { useState } from "react";
-useState;
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NEWNNIS Rank</title>
 
-const RankPage = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date()); // 현재 날짜를 기본값으로 설정
-  const changeGroup = (e) => {
-    console.log("changeGroup");
-    let value = e.target.value;
-    setSelectedGroup(value);
-    setSelectedMember([]);
-  };
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  return (
-    <>
-      <div className="wrap">
-        <div className="container">
-          <div className="header">
-            <Header screenName="멤버순위">
-              <div className="sel_box">
-                <select className="selectBox" onChange={changeGroup}>
-                  <option value="a">땅</option>
-                  <option value="b">불</option>
-                  <option value="c">바람</option>
-                  <option value="d">물</option>
-                  <option value="e">마음</option>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <link rel="stylesheet" href="../asset/common/css/common.css" />
+    <link rel="stylesheet" href="../asset/common/css/reset.css" />
+    <link rel="stylesheet" href="../asset/skin/default/layout.css" />
+
+    <script src="../asset/common/js/script.js"></script>
+
+  </head>
+  
+  <body>
+    <div id="wrap" class="wrap">
+      <main class="container">
+        <div id="header" class="header">
+          <div class="kv">
+            <div class="dim"></div>
+            <div class="txt_box">
+              <h1 class="logo"></h1>
+              <h2>NEWNNIS_TENNIS</h2>
+              <h3 class="gr_cl fm_GongGothic">순위</h3>
+            </div>
+            <div class="sel_cont dp_f">
+              <div class="sel_box">
+                <select id="selectBox" class="selectBox" onchange="changeGroup(this)">
+                  <option value="agroup">N</option>
+                  <option value="bgroup">E</option>
+                  <option value="cgroup">W</option>
+                  <option value="dgroup">W</option>
+                  <option value="egroup">W</option>
                 </select>
               </div>
-            </Header>
+              
+            </div>
           </div>
-          <section className="cont_box">
-          <div className="rankBox">
-              <table className="table">
-                <thead className="thead">
+        </div>
+        
+        <section class="cont_box">
+          <div class="rankBox">
+              <table class="table">
+                <thead class="thead">
                   <tr>
                     <th>순위</th>
                     <th>이름</th>
@@ -45,7 +61,7 @@ const RankPage = () => {
                     <th>득실차</th>
                   </tr>
                 </thead>
-                <tbody className="tbody">
+                <tbody class="tbody">
                   <tr>
                     <td>1</td>
                     <td>이태규</td>
@@ -137,12 +153,8 @@ const RankPage = () => {
                 </tbody>
               </table>
           </div>
-          </section>
-        </div>
-        <Footer />
-      </div>
-    </>
-  );
-};
-
-export default RankPage;
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

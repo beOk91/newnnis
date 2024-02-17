@@ -27,6 +27,7 @@ const ScorePage = () => {
                   <option value="e">마음</option>
                 </select>
               </div>
+              <div className="sel_box">
               <DatePicker
                 selected={selectedDate} // 현재 선택된 날짜
                 onChange={(date) => setSelectedDate(date)} // 날짜가 선택되었을 때 실행할 함수
@@ -36,6 +37,7 @@ const ScorePage = () => {
                 dropdownMode="select" // 드롭다운 모드 설정
                 className="ch_date"
               />
+              </div>
             </Header>
           </div>
           <section className="cont_box">

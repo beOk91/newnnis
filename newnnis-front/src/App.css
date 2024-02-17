@@ -275,6 +275,8 @@ ul {
 }
 
 .cont_box {
+  max-width: 37.5rem;
+  margin: 0 auto;
   justify-content: space-between;
 }
 .btn-primary {
@@ -564,48 +566,8 @@ ul {
   color: #0f0f0f;
 }
 
-.rankBox .table .thead > p {
-  margin: 5px 5px;
-}
-.rankBox .table .thead > li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 0.6rem;
-  margin-bottom: 0.3rem;
-}
-.rankBox .table .thead > li > p {
-  margin: 5px 5px;
-}
-.rankBox .table .tbody li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 0.6rem;
-  margin-bottom: 0.3rem;
-  border-bottom: 1px solid #6979f8;
-}
-.rankBox .table .tbody > li > p:first-child {
-  width: 4.4rem;
-  text-align: center;
-  line-height: 3.5rem;
-  font-size: 1.2rem;
-  color: #ffffff;
-  background: rgba(105, 121, 248, 0.6);
-  border-radius: 0.6rem;
-}
-.rankBox .table .tbody > li > div {
-  display: flex;
-}
-.rankBox .table .tbody > li > p {
-  margin: 5px 5px;
-}
 /*게임점수*/
-.score .cont_box {
-  max-width: 37.5rem;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-}
+
 .score .sel_cont {
   gap: 2rem;
 }
@@ -636,3 +598,12 @@ ul {
   font-weight: 100;
   color: #0f0f0f;
 }
+
+/*순위*/
+.rankBox{}
+.rankBox table{width: 100%;	border-collapse: separate;border-spacing: 0 1rem;}
+.rankBox table thead{}
+.rankBox table thead th{font-family: 'GongGothic';font-size: 1.5rem;color: #6979F8;}
+.rankBox table tbody tr{border-bottom: 1px solid #6979f8;}
+.rankBox table tbody td{text-align: center;border-bottom: 1px solid #6979f8;}
+.rankBox table tbody td:first-child{width: 3.4rem;text-align: center;line-height: 3.5rem;font-size: 1.2rem;color: #ffffff;background: rgba(105, 121, 248, 0.6);border-radius:0.6rem 0.6rem 0rem 0.6rem;}
