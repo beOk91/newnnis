@@ -30,6 +30,14 @@
   text-align: center;
 }
 
+.footerMenu li a.active span{color: #6979F8;}
+
+.footerMenu li a span{
+  font-size: 1rem;
+  color: #A8A8A8;
+  line-height: 1.21rem;
+}
+
 .footerMenu img {
   width: 3rem;
   height: 3rem;

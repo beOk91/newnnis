@@ -349,7 +349,6 @@ ul {
 
 .header .addbox {
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2rem;
@@ -529,19 +528,17 @@ ul {
 .areaBox .table .thead p:last-child {
   margin-left: 7.5rem;
 }
-.areaBox .table .tbody > li:nth-child(odd) {
-  background: #e0ddf3;
-}
+
 .areaBox .table .tbody li {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 0.6rem;
   margin-bottom: 0.3rem;
+  background: rgba(139, 152, 255, 0.14);
+
 }
-.areaBox .table .tbody > li:nth-child(even) {
-  background: #f0eeff;
-}
+
 .areaBox .table .tbody > li > p:first-child {
   width: 4.4rem;
   text-align: center;
@@ -571,7 +568,11 @@ ul {
 .score .sel_cont {
   gap: 2rem;
 }
-
+.score .areaBox .table .thead p:last-child{
+  width: 100%;
+  margin-left: 0;
+  text-align: center;
+}
 .score .areaBox .table .tbody li {
   margin-bottom: 0.6rem;
 }

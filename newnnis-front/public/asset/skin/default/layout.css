@@ -41,7 +41,7 @@ ul {font-size: 1rem;}
 
 /*대진표 생성*/
 
-.header .addbox{display: flex;flex-direction: row-reverse;align-items: center;justify-content: space-between;margin-bottom: 2rem;}
+.header .addbox{display: flex;align-items: center;justify-content: space-between;margin-bottom: 2rem;}
 .header .addbox > .btn{width: 3.6rem;height: 3.6rem;text-align: center;display: block;padding: 0.9rem 0.9rem 0.8rem 0.8rem;background-color: #6979F8;border-radius: 1rem;}
 .header .addbox > .btn > img{width: 1.8rem;height: 1.8rem;}
 .header .addbox .addinput{display: flex;justify-content: center;align-items: center;padding: 0.3rem 0.3rem 0.3rem 0.7rem;background-color:rgba(105, 121, 248, 0.12); border-radius: 0.6rem;}
@@ -87,7 +87,7 @@ ul {font-size: 1rem;}
 
 /*게임점수*/
 .score .sel_cont{gap: 2rem;}
-.score .areaBox .table .thead p:last-child{margin-left: 10rem;}
+.score .areaBox .table .thead p:last-child{width: 100%;margin-left: 0;text-align: center;}
 .score .areaBox .table .tbody li{margin-bottom: 0.6rem;}
 .score .areaBox .table .tbody > li > p:first-child{line-height: 4.2rem;}
 .score .areaBox .table .tbody input[type="number"]{width: 2.6rem;height: 2.6rem;margin: 0 0.4rem; text-align: center; font-family: "GongGothic";font-size: 1.5rem;font-weight: 500; color: #6979F8;}
