@@ -17,6 +17,11 @@ const ScorePage = () => {
       <div className="wrap score">
         <div className="container">
           <div className="header">
+            <div className="addbox">
+              <div className="saveBtn">
+                <button type="button"><img src="../asset/images/icon_save.png" alt="저장"/></button>
+              </div>
+            </div>
             <Header screenName="게임점수">
               <div className="sel_box">
                 <select className="selectBox" onChange={changeGroup}>
