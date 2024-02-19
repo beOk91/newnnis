@@ -387,17 +387,17 @@ ul {
 .header .addbox .addinput .newMember::placeholder {
   color: rgba(105, 121, 248, 0.4);
 }
-.header .addbox .saveBtn{
+.header .addbox .saveBtn {
   width: 3.6rem;
   height: 3.6rem;
-  background: #6979F8;
+  background: #6979f8;
   border-radius: 0.6rem;
 }
-.header .addbox .saveBtn button{
+.header .addbox .saveBtn button {
   width: 100%;
   height: 100%;
 }
-.header .addbox .saveBtn button img{
+.header .addbox .saveBtn button img {
   width: 2.2rem;
   height: 2.2rem;
   margin: 0 auto;
@@ -552,7 +552,6 @@ ul {
   border-radius: 0.6rem;
   margin-bottom: 0.3rem;
   background: rgba(139, 152, 255, 0.14);
-
 }
 
 .areaBox .table .tbody > li > p:first-child {
@@ -584,7 +583,7 @@ ul {
 .score .sel_cont {
   gap: 2rem;
 }
-.score .areaBox .table .thead p:last-child{
+.score .areaBox .table .thead p:last-child {
   width: 100%;
   margin-left: 0;
   text-align: center;
@@ -617,10 +616,114 @@ ul {
 }
 
 /*순위*/
-.rankBox{}
-.rankBox table{width: 100%;	border-collapse: separate;border-spacing: 0 1rem;}
-.rankBox table thead{}
-.rankBox table thead th{font-family: 'GongGothic';font-size: 1.5rem;color: #6979F8;}
-.rankBox table tbody tr{border-bottom: 1px solid #6979f8;}
-.rankBox table tbody td{text-align: center;border-bottom: 1px solid #6979f8;}
-.rankBox table tbody td:first-child{width: 3.4rem;text-align: center;line-height: 3.5rem;font-size: 1.2rem;color: #ffffff;background: rgba(105, 121, 248, 0.6);border-radius:0.6rem 0.6rem 0rem 0.6rem;}
+.rankBox {
+}
+.rankBox table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 1rem;
+}
+.rankBox table thead {
+}
+.rankBox table thead th {
+  font-family: "GongGothic";
+  font-size: 1.5rem;
+  color: #6979f8;
+}
+.rankBox table tbody tr {
+  border-bottom: 1px solid #6979f8;
+}
+.rankBox table tbody td {
+  text-align: center;
+  border-bottom: 1px solid #6979f8;
+}
+.rankBox table tbody td:first-child {
+  width: 3.4rem;
+  text-align: center;
+  line-height: 3.5rem;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background: rgba(105, 121, 248, 0.6);
+  border-radius: 0.6rem 0.6rem 0rem 0.6rem;
+}
+
+/*로그인 페이지*/
+.loginBox {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.loginBox .logo {
+  width: 12.2rem;
+  height: 11.2rem;
+  margin-bottom: 1.9rem;
+  background: url("../../images/login_logo.png") no-repeat center center;
+  background-size: 100% auto;
+}
+.loginBox .login_cont {
+  width: 100%;
+}
+.loginBox .login_cont > div {
+  margin-bottom: 1.4rem;
+}
+.loginBox .login_cont .goBtn {
+  width: 100%;
+  height: 5rem;
+  border-radius: 1rem;
+  color: #ffffff;
+  font-size: 1.8rem;
+  background: linear-gradient(
+    92.14deg,
+    #6979f8 0%,
+    rgba(66, 53, 203, 0.9) 107.74%
+  );
+}
+.loginBox > div input {
+  width: 100%;
+  background: rgba(105, 121, 248, 0.14);
+  border-radius: 1rem;
+  color: rgba(105, 121, 248, 0.6);
+  font-size: 1.5rem;
+  font-weight: 400;
+  height: 5rem;
+  padding-left: 1.4rem;
+}
+.loginBox > div input::placeholder {
+  color: rgba(105, 121, 248, 0.6);
+}
+.loginBox > div .autologin {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.4rem;
+}
+.loginBox .autologin input[type="checkbox"] {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.loginBox .autologin input[type="checkbox"] + label {
+  font-size: 1.3rem;
+  margin-left: 0.6rem;
+}
+.loginBox .autologin input[type="checkbox"]:checked {
+  accent-color: #6979f8;
+}
+.loginBox .BtnBox {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  margin-top: 2.4rem;
+}
+.loginBox .BtnBox::after {
+  position: absolute;
+  left: 50%;
+  margin-left: -2rem;
+  display: block;
+  content: "";
+  width: 0.1rem;
+  height: 1.5rem;
+  background: #000000;
+}
+.loginBox .BtnBox button {
+  font-size: 1.5rem;
+}
