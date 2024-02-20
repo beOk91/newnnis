@@ -150,10 +150,10 @@ function organize() {
     "<div class='table' id='" +
     selectedGroup +
     "Match'>" +
-    "<div class='thead'>" +
-    "<p>경기</p>" +
-    "<p>대진팀</p>" +
-    "</div><ul class='tbody'>";
+    "<ul class='thead'>" +
+    "<li>경기</li>" +
+    "<li>대진팀</li>" +
+    "</ul><ul class='tbody'>";
 
   for (let i = 0; i < matches.length; i++) {
     result +=
@@ -171,9 +171,9 @@ function organize() {
   }
   result += "</div></div>";
 
-  result += "<div class='listBox'><div class='thead'>" +
-  "<p>경기횟수</p>" +
-  "</div><ul class='countList'>";
+  result += "<div class='listBox'><ul class='thead'>" +
+  "<li>경기횟수</li>" +
+  "</ul><ul class='countList'>";
   for (let member of matchCounter) {
     result += "<li>" + member.name + ": " + member.count;
   }

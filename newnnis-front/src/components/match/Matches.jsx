@@ -3,10 +3,10 @@ const Matches = ({ matches, matchCount }) => {
     <>
       <div className="areaBox">
         <div className="table">
-          <div className="thead">
-            {matches.length != 0 && <p>경기</p>}
-            {matches.length != 0 && <p>대진팀</p>}
-          </div>
+          <ul className="thead">
+            {matches.length != 0 && <li>경기</li>}
+            {matches.length != 0 && <li>대진팀</li>}
+          </ul>
           <ul className="tbody">
             {matches &&
               matches.map((match, index) => (
@@ -24,9 +24,9 @@ const Matches = ({ matches, matchCount }) => {
           </ul>
         </div>
         <div className="listBox">
-          <div className="thead">
-            {matchCount.length != 0 && <p>경기횟수</p>}
-          </div>
+          <ul className="thead">
+            {matchCount.length != 0 && <li>경기횟수</li>}
+          </ul>
           {matchCount.length != 0 && 
             <ul className="countList">  
               {matchCount &&

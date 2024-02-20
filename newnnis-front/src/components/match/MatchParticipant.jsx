@@ -4,9 +4,9 @@ const MatchParticipant = ({ newnnisM, selectedGroup, setSelectedMember }) => {
   return (
     <>
       <div className="memberBox">
-        <div className="thead">
-          <p>참가자</p>
-        </div>
+        <ul className="thead">
+          <li>참가자</li>
+        </ul>
         <MatchMemberList
           members={newnnisM[selectedGroup]}
           selectedGroup={selectedGroup}

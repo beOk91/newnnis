@@ -49,10 +49,10 @@ const ScorePage = () => {
             <div className="areaBox">
               <div>
                 <div className="table" id="agroupMatch">
-                  <div className="thead">
-                    <p>경기</p>
-                    <p>대진팀</p>
-                  </div>
+                  <ul className="thead">
+                    <li>경기</li>
+                    <li>대진팀</li>
+                  </ul>
                   <ul className="tbody">
                     <li>
                       <p>1경기</p>

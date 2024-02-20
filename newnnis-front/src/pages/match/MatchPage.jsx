@@ -156,11 +156,11 @@ const MatchPage = () => {
             >
               <div className="sel_box">
                 <select className="selectBox" onChange={changeGroup}>
-                  <option value="a">땅</option>
-                  <option value="b">불</option>
-                  <option value="c">바람</option>
-                  <option value="d">물</option>
-                  <option value="e">마음</option>
+                  <option value="a">마스터</option>
+                  <option value="b">투어</option>
+                  <option value="c">챌린저</option>
+                  <option value="d">파이널</option>
+                  <option value="e">엘리트</option>
                 </select>
               </div>
               <button

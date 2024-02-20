@@ -441,12 +441,13 @@ ul {
   color: #ffffff;
 }
 .header .kv .txt_box h3 {
-  margin: 1rem 0;
+  margin: 1rem 0 0;
   font-size: 3rem;
   font-weight: 500;
   color: #00e4ff;
 }
 .header .sel_cont {
+  margin-top: 1rem;
   justify-content: center;
   z-index: 1;
 }
@@ -490,14 +491,14 @@ ul {
 
 .main {background: #554bd2;}
 .main .container{padding: 0;}
-.roundBg {position: absolute;top:23.2rem;left: 0; width: 100%;/* height: calc(100% - 26.2rem); */padding: 4.9rem 6.3rem 14rem;border-radius: 3rem 3rem 0 0;background: #FFFFFF;}
+.roundBg {position: absolute;top:26.2rem;left: 0; width: 100%;/* height: calc(100% - 26.2rem); */padding: 4.9rem 6.3rem;border-radius: 3rem 3rem 0 0;background: #FFFFFF;}
 .main .kv{background: url('../../asset/images/kv_main.png')no-repeat center top;background-size: 100% auto;  height: 26.2rem;}
 
 .cont_box .thead {
   margin-bottom: 0.7rem;
   padding-left: 0.8rem;
 }
-.cont_box .thead p {
+.cont_box .thead li {
   font-family: "GongGothic";
   font-size: 1.5rem;
   color: #6979f8;
@@ -547,7 +548,7 @@ ul {
 .areaBox .table .thead {
   display: flex;
 }
-.areaBox .table .thead p:last-child {
+.areaBox .table .thead li:last-child {
   margin-left: 7.5rem;
 }
 
@@ -589,7 +590,7 @@ ul {
 .score .sel_cont {
   gap: 2rem;
 }
-.score .areaBox .table .thead p:last-child {
+.score .areaBox .table .thead li:last-child {
   width: 100%;
   margin-left: 0;
   text-align: center;
