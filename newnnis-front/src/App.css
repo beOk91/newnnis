@@ -275,7 +275,7 @@ ul {
 }
 
 .cont_box {
-  max-width: 37.5rem;
+  width: 100%;
   margin: 0 auto;
   justify-content: space-between;
 }
@@ -487,6 +487,12 @@ ul {
   height: 2.8rem;
 }
 
+
+.main {background: #554bd2;}
+.main .container{padding: 0;}
+.roundBg {position: absolute;top:23.2rem;left: 0; width: 100%;/* height: calc(100% - 26.2rem); */padding: 4.9rem 6.3rem 14rem;border-radius: 3rem 3rem 0 0;background: #FFFFFF;}
+.main .kv{background: url('../../asset/images/kv_main.png')no-repeat center top;background-size: 100% auto;  height: 26.2rem;}
+
 .cont_box .thead {
   margin-bottom: 0.7rem;
   padding-left: 0.8rem;
@@ -658,7 +664,7 @@ ul {
   width: 12.2rem;
   height: 11.2rem;
   margin-bottom: 1.9rem;
-  background: url("../../images/login_logo.png") no-repeat center center;
+  background: url("../../asset/images/login_logo.png") no-repeat center center;
   background-size: 100% auto;
 }
 .loginBox .login_cont {

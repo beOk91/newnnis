@@ -19,7 +19,7 @@ ul {font-size: 1rem;}
 
 .wrap{position: relative;padding-bottom: 6.2rem; max-width: 75rem;min-height: 100%; margin: 0 auto;}
 .container{padding:2.4rem;}
-.cont_box{max-width: 37.5rem;margin: 0 auto;justify-content: space-between;}
+.cont_box{width: 100%; margin: 0 auto;justify-content: space-between;}
 
 
 /*로그인 페이지*/
