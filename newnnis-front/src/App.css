@@ -489,7 +489,7 @@ ul {
 }
 
 
-.main {background: #554bd2;}
+.main {background: #554bd2;height: 100vh;}
 .main .container{padding: 0;}
 .roundBg {position: absolute;top:26.2rem;left: 0; width: 100%;/* height: calc(100% - 26.2rem); */padding: 4.9rem 6.3rem;border-radius: 3rem 3rem 0 0;background: #FFFFFF;}
 .main .kv{background: url('../../asset/images/kv_main.png')no-repeat center top;background-size: 100% auto;  height: 26.2rem;}
