@@ -116,6 +116,14 @@ ul {font-size: 1rem;}
 .member .cont_box .tbody > li{border-radius: 1rem;box-shadow: 0px 0px 0.9rem 0px #0000001A; margin-top: 1.5rem; padding: 1.4rem 1.2rem 1.4rem 1.5rem;}
 .member .cont_box .tbody > li:focus{border: 0.1rem solid #6979F8;}
 .member .cont_box .tbody li ul{display: flex; justify-content: space-between;align-items: center;text-align: center;}
+.member .cont_box .tbody li ul li p{font-family: 'GongGothic';font-size: 1.5rem;}
 .member .cont_box .tbody li ul li.photo{position: relative;}
 .member .cont_box .tbody li ul li.photo span{position: absolute;display: block; width: 2.1rem;height: 2.1rem; font-size: 1.2rem; color: #FFFFFF;line-height: 2.1rem; border-radius: 2.1rem; background: #6979F8;}
 .member .cont_box .tbody li ul li.photo p{width: 5rem;height: 5rem;border-radius: 5rem; background: #D9D9D9;}
+.member .cont_box .tbody li ul li.idBox p{width: 6.4rem;height: 2.4rem;line-height: 2.4rem;text-align: left;}
+.member .cont_box .tbody li ul li.idBox p.id{margin-bottom: 0.2rem;color: #A0A0A0;}
+.member .cont_box .tbody li ul li.idBox p input[type='text']{width: 100%;height: 100%; background: rgba(105, 121, 248, 0.14);}
+.member .cont_box .tbody li ul li.idBox p input[type='text']::placeholder{font-size: 1.2rem;color: rgba(105, 121, 248, 1);}
+.member .cont_box .tbody li ul li p.star{width: 1.4rem;height: 1.4rem;margin: 0 auto 0.6rem;}
+.member .cont_box .tbody li ul li select{font-size: 1.2rem;text-align: center;}
+.member .cont_box .tbody li ul li.day p{font-size: 1.2rem;}
