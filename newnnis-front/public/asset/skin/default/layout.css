@@ -127,3 +127,7 @@ ul {font-size: 1rem;}
 .member .cont_box .tbody li ul li p.star{width: 1.4rem;height: 1.4rem;margin: 0 auto 0.6rem;}
 .member .cont_box .tbody li ul li select{font-size: 1.2rem;text-align: center;}
 .member .cont_box .tbody li ul li.day p{font-size: 1.2rem;}
+
+/*내정보*/
+.mypage{height: 100vh;background: linear-gradient(180deg, rgba(105, 121, 248, 0.9) 0%, #4235CB 100%);}
+.mypage .roundBg{background: rgba(242, 242, 243, 1);}
