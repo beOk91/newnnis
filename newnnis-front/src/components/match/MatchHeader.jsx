@@ -1,9 +1,14 @@
-const MatchHeader = ({ rankAlert, addMember }) => {
+const MatchHeader = ({ addMember, saveData }) => {
+  const onClickSave = () => {
+    console.log(saveData);
+  };
   return (
     <>
       <div className="addbox">
         <div className="saveBtn">
-          <button type="button"><img src="src/assets/images/icon_save.png" alt="저장"/></button>
+          <button type="button" onClick={onClickSave}>
+            <img src="src/assets/images/icon_save.png" alt="저장" />
+          </button>
         </div>
         <div className="addinput">
           <img src="src/assets/images/icon_2.png" alt="" />

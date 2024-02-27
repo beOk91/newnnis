@@ -30,7 +30,7 @@ const RankPage = () => {
             </Header>
           </div>
           <section className="cont_box">
-          <div className="rankBox">
+            <div className="rankBox">
               <table className="table">
                 <thead className="thead">
                   <tr>
@@ -136,7 +136,7 @@ const RankPage = () => {
                   </tr>
                 </tbody>
               </table>
-          </div>
+            </div>
           </section>
         </div>
         <Footer />

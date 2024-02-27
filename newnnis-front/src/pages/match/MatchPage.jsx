@@ -146,7 +146,7 @@ const MatchPage = () => {
       <div className="wrap">
         <div className="container">
           <div className="header">
-            <MatchHeader addMember={addMember} rankAlert={rankAlert} />
+            <MatchHeader addMember={addMember} saveData={matches} />
             <button onClick={logout}>로그아웃</button>
             <Header
               changeGroup={changeGroup}

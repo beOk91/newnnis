@@ -39,10 +39,6 @@
   font-size: 10px;
   color: #000000;
 }
-html,
-body {
-  height: 100%;
-}
 html {
   -webkit-tap-highlight-color: transparent !important;
   -webkit-text-size-adjust: none;
@@ -250,6 +246,80 @@ img {
   font-family: "FSSiena", sans-serif;
 }
 
+/* checkbox */
+.form-check {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-check input[type="checkbox"] {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.form-check input[type="checkbox"]:checked {
+  accent-color: #6979f8;
+}
+.form-check label {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 2.8rem;
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  letter-spacing: -0.36px;
+}
+
+/* .form-check input[type="checkbox"] + label::after{content: '';display: inline-block;position: absolute;left: 0;top: 0;width: 60px;height: 60px;background: none;background-image: url('../images/check_off.png');background-size: 100% 100%;} */
+/* .form-check input[type="checkbox"]:checked + label::after{content: '';display: inline-block;width: 60px;height: 60px;background: none;background-image: url('../images/check_on.png');background-size: 100% 100%;} */
+
+/* radiobox */
+.formRadioBox {
+  position: relative;
+}
+.formRadioBox input[type="radio"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  width: 6rem;
+  height: 6rem;
+  background: transparent;
+  border: none;
+  appearance: none;
+}
+.formRadioBox label {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 6rem;
+  padding-left: 7.6rem;
+  font-size: 2.4rem;
+  letter-spacing: -0.36px;
+}
+.formRadioBox input[type="radio"] + label::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6rem;
+  height: 6rem;
+  background: none;
+  background-image: url("../images/radio_off.png");
+  background-size: 100% 100%;
+}
+.formRadioBox input[type="radio"]:checked + label::after {
+  content: "";
+  display: inline-block;
+  width: 6rem;
+  height: 6rem;
+  background: none;
+  background-image: url("../images/radio_on.png");
+  background-size: 100% 100%;
+}
+
+/*layout*/
 .dp_f {
   display: flex;
 }
@@ -273,10 +343,7 @@ table td {
 ul {
   font-size: 1rem;
 }
-
 .cont_box {
-  width: 100%;
-  margin: 0 auto;
   justify-content: space-between;
 }
 .btn-primary {
@@ -320,25 +387,9 @@ ul {
   background-color: #edeffe;
   color: #6979f8;
 }
-.ch_date {
-  width: 12.8rem;
-  height: 3.4rem;
-  padding: 0.5rem 0 0.5rem 1.5rem;
-  border-radius: 2.2rem;
-  border: 1px solid #6979f8;
-  font-family: "GongGothic";
-  font-size: 1.3rem;
-  background-color: #edeffe;
-  color: #6979f8;
-}
-.react-datepicker-popper {
-  z-index: 100 !important;
-}
+
 .wrap {
-  position: relative;
-  padding-bottom: 6.2rem;
   max-width: 75rem;
-  min-height: 100%;
   margin: 0 auto;
 }
 .container {
@@ -387,21 +438,6 @@ ul {
 .header .addbox .addinput .newMember::placeholder {
   color: rgba(105, 121, 248, 0.4);
 }
-.header .addbox .saveBtn {
-  width: 3.6rem;
-  height: 3.6rem;
-  background: #6979f8;
-  border-radius: 0.6rem;
-}
-.header .addbox .saveBtn button {
-  width: 100%;
-  height: 100%;
-}
-.header .addbox .saveBtn button img {
-  width: 2.2rem;
-  height: 2.2rem;
-  margin: 0 auto;
-}
 .header .kv {
   position: relative;
   padding: 1.8rem;
@@ -411,7 +447,7 @@ ul {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: url("../../asset/images/kv.jpg") no-repeat center center;
+  background: url("../../assets/images/kv.jpg") no-repeat center center;
   background-size: 100% 100%;
   overflow: hidden;
 }
@@ -432,7 +468,7 @@ ul {
 .header .kv .logo {
   width: 5.4rem;
   height: 4.4rem;
-  background: url("../../asset/images/logo.png") no-repeat center center;
+  background: url("../../assets/images/logo.png") no-repeat center center;
   background-size: 100% auto;
 }
 .header .kv .txt_box h2 {
@@ -441,13 +477,12 @@ ul {
   color: #ffffff;
 }
 .header .kv .txt_box h3 {
-  margin: 1rem 0 0;
+  margin: 1rem 0;
   font-size: 3rem;
   font-weight: 500;
   color: #00e4ff;
 }
 .header .sel_cont {
-  margin-top: 1rem;
   justify-content: center;
   z-index: 1;
 }
@@ -463,7 +498,7 @@ ul {
   content: "";
   width: 1.4rem;
   height: 1.4rem;
-  background: url("../../asset/images/icon_4.png") no-repeat center center;
+  background: url("../../assets/images/icon_4.png") no-repeat center center;
   background-size: 100% 100%;
 }
 .header .sel_cont .btn-primary {
@@ -488,64 +523,19 @@ ul {
   height: 2.8rem;
 }
 
-.main {
-  background: #ffffff;
-  height: 100vh;
-}
-.main .container {
-  padding: 0;
-}
-.roundBg {
-  position: absolute;
-  top: 26.2rem;
-  left: 0;
-  width: 100%;
-  height: calc(100vh - 26.2rem);
-  padding: 4.9rem 6.3rem 14rem;
-  border-radius: 3rem 3rem 0 0;
-  background: #ffffff;
-}
-.main .kv {
-  background: url("../../asset/images/kv_main.png") no-repeat center top;
-  background-size: 100% auto;
-  height: 66.7rem;
-}
-
 .cont_box .thead {
   margin-bottom: 0.7rem;
   padding-left: 0.8rem;
 }
-.cont_box .thead li {
+.cont_box .thead p {
   font-family: "GongGothic";
   font-size: 1.5rem;
   color: #6979f8;
 }
-
-.memberBox .memberList {
+/* .areaBox{width: 22rem;} */
+.memberBox .thead {
+  padding: 0;
 }
-.memberBox .memberList li {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.memberBox .memberList li input[type="checkbox"] {
-  width: 1.8rem;
-  height: 1.8rem;
-}
-.memberBox .memberList li input[type="checkbox"]:checked {
-  accent-color: #6979f8;
-}
-.memberBox .memberList li label {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  line-height: 2.8rem;
-  padding-left: 1rem;
-  font-size: 1.5rem;
-  letter-spacing: -0.36px;
-}
-
 .areaBox .countList {
   padding: 1.6rem 2rem;
   column-count: 3;
@@ -565,19 +555,22 @@ ul {
 .areaBox .table .thead {
   display: flex;
 }
-.areaBox .table .thead li:last-child {
+.areaBox .table .thead p:last-child {
   margin-left: 7.5rem;
 }
-
+.areaBox .table .tbody > li:nth-child(odd) {
+  background: #e0ddf3;
+}
 .areaBox .table .tbody li {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 0.6rem;
   margin-bottom: 0.3rem;
-  background: rgba(139, 152, 255, 0.14);
 }
-
+.areaBox .table .tbody > li:nth-child(even) {
+  background: #f0eeff;
+}
 .areaBox .table .tbody > li > p:first-child {
   width: 4.4rem;
   text-align: center;
@@ -603,15 +596,13 @@ ul {
 }
 
 /*게임점수*/
-
+.score .cont_box {
+  padding: 0 2.5rem;
+}
 .score .sel_cont {
   gap: 2rem;
 }
-.score .areaBox .table .thead li:last-child {
-  width: 100%;
-  margin-left: 0;
-  text-align: center;
-}
+
 .score .areaBox .table .tbody li {
   margin-bottom: 0.6rem;
 }
@@ -637,214 +628,4 @@ ul {
   font-size: 1.5rem;
   font-weight: 100;
   color: #0f0f0f;
-}
-
-/*순위*/
-.rankBox {
-}
-.rankBox table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 1rem;
-}
-.rankBox table thead {
-}
-.rankBox table thead th {
-  font-family: "GongGothic";
-  font-size: 1.5rem;
-  color: #6979f8;
-}
-.rankBox table tbody tr {
-  border-bottom: 1px solid #6979f8;
-}
-.rankBox table tbody td {
-  text-align: center;
-  border-bottom: 1px solid #6979f8;
-}
-.rankBox table tbody td:first-child {
-  width: 3.4rem;
-  text-align: center;
-  line-height: 3.5rem;
-  font-size: 1.2rem;
-  color: #ffffff;
-  background: rgba(105, 121, 248, 0.6);
-  border-radius: 0.6rem 0.6rem 0rem 0.6rem;
-}
-
-/*로그인 페이지*/
-.loginBox {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-.loginBox .logo {
-  width: 12.2rem;
-  height: 11.2rem;
-  margin-bottom: 1.9rem;
-  background: url("../../asset/images/login_logo.png") no-repeat center center;
-  background-size: 100% auto;
-}
-.loginBox .login_cont {
-  width: 100%;
-}
-.loginBox .login_cont > div {
-  margin-bottom: 1.4rem;
-}
-.loginBox .login_cont .goBtn {
-  width: 100%;
-  height: 5rem;
-  border-radius: 1rem;
-  color: #ffffff;
-  font-size: 1.8rem;
-  background: linear-gradient(
-    92.14deg,
-    #6979f8 0%,
-    rgba(66, 53, 203, 0.9) 107.74%
-  );
-}
-.loginBox > div input {
-  width: 100%;
-  background: rgba(105, 121, 248, 0.14);
-  border-radius: 1rem;
-  color: rgba(105, 121, 248, 0.6);
-  font-size: 1.5rem;
-  font-weight: 400;
-  height: 5rem;
-  padding-left: 1.4rem;
-}
-.loginBox > div input::placeholder {
-  color: rgba(105, 121, 248, 0.6);
-}
-.loginBox > div .autologin {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2.4rem;
-}
-.loginBox .autologin input[type="checkbox"] {
-  width: 1.8rem;
-  height: 1.8rem;
-}
-.loginBox .autologin input[type="checkbox"] + label {
-  font-size: 1.3rem;
-  margin-left: 0.6rem;
-}
-.loginBox .autologin input[type="checkbox"]:checked {
-  accent-color: #6979f8;
-}
-.loginBox .BtnBox {
-  display: flex;
-  gap: 5rem;
-  align-items: center;
-  margin-top: 2.4rem;
-}
-.loginBox .BtnBox::after {
-  position: absolute;
-  left: 50%;
-  margin-left: -2rem;
-  display: block;
-  content: "";
-  width: 0.1rem;
-  height: 1.5rem;
-  background: #000000;
-}
-.loginBox .BtnBox button {
-  font-size: 1.5rem;
-}
-/*회원리스트*/
-
-.member .kv .txt_box h3 {
-  color: #ffffff;
-}
-.member .setBtn {
-  position: absolute;
-  bottom: 1.8rem;
-  width: 6.8rem;
-  height: 3.4rem;
-  line-height: 3.4rem;
-  background: #6979f8;
-  border-radius: 1.7rem;
-  font-size: 1.5rem;
-  color: #ffffff;
-}
-.member .setBtn.plus {
-  left: 1.8rem;
-}
-.member .setBtn.minus {
-  right: 1.8rem;
-}
-.member .cont_box .thead {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 1.8rem 0 1.2rem;
-}
-.member .cont_box .tbody > li {
-  border-radius: 1rem;
-  box-shadow: 0px 0px 0.9rem 0px #0000001a;
-  margin-top: 1.5rem;
-  padding: 1.4rem 1.2rem 1.4rem 1.5rem;
-}
-.member .cont_box .tbody > li:focus {
-  border: 0.1rem solid #6979f8;
-}
-.member .cont_box .tbody li ul {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-}
-.member .cont_box .tbody li ul li p {
-  font-family: "GongGothic";
-  font-size: 1.5rem;
-}
-.member .cont_box .tbody li ul li.photo {
-  position: relative;
-}
-.member .cont_box .tbody li ul li.photo span {
-  position: absolute;
-  display: block;
-  width: 2.1rem;
-  height: 2.1rem;
-  font-size: 1.2rem;
-  color: #ffffff;
-  line-height: 2.1rem;
-  border-radius: 2.1rem;
-  background: #6979f8;
-}
-.member .cont_box .tbody li ul li.photo p {
-  width: 5rem;
-  height: 5rem;
-  border-radius: 5rem;
-  background: #d9d9d9;
-}
-.member .cont_box .tbody li ul li.idBox p {
-  width: 6.4rem;
-  height: 2.4rem;
-  line-height: 2.4rem;
-  text-align: left;
-}
-.member .cont_box .tbody li ul li.idBox p.id {
-  margin-bottom: 0.2rem;
-  color: #a0a0a0;
-}
-.member .cont_box .tbody li ul li.idBox p input[type="text"] {
-  width: 100%;
-  height: 100%;
-  background: rgba(105, 121, 248, 0.14);
-}
-.member .cont_box .tbody li ul li.idBox p input[type="text"]::placeholder {
-  font-size: 1.2rem;
-  color: rgba(105, 121, 248, 1);
-}
-.member .cont_box .tbody li ul li p .star {
-  width: 1.4rem;
-  height: 1.4rem;
-  margin: 0 auto 0.6rem;
-}
-.member .cont_box .tbody li ul li select {
-  font-size: 1.2rem;
-  text-align: center;
-}
-.member .cont_box .tbody li ul li.day p {
-  font-size: 1.2rem;
 }
