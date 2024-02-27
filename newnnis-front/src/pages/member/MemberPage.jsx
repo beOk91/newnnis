@@ -6,7 +6,7 @@ const MemberPage = () => {
   const changeGroup = () => {};
   return (
     <>
-      <div className="wrap">
+      <div className="wrap member">
         <div className="container">
           <div className="header">
             <Header screenName="멤버">
