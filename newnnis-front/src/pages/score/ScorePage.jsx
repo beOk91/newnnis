@@ -45,7 +45,7 @@ const ScorePage = () => {
               </div>
             </Header>
           </div>
-          <section className="cont_box">
+          <section className="sec_box">
             <div className="areaBox">
               <div>
                 <div className="table" id="agroupMatch">

@@ -4,7 +4,7 @@ const MyInfoPage = () => {
     <>
       <div className="wrap">
         <div className="container">
-          내정보페이지
+        <button onClick={logout}>로그아웃</button>
           <Footer />
         </div>
       </div>

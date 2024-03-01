@@ -10,21 +10,12 @@ const MemberPage = () => {
         <div className="container">
           <div className="header">
             <Header screenName="멤버">
-              <div className="sel_box">
-                <select className="selectBox" onChange={changeGroup}>
-                  <option value="a">땅</option>
-                  <option value="b">불</option>
-                  <option value="c">바람</option>
-                  <option value="d">물</option>
-                  <option value="e">마음</option>
-                </select>
-              </div>
               <button className="setBtn plus">+ 추가</button>
               <h3 className="gr_cl fm_GongGothic">멤버</h3>
               <button className="setBtn minus">- 삭제</button>
             </Header>
           </div>
-          <section className="cont_box">
+          <section className="sec_box">
             <div>
               <div className="table">
                 <ul className="thead">

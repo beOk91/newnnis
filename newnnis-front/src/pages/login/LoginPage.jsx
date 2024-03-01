@@ -28,7 +28,7 @@ const LoginPage = () => {
         <main className="container">
           <div className="kv"></div>
 
-          <section className="cont_box roundBg">
+          <section className="sec_box roundBg">
             <div className="loginBox">
               <div className="logo"></div>
               <div className="login_cont">

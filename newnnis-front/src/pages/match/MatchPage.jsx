@@ -172,7 +172,7 @@ const MatchPage = () => {
               </button>
             </Header>
           </div>
-          <section className="cont_box dp_f">
+          <section className="sec_box dp_f">
             <Matches matches={matches} matchCount={matchCount} />
             <MatchParticipant
               newnnisM={newnnisM}
