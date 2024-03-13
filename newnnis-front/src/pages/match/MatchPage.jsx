@@ -5,7 +5,7 @@ import MatchHeader from "../../components/match/MatchHeader";
 import Matches from "../../components/match/Matches";
 import MatchParticipant from "../../components/match/MatchParticipant";
 import Footer from "@/components/common/Footer";
-import { useAuth } from "@/context/AuthContext";
+
 const newnnisM = {
   a: [
     { name: "이태규" },
@@ -52,7 +52,7 @@ const MatchPage = () => {
   const [selectedMember, setSelectedMember] = useState([]);
   const [matches, setMatches] = useState([]);
   const [matchCount, setMatchCount] = useState([]);
-  const { logout } = useAuth();
+
   const changeGroup = (e) => {
     console.log("changeGroup");
     let value = e.target.value;
@@ -147,7 +147,7 @@ const MatchPage = () => {
         <div className="container">
           <div className="header">
             <MatchHeader addMember={addMember} saveData={matches} />
-            <button onClick={logout}>로그아웃</button>
+
             <Header
               changeGroup={changeGroup}
               organize={organize}

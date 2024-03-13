@@ -1,5 +1,8 @@
+import { getTest } from "../../api/newnnis";
+
 const MatchHeader = ({ addMember, saveData }) => {
   const onClickSave = () => {
+    getTest();
     console.log(saveData);
   };
   return (
