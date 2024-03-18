@@ -22,13 +22,13 @@ const Footer = () => {
         <nav>
           <ul>
             <li>
-              <NavLink to="/" exact activeClassName="active">
+              <NavLink to="/" className="active">
                 <img src={getIcon("/", MatchIcon, MatchIconClick)} alt="Home" />
                 <span>경기</span>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/score" activeClassName="active">
+              <NavLink to="/score" className="active">
                 <img
                   src={getIcon("/score", ScoreIcon, ScoreIconClick)}
                   alt="Score"
@@ -37,7 +37,7 @@ const Footer = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/rank" activeClassName="active">
+              <NavLink to="/rank" className="active">
                 <img
                   src={getIcon("/rank", RankIcon, RankIconClick)}
                   alt="Rank"
@@ -46,7 +46,7 @@ const Footer = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/member" activeClassName="active">
+              <NavLink to="/member" className="active">
                 <img
                   src={getIcon("/member", MemberIcon, MemberIconClick)}
                   alt="Member"
@@ -55,7 +55,7 @@ const Footer = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/myinfo" activeClassName="active">
+              <NavLink to="/myinfo" className="active">
                 <img
                   src={getIcon("/myinfo", MyInfoIcon, MyInfoIconClick)}
                   alt="MyINfo"

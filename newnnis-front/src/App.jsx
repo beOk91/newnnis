@@ -9,35 +9,38 @@ import LoginPage from "@/pages/login/LoginPage";
 // import Loading from "./components/common/Loading";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import AuthProvider from "@/context/AuthContext";
+import { UserProvider } from "@/context/UserContext"; // 경로는 실제 구조에 맞게 조정
 function App() {
   return (
     <>
       <AuthProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/login" element={<LoginPage />} />
-            <Route
-              path="/"
-              element={<ProtectedRoute element={<MatchPage />} />}
-            />
-            <Route
-              path="/score"
-              element={<ProtectedRoute element={<ScorePage />} />}
-            />
-            <Route
-              path="/rank"
-              element={<ProtectedRoute element={<RankPage />} />}
-            />{" "}
-            <Route
-              path="/member"
-              element={<ProtectedRoute element={<MemberPage />} />}
-            />
-            <Route
-              path="/myinfo"
-              element={<ProtectedRoute element={<MyInfoPage />} />}
-            />
-          </Routes>
-        </BrowserRouter>
+        <UserProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/login" element={<LoginPage />} />
+              <Route
+                path="/"
+                element={<ProtectedRoute element={<MatchPage />} />}
+              />
+              <Route
+                path="/score"
+                element={<ProtectedRoute element={<ScorePage />} />}
+              />
+              <Route
+                path="/rank"
+                element={<ProtectedRoute element={<RankPage />} />}
+              />{" "}
+              <Route
+                path="/member"
+                element={<ProtectedRoute element={<MemberPage />} />}
+              />
+              <Route
+                path="/myinfo"
+                element={<ProtectedRoute element={<MyInfoPage />} />}
+              />
+            </Routes>
+          </BrowserRouter>
+        </UserProvider>
       </AuthProvider>
     </>
   );

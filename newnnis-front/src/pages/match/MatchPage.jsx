@@ -5,54 +5,56 @@ import MatchHeader from "../../components/match/MatchHeader";
 import Matches from "../../components/match/Matches";
 import MatchParticipant from "../../components/match/MatchParticipant";
 import Footer from "@/components/common/Footer";
+import { useUsers } from "@/context/UserContext";
 
-const newnnisM = {
-  a: [
-    { name: "이태규" },
-    { name: "정진호" },
-    { name: "김정래" },
-    { name: "한용진" },
-    { name: "김승원" },
-    { name: "김세호" },
-    { name: "김성구" },
-    { name: "황주현" },
-    { name: "전룡재" },
-    { name: "송영주" },
-  ],
-  b: [
-    { name: "조민재" },
-    { name: "양인석" },
-    { name: "장현수" },
-    { name: "장승현" },
-    { name: "신수현" },
-    { name: "정영호" },
-    { name: "김준수" },
-    { name: "황태훈" },
-    { name: "김용희" },
-    { name: "고범석" },
-  ],
-  c: [
-    { name: "박지해" },
-    { name: "배민지" },
-    { name: "남아름" },
-    { name: "김예슬" },
-    { name: "고경년" },
-    { name: "심정은" },
-    { name: "김예진" },
-    { name: "송희정" },
-    { name: "정진솔" },
-    { name: "김나형" },
-  ],
-  d: [{ name: "꼬부기" }],
-  e: [{ name: "마음이아프네" }],
-};
+// const newnnisM = {
+//   a: [
+//     { name: "이태규" },
+//     { name: "정진호" },
+//     { name: "김정래" },
+//     { name: "한용진" },
+//     { name: "김승원" },
+//     { name: "김세호" },
+//     { name: "김성구" },
+//     { name: "황주현" },
+//     { name: "전룡재" },
+//     { name: "송영주" },
+//   ],
+//   b: [
+//     { name: "조민재" },
+//     { name: "양인석" },
+//     { name: "장현수" },
+//     { name: "장승현" },
+//     { name: "신수현" },
+//     { name: "정영호" },
+//     { name: "김준수" },
+//     { name: "황태훈" },
+//     { name: "김용희" },
+//     { name: "고범석" },
+//   ],
+//   c: [
+//     { name: "박지해" },
+//     { name: "배민지" },
+//     { name: "남아름" },
+//     { name: "김예슬" },
+//     { name: "고경년" },
+//     { name: "심정은" },
+//     { name: "김예진" },
+//     { name: "송희정" },
+//     { name: "정진솔" },
+//     { name: "김나형" },
+//   ],
+//   d: [{ name: "꼬부기" }],
+//   e: [{ name: "마음이아프네" }],
+// };
 
 const MatchPage = () => {
-  const [selectedGroup, setSelectedGroup] = useState("a");
+  const [selectedGroup, setSelectedGroup] = useState("Master");
   const [selectedMember, setSelectedMember] = useState([]);
   const [matches, setMatches] = useState([]);
   const [matchCount, setMatchCount] = useState([]);
-
+  const { users, loading } = useUsers(); // loading 상태 추가
+  const [newnnisM, setNewnnisM] = useState(users);
   const changeGroup = (e) => {
     console.log("changeGroup");
     let value = e.target.value;
@@ -61,6 +63,8 @@ const MatchPage = () => {
   };
 
   const organize = () => {
+    setMatches([]);
+    setMatchCount([]);
     // const selectedGroup = document.getElementById("selectBox").value;
     let checkdElement = Object.keys(selectedMember);
     console.log("checkedElement", checkdElement);
@@ -134,12 +138,20 @@ const MatchPage = () => {
     //수정필요
     alert("셔플");
   };
-  const rankAlert = () => {};
   const addMember = () => {};
 
   useEffect(() => {
     setMatches([]);
   }, [selectedGroup]);
+
+  useEffect(() => {
+    // 로컬 스토리지에서 데이터 가져오기
+    const storedData = localStorage.getItem("newnnisM");
+    if (storedData) {
+      // 로컬 스토리지에 저장된 데이터가 있으면 JSON 형태로 파싱하여 상태 설정
+      setNewnnisM(JSON.parse(storedData));
+    }
+  }, []);
 
   return (
     <>
@@ -156,11 +168,11 @@ const MatchPage = () => {
             >
               <div className="sel_box">
                 <select className="selectBox" onChange={changeGroup}>
-                  <option value="a">마스터</option>
-                  <option value="b">투어</option>
-                  <option value="c">챌린저</option>
-                  <option value="d">파이널</option>
-                  <option value="e">엘리트</option>
+                  <option value="Master">마스터</option>
+                  <option value="Tour">투어</option>
+                  <option value="Challenger">챌린저</option>
+                  <option value="Final">파이널</option>
+                  <option value="Elite">엘리트</option>
                 </select>
               </div>
               <button

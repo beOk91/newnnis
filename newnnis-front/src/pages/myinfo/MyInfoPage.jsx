@@ -108,7 +108,9 @@ const MyInfoPage = () => {
                 </div>
               </div>
             </div>
-            <button className="logout">로그아웃</button>
+            <button className="logout" onClick={logout}>
+              로그아웃
+            </button>
           </section>
           <Footer />
         </div>

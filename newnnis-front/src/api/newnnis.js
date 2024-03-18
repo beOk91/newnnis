@@ -2,23 +2,29 @@ import axios from "axios";
 
 const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
 
-const getUserList = async () => {
-  try {
-    const response = await axios.get(`${apiUrl}/user/getAllUsers`);
-    console.log("response", res);
-  } catch (error) {
-    console.error("Failed to fetch data list:", error);
-    throw error;
-  }
+const searchAllUsers = async () => {
+  console.log(`${apiUrl}/user/searchAllUsers`);
+  return axios
+    .get(`${apiUrl}/user/searchAllUsers`) // 환경 변수를 사용하여 전체 URL 구성
+    .then((response) => response.data);
 };
 
-export const getTest = async () => {
-  try {
-    const response = await axios.get("http://localhost:8080/test");
-    console.log(response.data); // 응답 데이터 처리
-  } catch (error) {
-    console.error("There was an error!", error);
-  }
+const searchRankByGroup = async (params) => {
+  console.log(`${apiUrl}/user/searchRankByGroup`);
+  return axios
+    .get(`${apiUrl}/gameHistory/searchRankByGroup`, {
+      params: params,
+    }) // 환경 변수를 사용하여 전체 URL 구성
+    .then((response) => response.data);
 };
 
-export { getUserList };
+const searchMatches = async (params) => {
+  console.log(`${apiUrl}/match/searchMatches`);
+  return axios
+    .get(`${apiUrl}/match/searchMatches`, {
+      params: params,
+    }) // 환경 변수를 사용하여 전체 URL 구성
+    .then((response) => response.data);
+};
+
+export { searchAllUsers, searchRankByGroup, searchMatches };

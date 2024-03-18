@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
+import { useUsers } from "@/context/UserContext";
+
 import { useNavigate } from "react-router-dom";
+import { searchAllUsers } from "@/api/newnnis";
 
 const LoginPage = () => {
   const [id, setId] = useState("");
   const [pwd, setPwd] = useState("");
   const navigate = useNavigate();
   const { login } = useAuth();
-  const onClickLogin = () => {
-    console.log(id, "id");
-    console.log(pwd, "pwd");
+  const { setUsers } = useUsers();
+  const onClickLogin = async () => {
+    console.log(id, "id", pwd, "pwd");
     if (id === "admin" && pwd === "1234") {
       login(
         "token_" +
@@ -18,6 +21,24 @@ const LoginPage = () => {
       );
       navigate("/");
       alert("로그인 성공!");
+      try {
+        const response = await searchAllUsers(); // await 사용하여 호출
+        if (response.status === 200) {
+          const filteredData = response.data.reduce((acc, cur) => {
+            if (acc[cur.userGroup]) {
+              acc[cur.userGroup].push({ name: cur.name });
+            } else {
+              acc[cur.userGroup] = [{ name: cur.name }];
+            }
+            return acc;
+          }, {});
+          console.log("filteredData", filteredData);
+          setUsers(filteredData);
+          localStorage.setItem("newnnisM", JSON.stringify(filteredData));
+        }
+      } catch (error) {
+        console.error("Failed to fetch users:", error);
+      }
     } else {
       alert("비밀번호가 틀렸습니다!");
     }
