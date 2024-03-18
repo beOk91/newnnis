@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newnnis.mapper.GameHistoryMapper">
+    <insert id="insertGameHistory" parameterType="com.newnnis.dto.GameHistory">
+        INSERT INTO GAME_HISTORY (HISTORY_ID, MATCH_SEQ, USER_ID, PARTNER_ID, IS_WIN, `GROUP`, MATCH_POINT, MATCH_DATE)
+        VALUES (#{historyId}, #{matchSeq}, #{userId}, #{partnerId}, #{isWin}, #{group}, #{matchPoint}, #{matchDate})
+    </insert>
+   <select id="selectRankByGroup" parameterType="map" resultType="com.newnnis.dto.GameHistory">
+    SELECT 
+        u.ID,
+        u.NAME,
+        COALESCE(SUM(CASE WHEN gh.IS_WIN = 'Y' THEN 3 ELSE 0 END), 0) + 
+        COALESCE(SUM(CASE WHEN gh.IS_WIN = 'N' THEN 1 ELSE 0 END), 0) AS win_points,
+        COALESCE(SUM(CASE WHEN gh.IS_WIN = 'Y' THEN 1 ELSE 0 END), 0) AS win_count,
+        COALESCE(SUM(CASE WHEN gh.IS_WIN = 'N' THEN 1 ELSE 0 END), 0) AS lose_count,
+        COALESCE(COUNT(MATCH_POINT),0)	AS match_count,
+        COALESCE(SUM(gh.MATCH_POINT), 0) AS point_count,
+        COALESCE(SUM(gh.CONCEDE), 0) AS concede_count
+    FROM 
+        newnnis.USERS u
+    LEFT JOIN 
+        (
+        SELECT 
+            *
+        FROM 
+            (
+            SELECT 
+                *,
+                (@row_number := IF(@prev_user = USER_ID, @row_number + 1, 1)) AS row_num,
+                (@prev_user := USER_ID)
+            FROM 
+                (SELECT * FROM GAME_HISTORY WHERE DATE_FORMAT(MATCH_DATE, '%Y-%m') = DATE_FORMAT(CURDATE(), '%Y-%m') ORDER BY USER_ID, MATCH_DATE) AS sorted_data,
+                (SELECT @row_number := 0, @prev_user := NULL) AS vars
+            ) AS ranked_data
+        WHERE 
+            row_num &lt;= 3
+        ) AS gh ON u.ID = gh.USER_ID
+    <where>
+        <if test="userGroup != null">
+            AND u.USER_GROUP = #{userGroup}
+        </if>
+    </where>
+    GROUP BY 
+        u.ID, u.NAME
+    ORDER BY 
+        win_points DESC,point_count-concede_count desc;
+</select>
+
+    <select id="selectGameHistoryById" parameterType="int" resultType="com.newnnis.dto.GameHistory">
+        SELECT * FROM GAME_HISTORY WHERE HISTORY_ID = #{historyId}
+    </select>
+    
+    <select id="selectAllGameHistories" resultType="com.newnnis.dto.GameHistory">
+        SELECT * FROM GAME_HISTORY
+    </select>
+    
+    <update id="updateGameHistory" parameterType="com.newnnis.dto.GameHistory">
+        UPDATE GAME_HISTORY
+        SET MATCH_SEQ=#{matchSeq}, USER_ID=#{userId}, PARTNER_ID=#{partnerId}, IS_WIN=#{isWin}, `GROUP`=#{group}, MATCH_POINT=#{matchPoint}, MATCH_DATE=#{matchDate}
+        WHERE HISTORY_ID=#{historyId}
+    </update>
+    
+    <delete id="deleteGameHistory" parameterType="int">
+        DELETE FROM GAME_HISTORY WHERE HISTORY_ID = #{historyId}
+    </delete>
+</mapper>

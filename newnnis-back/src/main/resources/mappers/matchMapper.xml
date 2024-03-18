@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.newnnis.mapper.MatchMapper">
+
+    <select id="selectMatchesByGroupAndDate" parameterType="map" resultType="com.newnnis.dto.Match">
+        SELECT 
+        		m.MATCH_SEQ, 
+        		m.MATCH_DATE, 
+        		m.SCORE1, 
+        		m.SCORE2, 
+        		m.USER1_ID,
+        		u1.NAME AS USER1_NAME,
+        		m.USER2_ID, 
+        		u2.NAME AS USER2_NAME,
+        		m.USER3_ID, 
+        		u3.NAME AS USER3_NAME,
+        		m.USER4_ID, 
+        		u4.NAME AS USER4_NAME,
+        		m.USER_GROUP
+        FROM newnnis.MATCHES m
+        	LEFT JOIN USERS u1 ON m.USER1_ID = u1.ID
+        	LEFT JOIN USERS u2 ON m.USER2_ID = u2.ID
+        	LEFT JOIN USERS u3 ON m.USER3_ID = u3.ID
+        	LEFT JOIN USERS u4 ON m.USER4_ID = u4.ID
+        WHERE m.USER_GROUP = #{userGroup} AND DATE_FORMAT(MATCH_DATE, '%Y%m%d') = #{matchDate}
+        ORDER BY MATCH_SEQ ASC
+    </select>
+
+</mapper>
