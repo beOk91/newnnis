@@ -1,7 +1,6 @@
-const MatchHeader = ({ addMember, saveData }) => {
+const MatchHeader = ({ addMember, save }) => {
   const onClickSave = () => {
-    // getTest();
-    console.log(saveData);
+    save();
   };
   return (
     <>

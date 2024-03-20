@@ -1,10 +1,4 @@
-const Header = ({
-  changeGroup,
-  organize,
-  shuffleTeam,
-  screenName,
-  children,
-}) => {
+const Header = ({ changeGroup, organize, screenName, children }) => {
   return (
     <>
       <div className="kv">

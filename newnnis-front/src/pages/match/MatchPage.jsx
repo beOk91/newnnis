@@ -5,67 +5,32 @@ import MatchHeader from "../../components/match/MatchHeader";
 import Matches from "../../components/match/Matches";
 import MatchParticipant from "../../components/match/MatchParticipant";
 import Footer from "@/components/common/Footer";
-import { useUsers } from "@/context/UserContext";
-
-// const newnnisM = {
-//   a: [
-//     { name: "이태규" },
-//     { name: "정진호" },
-//     { name: "김정래" },
-//     { name: "한용진" },
-//     { name: "김승원" },
-//     { name: "김세호" },
-//     { name: "김성구" },
-//     { name: "황주현" },
-//     { name: "전룡재" },
-//     { name: "송영주" },
-//   ],
-//   b: [
-//     { name: "조민재" },
-//     { name: "양인석" },
-//     { name: "장현수" },
-//     { name: "장승현" },
-//     { name: "신수현" },
-//     { name: "정영호" },
-//     { name: "김준수" },
-//     { name: "황태훈" },
-//     { name: "김용희" },
-//     { name: "고범석" },
-//   ],
-//   c: [
-//     { name: "박지해" },
-//     { name: "배민지" },
-//     { name: "남아름" },
-//     { name: "김예슬" },
-//     { name: "고경년" },
-//     { name: "심정은" },
-//     { name: "김예진" },
-//     { name: "송희정" },
-//     { name: "정진솔" },
-//     { name: "김나형" },
-//   ],
-//   d: [{ name: "꼬부기" }],
-//   e: [{ name: "마음이아프네" }],
-// };
+import DatePicker from "react-datepicker";
+import { saveMatches } from "../../api/newnnis";
 
 const MatchPage = () => {
   const [selectedGroup, setSelectedGroup] = useState("Master");
   const [selectedMember, setSelectedMember] = useState([]);
-  const [matches, setMatches] = useState([]);
-  const [matchCount, setMatchCount] = useState([]);
-  const { users, loading } = useUsers(); // loading 상태 추가
-  const [newnnisM, setNewnnisM] = useState(users);
+  const [matches, setMatches] = useState({});
+  const [matchCount, setMatchCount] = useState({});
+  const [newnnisM, setNewnnisM] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(() => {
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // 오늘의 요일 (0: 일요일, 1: 월요일, ..., 6: 토요일)
+    const difference = (7 - dayOfWeek) % 7; // 다음 일요일까지 남은 일수. 이미 일요일이면 0
+
+    today.setDate(today.getDate() + difference); // 다음 일요일로 날짜 조정
+    today.setHours(0, 0, 0, 0); // 시간을 00:00:00.000으로 설정
+
+    return today;
+  });
   const changeGroup = (e) => {
-    console.log("changeGroup");
     let value = e.target.value;
     setSelectedGroup(value);
     setSelectedMember([]);
   };
 
   const organize = () => {
-    setMatches([]);
-    setMatchCount([]);
-    // const selectedGroup = document.getElementById("selectBox").value;
     let checkdElement = Object.keys(selectedMember);
     console.log("checkedElement", checkdElement);
     //4명이상인 경우 매칭 가능
@@ -90,7 +55,7 @@ const MatchPage = () => {
     }
 
     const duoCheck = new Set();
-    const matches = [];
+    const generatedMatch = [];
     while (!allPlayersPlayedEnough(matchCounter)) {
       matchCounter.sort((a, b) => a.count - b.count);
       const minPlayer = matchCounter.filter(
@@ -125,24 +90,66 @@ const MatchPage = () => {
         }
       }
 
-      matches.push(match);
+      generatedMatch.push(match);
     }
-    for (let i = 0; i < 5; i++) {
-      matches.sort(() => Math.random() - 0.5);
-    }
-    console.log("Generated Matches:", matches);
-    setMatches(matches);
-    setMatchCount(matchCounter);
-  };
-  const shuffleTeam = () => {
-    //수정필요
-    alert("셔플");
-  };
-  const addMember = () => {};
 
-  useEffect(() => {
-    setMatches([]);
-  }, [selectedGroup]);
+    for (let i = 0; i < 5; i++) {
+      generatedMatch.sort(() => Math.random() - 0.5);
+    }
+
+    console.log("Generated Matches:", generatedMatch);
+    console.log({ selectedGroup: generatedMatch });
+
+    setMatches((prevMatches) => ({
+      ...prevMatches,
+      [selectedGroup]: generatedMatch,
+    }));
+    setMatchCount((prevMatchCnt) => ({
+      ...prevMatchCnt,
+      [selectedGroup]: matchCounter,
+    }));
+  };
+
+  const addMember = () => {};
+  const save = () => {
+    console.log("matches", matches);
+    if (Object.keys(matches).length === 0) {
+      alert("경기를 생성하세요");
+      return;
+    }
+    function formatDate(date) {
+      const d = new Date(date);
+      let month = "" + (d.getMonth() + 1), // getMonth()는 0부터 시작하므로 +1
+        day = "" + d.getDate(),
+        year = d.getFullYear();
+
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
+
+      return [year, month, day].join("-");
+    }
+    const convertToMatchList = (matches) => {
+      const matchList = [];
+
+      Object.keys(matches).forEach((group) => {
+        matches[group].forEach((match, index) => {
+          const matchObj = {
+            matchDate: formatDate(selectedDate),
+            user1Name: match[0],
+            user2Name: match[1],
+            user3Name: match[2],
+            user4Name: match[3],
+            userGroup: group,
+          };
+          matchList.push(matchObj);
+        });
+      });
+
+      return matchList;
+    };
+    const matchList = convertToMatchList(matches);
+    console.log("matchList", matchList);
+  };
 
   useEffect(() => {
     // 로컬 스토리지에서 데이터 가져오기
@@ -158,12 +165,10 @@ const MatchPage = () => {
       <div className="wrap">
         <div className="container">
           <div className="header">
-            <MatchHeader addMember={addMember} saveData={matches} />
-
+            <MatchHeader addMember={addMember} save={save} />
             <Header
               changeGroup={changeGroup}
               organize={organize}
-              shuffleTeam={shuffleTeam}
               screenName="게임대진"
             >
               <div className="sel_box">
@@ -175,6 +180,15 @@ const MatchPage = () => {
                   <option value="Elite">엘리트</option>
                 </select>
               </div>
+              <DatePicker
+                selected={selectedDate} // 현재 선택된 날짜
+                onChange={(date) => setSelectedDate(date)} // 날짜가 선택되었을 때 실행할 함수
+                dateFormat="yyyy-MM-dd" // 날짜 포맷 설정
+                showYearDropdown // 연도를 선택할 수 있는 드롭다운 활성화
+                showMonthDropdown // 월을 선택할 수 있는 드롭다운 활성화
+                dropdownMode="select" // 드롭다운 모드 설정
+                className="ch_date"
+              />
               <button
                 className="btn btn-primary fm_GongGothic"
                 onClick={organize}
@@ -185,7 +199,10 @@ const MatchPage = () => {
             </Header>
           </div>
           <section className="sec_box dp_f">
-            <Matches matches={matches} matchCount={matchCount} />
+            <Matches
+              matches={matches[selectedGroup]}
+              matchCount={matchCount[selectedGroup]}
+            />
             <MatchParticipant
               newnnisM={newnnisM}
               selectedGroup={selectedGroup}

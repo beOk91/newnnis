@@ -27,4 +27,13 @@ const searchMatches = async (params) => {
     .then((response) => response.data);
 };
 
-export { searchAllUsers, searchRankByGroup, searchMatches };
+const saveMatches = async (params) => {
+  console.log(`${apiUrl}/match/searchMatches`);
+  return axios
+    .get(`${apiUrl}/match/searchMatches`, {
+      params: params,
+    }) // 환경 변수를 사용하여 전체 URL 구성
+    .then((response) => response.data);
+};
+
+export { searchAllUsers, searchRankByGroup, searchMatches, saveMatches };
