@@ -367,7 +367,7 @@ ul {
   margin-left: -4.3rem;
   z-index: 2;
 }
-.match .header{position: relative;}
+.date .header{position: relative;}
 
 .header .addbox {
   display: flex;
@@ -424,7 +424,7 @@ ul {
   height: 2.2rem;
   margin: 0 auto;
 }
-.match .header .kv{padding: 1.8rem 1rem;}
+.date .header .kv{padding: 1.8rem 1rem;}
 .header .kv {
   position: relative;
   padding: 1.8rem;
@@ -469,7 +469,7 @@ ul {
   font-weight: 500;
   color: #00e4ff;
 }
-.match .header .sel_cont {
+.date .header .sel_cont {
   width: 100%;
   margin-top: 1rem;
   justify-content: space-between;
@@ -496,7 +496,7 @@ ul {
   background: url("../../asset/images/icon_4.png") no-repeat center center;
   background-size: 100% 100%;
 }
-.match .header .sel_cont .btn-primary{margin: 0;}
+.date .header .sel_cont .btn-primary{margin: 0;}
 .header .sel_cont .btn-primary {
   width: 8.5rem;
   height: 3.4rem;

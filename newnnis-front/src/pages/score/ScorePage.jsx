@@ -29,7 +29,7 @@ const ScorePage = () => {
   };
   return (
     <>
-      <div className="wrap score">
+      <div className="wrap score date">
         <div className="container">
           <div className="header">
             <div className="addbox">
@@ -50,15 +50,7 @@ const ScorePage = () => {
                 </select>
               </div>
               <div className="sel_box">
-                <DatePicker
-                  selected={selectedDate} // 현재 선택된 날짜
-                  onChange={(date) => setSelectedDate(date)} // 날짜가 선택되었을 때 실행할 함수
-                  dateFormat="yyyy-MM-dd" // 날짜 포맷 설정
-                  showYearDropdown // 연도를 선택할 수 있는 드롭다운 활성화
-                  showMonthDropdown // 월을 선택할 수 있는 드롭다운 활성화
-                  dropdownMode="select" // 드롭다운 모드 설정
-                  className="ch_date"
-                />
+                
               </div>
               <button
                 className="btn btn-primary fm_GongGothic"
@@ -68,6 +60,15 @@ const ScorePage = () => {
                 조회
               </button>
             </Header>
+            <DatePicker
+                  selected={selectedDate} // 현재 선택된 날짜
+                  onChange={(date) => setSelectedDate(date)} // 날짜가 선택되었을 때 실행할 함수
+                  dateFormat="yyyy-MM-dd" // 날짜 포맷 설정
+                  showYearDropdown // 연도를 선택할 수 있는 드롭다운 활성화
+                  showMonthDropdown // 월을 선택할 수 있는 드롭다운 활성화
+                  dropdownMode="select" // 드롭다운 모드 설정
+                  className="ch_date"
+                />
           </div>
           <section className="sec_box">
             <div className="areaBox">

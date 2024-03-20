@@ -162,7 +162,7 @@ const MatchPage = () => {
 
   return (
     <>
-      <div className="wrap match">
+      <div className="wrap date">
         <div className="container">
           <div className="header">
             <MatchHeader addMember={addMember} save={save} />
