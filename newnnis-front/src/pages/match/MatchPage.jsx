@@ -162,7 +162,7 @@ const MatchPage = () => {
 
   return (
     <>
-      <div className="wrap">
+      <div className="wrap match">
         <div className="container">
           <div className="header">
             <MatchHeader addMember={addMember} save={save} />
@@ -180,15 +180,7 @@ const MatchPage = () => {
                   <option value="Elite">엘리트</option>
                 </select>
               </div>
-              <DatePicker
-                selected={selectedDate} // 현재 선택된 날짜
-                onChange={(date) => setSelectedDate(date)} // 날짜가 선택되었을 때 실행할 함수
-                dateFormat="yyyy-MM-dd" // 날짜 포맷 설정
-                showYearDropdown // 연도를 선택할 수 있는 드롭다운 활성화
-                showMonthDropdown // 월을 선택할 수 있는 드롭다운 활성화
-                dropdownMode="select" // 드롭다운 모드 설정
-                className="ch_date"
-              />
+              
               <button
                 className="btn btn-primary fm_GongGothic"
                 onClick={organize}
@@ -197,6 +189,15 @@ const MatchPage = () => {
                 대진편성
               </button>
             </Header>
+            <DatePicker
+                selected={selectedDate} // 현재 선택된 날짜
+                onChange={(date) => setSelectedDate(date)} // 날짜가 선택되었을 때 실행할 함수
+                dateFormat="yyyy-MM-dd" // 날짜 포맷 설정
+                showYearDropdown // 연도를 선택할 수 있는 드롭다운 활성화
+                showMonthDropdown // 월을 선택할 수 있는 드롭다운 활성화
+                dropdownMode="select" // 드롭다운 모드 설정
+                className="ch_date"
+              />
           </div>
           <section className="sec_box dp_f">
             <Matches
