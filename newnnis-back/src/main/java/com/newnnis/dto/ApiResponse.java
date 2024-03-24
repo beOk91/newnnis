@@ -5,11 +5,14 @@ import org.springframework.http.HttpStatus;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @Builder
+@AllArgsConstructor
 public class ApiResponse<T> {
 	@Builder.Default
     private int status = HttpStatus.OK.value();
