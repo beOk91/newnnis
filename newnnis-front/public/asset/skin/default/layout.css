@@ -95,7 +95,7 @@ ul {font-size: 1rem;}
 .score .areaBox .table .tbody > li > p:first-child{line-height: 4.2rem;}
 .score .areaBox .table .tbody input[type="number"]{width: 2.6rem;height: 2.6rem;margin: 0 0.4rem; text-align: center; font-family: "GongGothic";font-size: 1.5rem;font-weight: 500; color: #6979F8;}
 .score .areaBox .table .tbody input[type="number"]:focus{outline: 1px solid #6979F8;}
-.score .areaBox .table .tbody > li div p ,.score .areaBox .table .tbody > li div span{ font-family: 'GongGothic'; font-size: 1.5rem; font-weight: 100; color: #0F0F0F;}
+.score .areaBox .table .tbody > li div p ,.score .areaBox .table .tbody > li div span{ font-family: 'GongGothic'; font-size: 1.5rem; font-weight: 100; color: #0F0F0F;text-align: center;}
 
 /*순위*/
 .rankBox{}
@@ -103,8 +103,17 @@ ul {font-size: 1rem;}
 .rankBox table thead{}
 .rankBox table thead th{font-family: 'GongGothic';font-size: 1.5rem;color: #6979F8;}
 .rankBox table tbody tr{border-bottom: 1px solid #6979f8;}
+.rankBox table tbody tr:nth-child(1),
+.rankBox table tbody tr:nth-child(2){
+  background-color: #d7ffd7;
+}
+.rankBox table tbody tr:nth-child(6),
+.rankBox table tbody tr:nth-child(7){
+  background-color: #ffdddd;
+}
 .rankBox table tbody td{text-align: center;border-bottom: 1px solid #6979f8;}
 .rankBox table tbody td:first-child{width: 3.4rem;text-align: center;line-height: 3.5rem;font-size: 1.2rem;color: #ffffff;background: rgba(105, 121, 248, 0.6);border-radius:0.6rem 0.6rem 0rem 0.6rem;}
+.rankBox table tbody td:nth-child(2){padding-left: 0.2rem;}
 
 /*회원리스트*/
 

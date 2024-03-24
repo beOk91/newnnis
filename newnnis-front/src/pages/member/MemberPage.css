@@ -598,7 +598,6 @@ ul {
 
 /*게임점수*/
 .score .sec_box {
-  padding: 0 2.5rem;
 }
 .score .sel_cont {
   gap: 0rem;
@@ -629,6 +628,7 @@ ul {
   font-size: 1.5rem;
   font-weight: 100;
   color: #0f0f0f;
+  text-align: center;
 }
 
 

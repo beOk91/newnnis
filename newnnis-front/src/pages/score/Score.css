@@ -165,11 +165,11 @@ ul {font-size: 1rem;}
 
 
 /*게임점수*/
-.score .sec_box{padding:0 2.5rem;}
+.score .sec_box{}
 .score .sel_cont{gap: 2rem;}
 
 .score .areaBox .table .tbody li{margin-bottom: 0.6rem;}
 .score .areaBox .table .tbody > li > p:first-child{line-height: 4.2rem;}
 .score .areaBox .table .tbody input[type="number"]{width: 2.6rem;height: 2.6rem;margin: 0 0.4rem; text-align: center; font-family: "GongGothic";font-size: 1.5rem;font-weight: 500; color: #6979F8;}
 .score .areaBox .table .tbody input[type="number"]:focus{outline: 1px solid #6979F8;}
-.score .areaBox .table .tbody > li div p ,.score .areaBox .table .tbody > li div span{ font-family: 'GongGothic'; font-size: 1.5rem; font-weight: 100; color: #0F0F0F;}
+.score .areaBox .table .tbody > li div p ,.score .areaBox .table .tbody > li div span{ font-family: 'GongGothic'; font-size: 1.5rem; font-weight: 100; color: #0F0F0F;text-align: center;}
