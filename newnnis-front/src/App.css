@@ -678,6 +678,7 @@ ul {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 1rem;
+  table-layout: fixed;
 }
 .rankBox table thead {
 }

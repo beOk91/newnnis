@@ -99,7 +99,7 @@ ul {font-size: 1rem;}
 
 /*순위*/
 .rankBox{}
-.rankBox table{width: 100%;	border-collapse: separate;border-spacing: 0 1rem;}
+.rankBox table{width: 100%;	border-collapse: separate;border-spacing: 0 1rem;table-layout: fixed;}
 .rankBox table thead{}
 .rankBox table thead th{font-family: 'GongGothic';font-size: 1.5rem;color: #6979F8;}
 .rankBox table tbody tr{border-bottom: 1px solid #6979f8;}
