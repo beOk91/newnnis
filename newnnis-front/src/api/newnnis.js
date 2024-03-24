@@ -12,7 +12,7 @@ const searchAllUsers = async () => {
 const searchRankByGroup = async (params) => {
   console.log(`${apiUrl}/user/searchRankByGroup`);
   return axios
-    .get(`${apiUrl}/gameHistory/searchRankByGroup`, {
+    .get(`${apiUrl}/matchHistory/searchRankByGroup`, {
       params: params,
     }) // 환경 변수를 사용하여 전체 URL 구성
     .then((response) => response.data);
@@ -28,12 +28,23 @@ const searchMatches = async (params) => {
 };
 
 const saveMatches = async (params) => {
-  console.log(`${apiUrl}/match/searchMatches`);
+  console.log(`${apiUrl}/match/saveMatches`);
   return axios
-    .get(`${apiUrl}/match/searchMatches`, {
-      params: params,
-    }) // 환경 변수를 사용하여 전체 URL 구성
+    .post(`${apiUrl}/match/saveMatches`, params) // 수정된 부분
     .then((response) => response.data);
 };
 
-export { searchAllUsers, searchRankByGroup, searchMatches, saveMatches };
+const updateMatches = async (params) => {
+  console.log(`${apiUrl}/match/updateMatches`);
+  return axios
+    .post(`${apiUrl}/match/updateMatches`, params) // 수정된 부분
+    .then((response) => response.data);
+};
+
+export {
+  searchAllUsers,
+  searchRankByGroup,
+  searchMatches,
+  saveMatches,
+  updateMatches,
+};

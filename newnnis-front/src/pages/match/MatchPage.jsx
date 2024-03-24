@@ -9,7 +9,7 @@ import DatePicker from "react-datepicker";
 import { saveMatches } from "../../api/newnnis";
 
 const MatchPage = () => {
-  const [selectedGroup, setSelectedGroup] = useState("Master");
+  const [selectedGroup, setSelectedGroup] = useState("master");
   const [selectedMember, setSelectedMember] = useState([]);
   const [matches, setMatches] = useState({});
   const [matchCount, setMatchCount] = useState({});
@@ -111,7 +111,7 @@ const MatchPage = () => {
   };
 
   const addMember = () => {};
-  const save = () => {
+  const save = async () => {
     console.log("matches", matches);
     if (Object.keys(matches).length === 0) {
       alert("경기를 생성하세요");
@@ -129,9 +129,10 @@ const MatchPage = () => {
       return [year, month, day].join("-");
     }
     const convertToMatchList = (matches) => {
-      const matchList = [];
+      let matchList = {};
 
       Object.keys(matches).forEach((group) => {
+        matchList[group + "Group"] = [];
         matches[group].forEach((match, index) => {
           const matchObj = {
             matchDate: formatDate(selectedDate),
@@ -141,14 +142,16 @@ const MatchPage = () => {
             user4Name: match[3],
             userGroup: group,
           };
-          matchList.push(matchObj);
+          matchList[group + "Group"].push(matchObj);
         });
       });
 
       return matchList;
     };
-    const matchList = convertToMatchList(matches);
-    console.log("matchList", matchList);
+    let matchList = convertToMatchList(matches);
+    matchList = { ...matchList, matchDate: formatDate(selectedDate) };
+    const response = await saveMatches(matchList); // matchList는 Match 객체의 배열
+    console.log("저장 성공:", response);
   };
 
   useEffect(() => {
@@ -173,14 +176,14 @@ const MatchPage = () => {
             >
               <div className="sel_box">
                 <select className="selectBox" onChange={changeGroup}>
-                  <option value="Master">마스터</option>
-                  <option value="Tour">투어</option>
-                  <option value="Challenger">챌린저</option>
-                  <option value="Final">파이널</option>
-                  <option value="Elite">엘리트</option>
+                  <option value="master">마스터</option>
+                  <option value="tour">투어</option>
+                  <option value="challenger">챌린저</option>
+                  <option value="final">파이널</option>
+                  <option value="elite">엘리트</option>
                 </select>
               </div>
-              
+
               <button
                 className="btn btn-primary fm_GongGothic"
                 onClick={organize}
@@ -190,14 +193,14 @@ const MatchPage = () => {
               </button>
             </Header>
             <DatePicker
-                selected={selectedDate} // 현재 선택된 날짜
-                onChange={(date) => setSelectedDate(date)} // 날짜가 선택되었을 때 실행할 함수
-                dateFormat="yyyy-MM-dd" // 날짜 포맷 설정
-                showYearDropdown // 연도를 선택할 수 있는 드롭다운 활성화
-                showMonthDropdown // 월을 선택할 수 있는 드롭다운 활성화
-                dropdownMode="select" // 드롭다운 모드 설정
-                className="ch_date"
-              />
+              selected={selectedDate} // 현재 선택된 날짜
+              onChange={(date) => setSelectedDate(date)} // 날짜가 선택되었을 때 실행할 함수
+              dateFormat="yyyy-MM-dd" // 날짜 포맷 설정
+              showYearDropdown // 연도를 선택할 수 있는 드롭다운 활성화
+              showMonthDropdown // 월을 선택할 수 있는 드롭다운 활성화
+              dropdownMode="select" // 드롭다운 모드 설정
+              className="ch_date"
+            />
           </div>
           <section className="sec_box dp_f">
             <Matches

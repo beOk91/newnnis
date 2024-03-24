@@ -6,7 +6,7 @@ useState;
 
 const RankPage = () => {
   const [selectedDate, setSelectedDate] = useState(new Date()); // 현재 날짜를 기본값으로 설정
-  const [selectedGroup, setSelectedGroup] = useState("Master");
+  const [selectedGroup, setSelectedGroup] = useState("master");
   const [rankData, setRankData] = useState([]);
   const changeGroup = (e) => {
     console.log("changeGroup");
@@ -30,11 +30,11 @@ const RankPage = () => {
             <Header screenName="멤버순위">
               <div className="sel_box">
                 <select className="selectBox" onChange={changeGroup}>
-                  <option value="Master">마스터</option>
-                  <option value="Tour">투어</option>
-                  <option value="Challenger">챌린저</option>
-                  <option value="Final">파이널</option>
-                  <option value="Elite">엘리트</option>
+                  <option value="master">마스터</option>
+                  <option value="tour">투어</option>
+                  <option value="challenger">챌린저</option>
+                  <option value="final">파이널</option>
+                  <option value="elite">엘리트</option>
                 </select>
               </div>
               <button

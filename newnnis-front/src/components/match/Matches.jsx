@@ -11,16 +11,14 @@ const Matches = ({ matches, matchCount }) => {
           <ul className="tbody">
             {matches &&
               matches.map((match, index) => (
-                <>
-                  <li key={index}>
-                    <p>{index + 1}경기</p>
-                    <div>
-                      <p>{match[0] + "," + match[1]}</p>
-                      <span>:</span>
-                      <p>{match[2] + "," + match[3]}</p>
-                    </div>
-                  </li>
-                </>
+                <li key={index}>
+                  <p>{index + 1}경기</p>
+                  <div>
+                    <p>{match[0] + "," + match[1]}</p>
+                    <span>:</span>
+                    <p>{match[2] + "," + match[3]}</p>
+                  </div>
+                </li>
               ))}
           </ul>
         </div>
