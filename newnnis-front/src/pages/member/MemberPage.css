@@ -639,10 +639,12 @@ ul {
 .member .setBtn.plus{left: 1.8rem;}
 .member .setBtn.minus{right: 1.8rem;}
 .member .sec_box .thead {display: flex; justify-content: space-between; padding: 0 1.8rem 0 1.2rem;}
+.member .sec_box .thead li{width: 5rem;text-align: center;}
 .member .sec_box .tbody > li{border-radius: 1rem;box-shadow: 0px 0px 0.9rem 0px #0000001A; margin-top: 1.5rem; padding: 1.4rem 1.2rem 1.4rem 1.5rem;}
 .member .sec_box .tbody > li:focus{border: 0.1rem solid #6979F8;}
 .member .sec_box .tbody li ul{display: flex; justify-content: space-between;align-items: center;text-align: center;}
 .member .sec_box .tbody li ul li p{font-family: 'GongGothic';font-size: 1.5rem;font-weight: 500;}
+.member .sec_box .tbody li ul li{position: relative;width: 5rem;}
 .member .sec_box .tbody li ul li.photo{position: relative;}
 .member .sec_box .tbody li ul li.photo span{position: absolute;display: block; width: 2.1rem;height: 2.1rem; font-size: 1.2rem; color: #FFFFFF;line-height: 2.1rem; border-radius: 2.1rem; background: #6979F8;}
 .member .sec_box .tbody li ul li.photo p{width: 5rem;height: 5rem;border-radius: 5rem; background: #D9D9D9;}
